@@ -1,7 +1,7 @@
 ---
 title: "Thesis"
-author: "Rachel"
-date: ""
+author: "Rachel Good"
+date: "`r Sys.Date()`"
 output: html_document
 ---
 
@@ -11,7 +11,7 @@ options(digits = 3)
 ```
 
 
-```{r} 
+```{r new_data} 
 # Set working directory
 # setwd()
 
@@ -96,8 +96,9 @@ names(new_data) <- c('R0000100',
   new_data[new_data == -3] = NA  # Invalid missing 
   new_data[new_data == -4] = NA  # Valid missing 
   new_data[new_data == -5] = NA  # Non-interview 
+```
 
-
+```{r categorize_values}
 # If there are values not categorized they will be represented as NA
 
 vallabels = function(data) {
@@ -484,7 +485,9 @@ vallabels = function(data) {
       "YES"))
   return(data)
 }
+```
 
+```{r variable_labels}
 varlabels <- c("ID# (1-12686) 79",
   "ICHK SERVED BOTH ACTIVE AF AND GARD 79",
   "ICHK IN AAF M-RCNT ENLSTMNT 79",
@@ -556,8 +559,9 @@ varlabels <- c("ID# (1-12686) 79",
   "ALCHL-DONT REMEMBER THING WHILE DRNK 84",
   "ALCHL-TAKE DRNK 1ST THING MORN 84"
 )
+```
 
-
+```{r useful_names}
 # Use qnames rather than rnums
 #Change these names to be useful
 #AD = ACTIVE DUTY
@@ -577,33 +581,33 @@ qnames = function(data) {
     "SAMPLE_SEX_79",
     "AD_LAST_INT_NOTSAME_BRANCH_80",
     "NEW_ENLIST_AD_80",
-    "CURRENT_AD_YN_80",#CONFUSION_Q4-15
+    "CURRENT_AD_YN_80",#G1_CONFUSION_Q4-15
     "AD_LAST_INT_SAME_BRANCH_80",
-    "CURRENT_AD_YN_80_Q2",#CONFUSION_MIL-59
+    "CURRENT_AD_YN_80_Q2",#G1_CONFUSION_MIL-59
     "TIME_SERVED_YN_80",
-    "CURRENT_AD_YN_80", #CONFUSION_MIL-48
+    "CURRENT_AD_YN_80", #G1_CONFUSION_MIL-48
     "AD_LAST_INT_NOTSAME_BRANCH_81",
     "NEW_ENLIST_AD_81",
-    "CURRENT_AD_YN_81",#CONFUSION_Q4-15
+    "CURRENT_AD_YN_81",#G1_CONFUSION_Q4-15
     "AD_LAST_INT_SAME_BRANCH_81",
-    "CURRENT_AD_YN_81_Q2",#CONFUSION_MIL-59
+    "CURRENT_AD_YN_81_Q2",#G1_CONFUSION_MIL-59
     "TIME_SERVED_YN_81",
-    "CURRENT_AD_YN_81", #CONFUSION_MIL-48
+    "CURRENT_AD_YN_81", #G1_CONFUSION_MIL-48
     "AD_LAST_INT_SAME_BRANCH_82",
     "AD_LAST_INT_NOTSAME_BRANCH_82",
     "NEW_ENLIST_AD_82",
-    "CURRENT_AD_YN_82",#CONFUSION_Q4-15
+    "CURRENT_AD_YN_82",#G1_CONFUSION_Q4-15
     "AD_LAST_INT_SAME_BRANCH_82",
-    "CURRENT_AD_YN_82_Q2",#CONFUSION_MIL-59
+    "CURRENT_AD_YN_82_Q2",#G1_CONFUSION_MIL-59
     "TIME_SERVED_YN_82",
-    "MIL-100_1982",
-    "Q4-12A_1982",
-    "MIL-48_1982",
-    "ALCH-2_1982",
-    "Q12-4_1982",
-    "ALCH-11_1982",
-    "Q4-4A_1983",
-    "MIL-15_1983",
+    "NEW_ENLIST_NOTSERVING_82",#G2_CONFUSION_MIL-100
+    "ENLISTED_NOTSERVING_82",#G2_CONFUSION_Q4-12A
+    "CURRENT_AD_YN_82", #G1_CONFUSION_MIL-48
+    "AGE_START_DRINK_82",
+    "ALC_FREQ6DRINKS_82",
+    "ALC_IMPACT_JOB_82",
+    "AD_LAST_INT_SAME_BRANCH_83",
+    "AD_LAST_INT_NOTSAME_BRANCH_83",
     "Q4-11_1983",
     "Q4-15_1983",
     "MIL-13_1983",
@@ -635,8 +639,9 @@ qnames = function(data) {
     "ALCH-18H_1984")
   return(data)
 }
+```
 
-
+```{r name_me_more_stuff}
 #********************************************************************************************************
 
 # Remove the '#' before the following line to create a data file called "categories" with value labels. 
