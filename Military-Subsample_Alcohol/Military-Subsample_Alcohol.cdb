@@ -1,0 +1,2068 @@
+R00001.00    [CASEID]                                       Survey Year: 1979
+  PRIMARY VARIABLE
+
+ 
+             IDENTIFICATION CODE
+ 
+ORIGINAL QUESTION NAME: CASEID
+ 
+NOTE: THIS NUMBER WAS ASSIGNED ACCORDING TO THE RECORD NUMBER OF EACH RESPONDENT
+ON THE TAPE. THE FIRST RESPONDENT WAS ASSIGNED ID#1, THE SECOND WAS ASSIGNED 
+ID#2, ETC.
+ 
+ACTUAL NUMBER
+ 
+UNIVERSE: All
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>   12686   VALID SKIP(-4)       0     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:          12686        Mean:              6343.5
+ 
+Lead In: None.
+Default Next Question: R00001.49
+--------------------------------------------------------------------------------
+R00298.00    [MIL-8]                                        Survey Year: 1979
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 79 - R SERVED IN BOTH ACTIVE ARMED FORCES AND GUARD?
+ 
+ORIGINAL QUESTION NAME: S07Q08
+ 
+I: CODE ONE
+ 
+UNIVERSE: R >= 17 & <= 22; in army / navy / air force / marines / national guard
+ 
+    1387       1 SERVED IN 1 BRANCH
+      55       2 SERVED IN ACTIVE & RESERVE
+      42       3 DELAYED SERVICE
+  -------
+    1484
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      28
+TOTAL =========>    1512   VALID SKIP(-4)   11174     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:              3        Mean:                1.09
+ 
+Lead In: R00297.00[Default]
+Default Next Question: R00300.00
+--------------------------------------------------------------------------------
+R00304.00    [Q4-11]                                        Survey Year: 1979
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 79 - R IN ACTIVE ARMED FORCES DURING MOST RECENT 
+             ENLISTMENT?
+ 
+ORIGINAL QUESTION NAME: S07Q11C1
+ 
+I: WAS R IN ACTIVE FORCE DURING THIS PERIOD OF SERVICE?
+ 
+UNIVERSE: R >= 17 & <= 22; in army / navy / air force / marines / national 
+guard; not delayed service
+ 
+    1364       1 YES
+      63       0 NO
+  -------
+    1427
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      44
+TOTAL =========>    1471   VALID SKIP(-4)   11215     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:              1        Mean:                 .96
+ 
+Lead In: R00303.00[Default]
+Default Next Question: R00305.00
+--------------------------------------------------------------------------------
+R00305.00    [Q4-12A]                                       Survey Year: 1979
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 79 - R IN ACTIVE ARMED FORCES DURING 2ND MOST RECENT 
+             ENLISTMENT?
+ 
+ORIGINAL QUESTION NAME: S07Q11C2
+ 
+SEE R(304.)
+ 
+UNIVERSE: R >= 17 & <= 22; in army / navy / air force / marines / national 
+guard; in active forces and reserves / guard
+ 
+      10       1 YES
+      28       0 NO
+  -------
+      38
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>      38   VALID SKIP(-4)   12648     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:              1        Mean:                 .26
+ 
+Lead In: R00304.00[Default]
+Default Next Question: R00308.00
+--------------------------------------------------------------------------------
+R00311.00    [MIL-13A]                                      Survey Year: 1979
+  PRIMARY VARIABLE
+
+ 
+             WAS R IN ACTIVE ARMED FORCES DURING MOST RECENT PERIOD OF SERVICE?
+ 
+ORIGINAL QUESTION NAME: S07Q13A
+ 
+I: WAS R IN ACTIVE FORCE DURING THIS PERIOD OF SERVICE?
+ 
+UNIVERSE: R >= 17 & <= 22; in army / navy / air force / marines / national 
+guard; not delayed service; currently serving
+ 
+    1217       1 YES
+      35       0 NO
+  -------
+    1252
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      36
+TOTAL =========>    1288   VALID SKIP(-4)   11398     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:              1        Mean:                 .97
+ 
+Lead In: R00310.00[Default]
+Default Next Question: R00312.00
+--------------------------------------------------------------------------------
+R00343.00    [MIL-27]                                       Survey Year: 1979
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 79 - IS R CURRENTLY ON ACTIVE ARMED FORCES DUTY?
+ 
+ORIGINAL QUESTION NAME: S07Q27
+ 
+I: IS R CURRENTLY ON ACTIVE DUTY IN THE ARMY, NAVY, AIR FORCE, OR
+MARINES? (IF YES TO BOTH QUESTIONS 11A AND 13)
+ 
+UNIVERSE: R >= 17 & <= 22; in army / navy / air force / marines / national 
+guard; not delayed service
+ 
+    1219       1 YES
+     218       0 NO
+  -------
+    1437
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      34
+TOTAL =========>    1471   VALID SKIP(-4)   11215     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:              1        Mean:                 .85
+ 
+Lead In: R00335.00[Default]
+Default Next Question: R00344.00
+--------------------------------------------------------------------------------
+R00361.00    [MIL-36]                                       Survey Year: 1979
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 79 - IS R CURRENTLY ON ACTIVE ARMED FORCES DUTY?
+ 
+ORIGINAL QUESTION NAME: S07Q36
+ 
+I: CODE ONE: R IS CURRENTLY
+ 
+UNIVERSE: R >= 17 & <= 22; in army / navy / air force / marines / national 
+guard; not delayed service
+ 
+    1218       1 SERVING IN ACTIVE FORCES
+      34       2 SERVING IN RESERVE/GUARD
+     184       3 NOT SERVING AT ALL
+  -------
+    1436
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      35
+TOTAL =========>    1471   VALID SKIP(-4)   11215     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:              3        Mean:                1.28
+ 
+Lead In: None.
+Default Next Question: R00362.00
+--------------------------------------------------------------------------------
+R00384.00    [MIL-48]                                       Survey Year: 1979
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 79 - IS R CURRENTLY ON ACTIVE ARMED FORCES DUTY?
+ 
+ORIGINAL QUESTION NAME: S07Q48
+ 
+I: CODE ONE: R IS CURRENTLY
+ 
+UNIVERSE: R >= 17 & <= 22; in army / navy / air force / marines / national 
+guard; not delayed service; most recent service has other military job
+ 
+     296       1 ACTIVE STATUS
+       7       2 RESERVE STATUS
+      45       3 NOT SERVING
+  -------
+     348
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      32
+TOTAL =========>     380   VALID SKIP(-4)   12306     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:              3        Mean:                1.28
+ 
+Lead In: None.
+Default Next Question: R00389.00
+--------------------------------------------------------------------------------
+R00405.00    [MIL-59]                                       Survey Year: 1979
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 79 - IS R CURRENTLY IN ACTIVE ARMED FORCES, RESERVES, OR 
+             GUARD?
+ 
+ORIGINAL QUESTION NAME: S07Q59
+ 
+I: IS R CURRENTLY SERVING IN ACTIVE FORCES, IN RESERVES OR GUARD?
+ 
+UNIVERSE: R >= 17 & <= 22; in army / navy / air force / marines / national 
+guard; not delayed service
+ 
+    1256       1 YES
+     183       0 NO
+  -------
+    1439
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      32
+TOTAL =========>    1471   VALID SKIP(-4)   11215     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:              1        Mean:                 .87
+ 
+Lead In: R00404.00[Default]
+Default Next Question: R00406.00
+--------------------------------------------------------------------------------
+R01736.00    [SAMPLE_ID]                                    Survey Year: 1979
+  PRIMARY VARIABLE
+
+ 
+             SAMPLE IDENTIFICATION CODE
+ 
+ORIGINAL QUESTION NAME: S24Q01
+ 
+UNIVERSE: Entire Sample
+ 
+    2236       1 CROSS MALE WHITE
+     203       2 CROSS MALE WH. POOR
+     346       3 CROSS MALE BLACK
+     218       4 CROSS MALE HISPANIC
+    2279       5 CROSS FEMALE WHITE
+     198       6 CROSS FEMALE WH POOR
+     405       7 CROSS FEMALE BLACK
+     226       8 CROSS FEMALE HISPANIC
+     742       9 SUP MALE WH POOR
+    1105      10 SUP MALE BLACK
+     729      11 SUP MALE HISPANIC
+     901      12 SUP FEM WH POOR
+    1067      13 SUP FEMALE BLACK
+     751      14 SUP FEMALE HISPANIC
+     609      15 MIL MALE WHITE
+     162      16 MIL MALE BLACK
+      53      17 MIL MALE HISPANIC
+     342      18 MIL FEMALE WHITE
+      89      19 MIL FEMALE BLACK
+      25      20 MIL FEMALE HISPANIC
+  -------
+   12686
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>   12686   VALID SKIP(-4)       0     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:             20        Mean:                8.17
+ 
+
+
+NOTE: MARCH 1, 1986  NORC
+ 
+SEX CODE CHANGED ON 42 CASES
+ 
+Lead In: R01735.19[Default]
+Default Next Question: R01737.00
+--------------------------------------------------------------------------------
+R02147.00    [SAMPLE_RACE]                                  Survey Year: 78SCRN
+  PRIMARY VARIABLE
+
+ 
+             R'S RACIAL/ETHNIC COHORT FROM SCREENER
+ 
+UNIVERSE: Entire Sample
+ 
+    2002       1 HISPANIC
+    3174       2 BLACK
+    7510       3 NON-BLACK, NON-HISPANIC
+  -------
+   12686
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>   12686   VALID SKIP(-4)       0     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:              3        Mean:                2.43
+ 
+
+
+NOTE: AUGUST 26, 1980  DENNIS GREY
+ 
+DESCRIPTION:
+COHORT=3;
+IF R(1736.)=4 ! R(1736.)=8 ! R(1736.)=11 ! R(1736.)=14 THEN COHORT=1;
+IF R(1736.)=17 ! R(1736.)=20 THEN COHORT=1;
+IF R(1736.)=3 ! R(1736.)=7 ! R(1736.)=10 ! R(1736.)=13 THEN COHORT=2;
+IF R(1736.)=16 ! R(1736.)=19 THEN COHORT=2;
+R(2147.)=COHORT;
+ 
+Lead In: R02146.00[Default]
+Default Next Question: R02148.00
+--------------------------------------------------------------------------------
+R02148.00    [SAMPLE_SEX]                                   Survey Year: 1979
+  PRIMARY VARIABLE
+
+ 
+             SEX OF R
+ 
+UNIVERSE: Entire sample
+ 
+    6403       1 MALE
+    6283       2 FEMALE
+  -------
+   12686
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>   12686   VALID SKIP(-4)       0     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:              2        Mean:                 1.5
+ 
+
+
+NOTE: AUGUST 26, 1980  DENNIS GREY
+MARCH 1, 1986  NORC
+ 
+DESCRIPTION:
+IF (R(1736.)>0 & R(1736.)<=4) ! (R(1736.)>=9 & R(1736.)<=11) THEN SEX=1;
+IF R(1736.)>=15 & R(1736.)<=17 THEN SEX=1;
+IF (R(1736.)>=5 & R(1736.)<=8) ! (R(1736.)>=12 & R(1736.)<=14) THEN SEX=
+IF R(1736.)>=18 & R(1736.)<=20 THEN SEX=2;
+R(2148.)=SEX;
+SEX CODE CHANGED ON 42 CASES
+ 
+Lead In: R02147.00[Default]
+Default Next Question: R02149.00
+--------------------------------------------------------------------------------
+R02365.00    [MIL-15]                                       Survey Year: 1980
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 80 - R IN ACTIVE ARMED FORCES AT TIME OF LAST INT?
+ 
+ORIGINAL QUESTION NAME: S06D0651
+ 
+I: WAS R SERVING IN ACTIVE FORCES AT TIME OF LAST INTERVIEW? SEE
+ITEM 10 ON INFO. SHEET
+ 
+UNIVERSE: R in armed forces at DLI; not currently serving in same branch
+ 
+     241       1 YES
+       8       0 NO
+  -------
+     249
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     249   VALID SKIP(-4)   11892     NON-INTERVIEW(-5)     545
+ 
+Min:              0        Max:              1        Mean:                 .97
+ 
+Lead In: R02364.00[Default]
+Default Next Question: R02366.00
+--------------------------------------------------------------------------------
+R02419.00    [Q4-11]                                        Survey Year: 1980
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 80 - DID R ENTER ACTIVE ARMED FORCES? (MOST RECENT 
+             ENLISTMENT)
+ 
+ORIGINAL QUESTION NAME: S06D0773
+ 
+I: DID R ENTER THE ACTIVE FORCES? (Q. 38, CODES 01-04)
+ 
+UNIVERSE: R enlisted in army/navy/air force/marines since DLI and currently 
+serving OR left active forces since DLI and currently in reserves
+ 
+     103       1 YES
+      46       0 NO
+  -------
+     149
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     149   VALID SKIP(-4)   11992     NON-INTERVIEW(-5)     545
+ 
+Min:              0        Max:              1        Mean:                 .69
+ 
+Lead In: R02418.00[Default]
+Default Next Question: R02421.00
+--------------------------------------------------------------------------------
+R02427.00    [Q4-15]                                        Survey Year: 1980
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 80 - IS R CURRENTLY IN ACTIVE ARMED FORCES?
+ 
+ORIGINAL QUESTION NAME: S06D0819
+ 
+I: IS R CURRENTLY IN ACTIVE FORCES? (Q. 38 = CODES 01-04, OR ITEM 10
+ON INFO SHEET WAS ACTIVE FORCE BRANCH AND Q. 11 = YES)
+ 
+UNIVERSE: R in armed forces at DLI and currently serving in same branch OR 
+enlisted in army/navy/air force/marines since DLI and currently serving OR left 
+active forces since DLI and currently in reserves
+ 
+     993       1 YES
+      78       0 NO
+  -------
+    1071
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    1071   VALID SKIP(-4)   11070     NON-INTERVIEW(-5)     545
+ 
+Min:              0        Max:              1        Mean:                 .93
+ 
+Lead In: R02422.00[Default] R02426.00[Default]
+Default Next Question: R02428.00
+--------------------------------------------------------------------------------
+R02475.00    [MIL-13]                                       Survey Year: 1980
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 80 - R IN ACTIVE ARMED FORCES AT TIME OF LAST INT?
+ 
+ORIGINAL QUESTION NAME: S06D0962
+ 
+I: WAS R IN ACTIVE FORCES ON DATE OF LAST INTERVIEW? (SEE ITEM 10 ON
+INFO SHEET)
+ 
+UNIVERSE: R in armed forces at DLI and currently serving in same branch OR 
+enlisted in army/navy/air force/marines since DLI and currently serving OR left 
+active forces since DLI and currently in reserves
+ 
+     906       1 YES
+     159       0 NO
+  -------
+    1065
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    1065   VALID SKIP(-4)   11076     NON-INTERVIEW(-5)     545
+ 
+Min:              0        Max:              1        Mean:                 .85
+ 
+Lead In: R02474.00[Default] R02473.00[Default]
+Default Next Question: R02476.00
+--------------------------------------------------------------------------------
+R02484.00    [MIL-59]                                       Survey Year: 1980
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 80 - IS R CURRENTLY IN ACTIVE ARMED FORCES?
+ 
+ORIGINAL QUESTION NAME: S06D0980
+ 
+I: IS R CURRENTLY IN THE ACTIVE FORCES? (Q. 47 = YES)
+ 
+UNIVERSE: R in armed forces at DLI and currently serving in same branch OR 
+enlisted in army/navy/air force/marines since DLI and currently serving OR left 
+active forces since DLI and currently in reserves
+ 
+     993       1 YES
+      78       0 NO
+  -------
+    1071
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    1071   VALID SKIP(-4)   11070     NON-INTERVIEW(-5)     545
+ 
+Min:              0        Max:              1        Mean:                 .93
+ 
+Lead In: R02483.00[Default]
+Default Next Question: R02485.00
+--------------------------------------------------------------------------------
+R02533.00    [Q4-12]                                        Survey Year: 1980
+  PRIMARY VARIABLE
+
+ 
+             ANY TIME SERVED ON ACTIVE ARMED FORCES DUTY? (NOT CURRENTLY 
+             ENLISTED)
+ 
+ORIGINAL QUESTION NAME: S06D1079
+ 
+DID YOU SERVE ANY TIME ON ACTIVE DUTY IN THE (BRANCH)?
+ 
+UNIVERSE: R enlisted in army/navy/air force/marines since DLI; not currently 
+serving
+ 
+      11       1 YES
+      73       0 NO
+  -------
+      84
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>      84   VALID SKIP(-4)   12057     NON-INTERVIEW(-5)     545
+ 
+Min:              0        Max:              1        Mean:                 .13
+ 
+Lead In: R02532.00[Default]
+Default Next Question: R02534.00
+--------------------------------------------------------------------------------
+R02603.00    [MIL-48]                                       Survey Year: 1980
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 80 - IS R CURRENTLY ON ACTIVE ARMED FORCES DUTY?
+ 
+ORIGINAL QUESTION NAME: S06D1278
+ 
+I: IS R CURRENTLY ON ACTIVE DUTY IN THE ACTIVE FORCES? (Q.47=YES)
+ 
+UNIVERSE: R in active armed forces since DLI
+ 
+     994       1 YES
+     312       0 NO
+  -------
+    1306
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    1306   VALID SKIP(-4)   10835     NON-INTERVIEW(-5)     545
+ 
+Min:              0        Max:              1        Mean:                 .76
+ 
+Lead In: R02601.00[Default]
+Default Next Question: R02642.00
+--------------------------------------------------------------------------------
+R04247.00    [MIL-15]                                       Survey Year: 1981
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 81 - R IN ACTIVE ARMED FORCES AT TIME OF LAST INT?
+ 
+ORIGINAL QUESTION NAME: S05D0723
+ 
+I: WAS R SERVING IN ACTIVE FORCES AT TIME OF LAST INTERVIEW? SEE ITEM
+8 ON INFO SHEET.
+ 
+UNIVERSE: R in armed forces at DLI; not currently serving in same branch
+ 
+     252       1 YES
+       9       0 NO
+  -------
+     261
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     261   VALID SKIP(-4)   11934     NON-INTERVIEW(-5)     491
+ 
+Min:              0        Max:              1        Mean:                 .97
+ 
+Lead In: R04246.00[Default]
+Default Next Question: R04248.00
+--------------------------------------------------------------------------------
+R04300.00    [Q4-11]                                        Survey Year: 1981
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 81 - DID R ENTER ACTIVE ARMED FORCES? (MOST RECENT 
+             ENLISTMENT)
+ 
+ORIGINAL QUESTION NAME: S05D0873
+ 
+I: DID R ENTER THE ACTIVE FORCES? (Q. 38, CODES 01-04)
+ 
+UNIVERSE: R enlisted in army/navy/air force/marines since DLI and currently 
+serving OR left active forces since DLI and currently in reserves
+ 
+     110       1 YES
+      58       0 NO
+  -------
+     168
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     168   VALID SKIP(-4)   12027     NON-INTERVIEW(-5)     491
+ 
+Min:              0        Max:              1        Mean:                 .65
+ 
+Lead In: R04299.00[Default]
+Default Next Question: R04302.00
+--------------------------------------------------------------------------------
+R04308.00    [Q4-15]                                        Survey Year: 1981
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 81 - IS R CURRENTLY IN ACTIVE ARMED FORCES?
+ 
+ORIGINAL QUESTION NAME: S05D0919
+ 
+I: IS R CURRENTLY IN ACTIVE FORCES? (Q.38=CODES 01-04, OR ITEM 8
+ON INFO SHEET WAS ACTIVE FORCE BRANCH AND Q.11A=YES)
+ 
+UNIVERSE: R in armed forces at DLI and currently serving in same branch OR 
+enlisted in army/navy/air force/marines since DLI and currently serving OR left 
+active forces since DLI and currently in reserves
+ 
+     855       1 YES
+     129       0 NO
+  -------
+     984
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     984   VALID SKIP(-4)   11211     NON-INTERVIEW(-5)     491
+ 
+Min:              0        Max:              1        Mean:                 .87
+ 
+Lead In: R04303.00[Default] R04307.00[Default]
+Default Next Question: R04309.00
+--------------------------------------------------------------------------------
+R04356.00    [MIL-13]                                       Survey Year: 1981
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 81 - R IN ACTIVE ARMED FORCES AT TIME OF LAST INT?
+ 
+ORIGINAL QUESTION NAME: S05D1062
+ 
+I: WAS R IN ACTIVE FORCES ON DATE OF LAST INTERVIEW? (SEE ITEM 8 ON
+INFO SHEET)
+ 
+UNIVERSE: R in armed forces at DLI and currently serving in same branch OR 
+enlisted in army/navy/air force/marines since DLI and currently serving OR left 
+active forces since DLI and currently in reserves
+ 
+     765       1 YES
+     212       0 NO
+  -------
+     977
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     977   VALID SKIP(-4)   11218     NON-INTERVIEW(-5)     491
+ 
+Min:              0        Max:              1        Mean:                 .78
+ 
+Lead In: R04355.00[Default] R04354.00[Default]
+Default Next Question: R04357.00
+--------------------------------------------------------------------------------
+R04365.00    [MIL-59]                                       Survey Year: 1981
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 81 - IS R CURRENTLY IN ACTIVE ARMED FORCES?
+ 
+ORIGINAL QUESTION NAME: S05D1080
+ 
+I: IS R CURRENTLY IN THE ACTIVE FORCES? (A. 47 = YES)
+ 
+UNIVERSE: R in armed forces at DLI and currently serving in same branch OR 
+enlisted in army/navy/air force/marines since DLI and currently serving OR left 
+active forces since DLI and currently in reserves
+ 
+     855       1 YES
+     129       0 NO
+  -------
+     984
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     984   VALID SKIP(-4)   11211     NON-INTERVIEW(-5)     491
+ 
+Min:              0        Max:              1        Mean:                 .87
+ 
+Lead In: R04364.00[Default]
+Default Next Question: R04366.00
+--------------------------------------------------------------------------------
+R04414.00    [Q4-12]                                        Survey Year: 1981
+  PRIMARY VARIABLE
+
+ 
+             ANY TIME SERVED ON ACTIVE ARMED FORCES DUTY? (NOT CURRENTLY 
+             ENLISTED)
+ 
+ORIGINAL QUESTION NAME: S05D1179
+ 
+DID YOU SERVE ANY TIME ON ACTIVE DUTY IN THE (BRANCH)?
+ 
+UNIVERSE: R enlisted in army/navy/air force/marines since DLI; not currently 
+serving
+ 
+       6       1 YES
+      97       0 NO
+  -------
+     103
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     103   VALID SKIP(-4)   12092     NON-INTERVIEW(-5)     491
+ 
+Min:              0        Max:              1        Mean:                 .06
+ 
+Lead In: R04413.00[Default]
+Default Next Question: R04415.00
+--------------------------------------------------------------------------------
+R04433.00    [MIL-48]                                       Survey Year: 1981
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 81 - IS R CURRENTLY ON ACTIVE ARMED FORCES DUTY?
+ 
+ORIGINAL QUESTION NAME: S05D1274
+ 
+I: IS R CURRENTLY ON ACTIVE DUTY IN THE ACTIVE FORCES? (Q.47=YES)
+ 
+UNIVERSE: R in active armed forces since DLI
+ 
+     858       1 YES
+     370       0 NO
+  -------
+    1228
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    1228   VALID SKIP(-4)   10967     NON-INTERVIEW(-5)     491
+ 
+Min:              0        Max:              1        Mean:                  .7
+ 
+Lead In: R04432.00[Default]
+Default Next Question: R04473.00
+--------------------------------------------------------------------------------
+R06714.00    [Q4-4A]                                        Survey Year: 1982
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 82-WAS R IN ACTIVE ARMED FORCES AT LAST INT SAME BRANCH 
+             AS AT LAST INT
+ 
+ORIGINAL QUESTION NAME: S04D0877
+ 
+I, WAS R IN ACTIVE FORCES (ARMY, NAVY, AIR FORCE, MARINES, COAST
+GUARD) DURING THIS PERIOD OF SERVICE? (SEE ITEM 7 ON INFORMATION
+SHEET.)
+ 
+UNIVERSE: R in armed forces at DLI; currently serving in same branch
+ 
+     685       1 YES
+     113       0 NO
+  -------
+     798
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     798   VALID SKIP(-4)   11325     NON-INTERVIEW(-5)     563
+ 
+Min:              0        Max:              1        Mean:                 .86
+ 
+Lead In: R06713.00[Default]
+Default Next Question: 
+--------------------------------------------------------------------------------
+R06720.00    [MIL-15]                                       Survey Year: 1982
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 82 - R IN ACTIVE ARMED FORCES AT TIME OF LAST INT?
+ 
+ORIGINAL QUESTION NAME: S04D0920
+ 
+I: WAS R SERVING IN ACTIVE FORCES AT TIME OF LAST INTERVIEW? SEE ITEM
+7 ON INFORMATION SHEET.
+ 
+UNIVERSE: R in armed forces at DLI; not currently serving in same branch
+ 
+     203       1 YES
+      26       0 NO
+  -------
+     229
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     229   VALID SKIP(-4)   11894     NON-INTERVIEW(-5)     563
+ 
+Min:              0        Max:              1        Mean:                 .89
+ 
+Lead In: R06719.00[Default]
+Default Next Question: R06721.00
+--------------------------------------------------------------------------------
+R06777.00    [Q4-11]                                        Survey Year: 1982
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 82 - DID R ENTER ACTIVE ARMED FORCES? (MOST RECENT 
+             ENLISTMENT)
+ 
+ORIGINAL QUESTION NAME: S04D1049
+ 
+I: DID R ENTER THE ACTIVE FORCES? (Q.38, CODES 01-04 OR 11)
+ 
+UNIVERSE: R enlisted in armed forces since DLI; currently serving
+ 
+     140       1 YES
+      72       0 NO
+  -------
+     212
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)       3
+TOTAL =========>     215   VALID SKIP(-4)   11908     NON-INTERVIEW(-5)     563
+ 
+Min:              0        Max:              1        Mean:                 .66
+ 
+Lead In: R06776.00[Default]
+Default Next Question: R06779.00
+--------------------------------------------------------------------------------
+R06785.00    [Q4-15]                                        Survey Year: 1982
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 82 - IS R CURRENTLY IN ACTIVE ARMED FORCES?
+ 
+ORIGINAL QUESTION NAME: S04D1065
+ 
+I: IS R CURRENTLY IN ACTIVE FORCES? (Q.38=CODES 01-04 OR 11, OR ITEM 7 ON 
+INFORMATION SHEET WAS ACTIVE FORCE BRANCH AND Q.11A=YES)
+ 
+UNIVERSE: R in armed forces at DLI and currently serving in same branch OR 
+enlisted in armed forces since DLI and currently serving
+ 
+     825       1 YES
+     184       0 NO
+  -------
+    1009
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)       3
+TOTAL =========>    1012   VALID SKIP(-4)   11111     NON-INTERVIEW(-5)     563
+ 
+Min:              0        Max:              1        Mean:                 .82
+ 
+Lead In: R06780.00[Default] R06784.00[Default]
+Default Next Question: R06786.00
+--------------------------------------------------------------------------------
+R06856.00    [MIL-13]                                       Survey Year: 1982
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 82 - R IN ACTIVE ARMED FORCES AT TIME OF LAST INT?
+ 
+ORIGINAL QUESTION NAME: S04D1254
+ 
+I: WAS R IN ACTIVE FORCES ON DATE OF LAST INTERVIEW? (SEE ITEM 7 ON
+INFORMATION SHEET)
+ 
+UNIVERSE: R in armed forces at DLI and currently serving in same branch OR 
+enlisted in armed forces since DLI and currently serving
+ 
+     706       1 YES
+     289       0 NO
+  -------
+     995
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     995   VALID SKIP(-4)   11128     NON-INTERVIEW(-5)     563
+ 
+Min:              0        Max:              1        Mean:                 .71
+ 
+Lead In: R06855.00[Default] R06854.00[Default]
+Default Next Question: R06857.00
+--------------------------------------------------------------------------------
+R06865.00    [MIL-59]                                       Survey Year: 1982
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 82 - IS R CURRENTLY IN ACTIVE ARMED FORCES?
+ 
+ORIGINAL QUESTION NAME: S04D1272
+ 
+I: IS R CURRENTLY IN THE ACTIVE FORCES? (Q.47=YES)
+ 
+UNIVERSE: R in armed forces at DLI and currently serving in same branch OR 
+enlisted in armed forces since DLI and currently serving
+ 
+     825       1 YES
+     184       0 NO
+  -------
+    1009
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)       3
+TOTAL =========>    1012   VALID SKIP(-4)   11111     NON-INTERVIEW(-5)     563
+ 
+Min:              0        Max:              1        Mean:                 .82
+ 
+Lead In: R06864.00[Default]
+Default Next Question: R06866.00
+--------------------------------------------------------------------------------
+R06915.00    [Q4-12]                                        Survey Year: 1982
+  PRIMARY VARIABLE
+
+ 
+             ANY TIME SERVED ON ACTIVE ARMED FORCES DUTY? (NOT CURRENTLY 
+             ENLISTED)
+ 
+ORIGINAL QUESTION NAME: S04D1373
+ 
+DID YOU SERVE ANY TIME ON ACTIVE DUTY IN THE (BRANCH)?
+ 
+UNIVERSE: R enlisted in armed forces since DLI; not currently serving
+ 
+      10       1 YES
+      51       0 NO
+  -------
+      61
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)       3
+TOTAL =========>      64   VALID SKIP(-4)   12059     NON-INTERVIEW(-5)     563
+ 
+Min:              0        Max:              1        Mean:                 .16
+ 
+Lead In: R06914.00[Default]
+Default Next Question: R06916.00
+--------------------------------------------------------------------------------
+R06919.00    [MIL-100]                                      Survey Year: 1982
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 82 - DID R ENTER THE ACTIVE ARMED FORCES? (NOT CURRENTLY 
+             ENLISTED)
+ 
+ORIGINAL QUESTION NAME: S04D1380
+ 
+I: DID R ENTER THE ACTIVE FORCES? (Q.38, CODES 01-04 OR 11)
+ 
+UNIVERSE: R enlisted in armed forces since DLI; not currently serving; some 
+active duty
+ 
+       9       1 YES
+       2       0 NO
+  -------
+      11
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)       3
+TOTAL =========>      14   VALID SKIP(-4)   12109     NON-INTERVIEW(-5)     563
+ 
+Min:              0        Max:              1        Mean:                 .82
+ 
+Lead In: R06918.00[Default]
+Default Next Question: R06920.00
+--------------------------------------------------------------------------------
+R06923.00    [Q4-12A]                                       Survey Year: 1982
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 82 - WAS R IN THE ACTIVE ARMED FORCES? (NOT CURRENTLY 
+             ENLISTED)
+ 
+ORIGINAL QUESTION NAME: S04D1416
+ 
+I: WAS R IN THE ACTIVE FORCES?
+ 
+UNIVERSE: R enlisted in armed forces since DLI; not currently serving; some 
+active duty
+ 
+       9       1 YES
+       2       0 NO
+  -------
+      11
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)       3
+TOTAL =========>      14   VALID SKIP(-4)   12109     NON-INTERVIEW(-5)     563
+ 
+Min:              0        Max:              1        Mean:                 .82
+ 
+Lead In: R06922.00[Default]
+Default Next Question: R06924.00
+--------------------------------------------------------------------------------
+R06934.00    [MIL-48]                                       Survey Year: 1982
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 82 - IS R CURRENTLY ON ACTIVE ARMED FORCES DUTY?
+ 
+ORIGINAL QUESTION NAME: S04D1463
+ 
+I: IS R CURRENTLY ON ACTIVE DUTY IN THE ACTIVE FORCES?
+ 
+UNIVERSE: R in active armed forces since DLI
+ 
+     825       1 YES
+     403       0 NO   (Go To R06935.00)
+  -------
+    1228
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)       1
+TOTAL =========>    1229   VALID SKIP(-4)   10894     NON-INTERVIEW(-5)     563
+ 
+Min:              0        Max:              1        Mean:                 .67
+ 
+Lead In: R06933.00[Default]
+Default Next Question: R07034.00
+--------------------------------------------------------------------------------
+R07802.00    [ALCH-2]                                       Survey Year: 1982
+  PRIMARY VARIABLE
+
+ 
+             ALCOHOL USE - AGE WHEN STARTED DRINKING
+ 
+ORIGINAL QUESTION NAME: S13D4271
+ 
+HOW OLD WERE YOU WHEN YOU FIRST STARTED DRINKING? (PROBE: FOR EXAMPLE, HAVING 
+TWO OR MORE DRINKS A WEEK?
+ 
+0 DO NOT DRINK ONCE OR TWICE A WEEK
+ACTUAL AGE
+ 
+UNIVERSE: R has drunk alcohol
+ 
+    1398           0 TO 10: < 11
+      40          11
+     182          12
+     335          13
+     594          14
+    1021          15
+    2112          16
+    1825          17
+    2319          18
+     631          19
+     333          20
+     244          21
+      49          22
+      22          23
+       5          24
+       1          25
+       0          26
+       0          27 TO 99999: 27+
+  -------
+   11111
+ 
+Refusal(-1)            2
+Don't Know(-2)        10
+Invalid Skip(-3)       8
+TOTAL =========>   11131   VALID SKIP(-4)     992     NON-INTERVIEW(-5)     563
+ 
+Min:              0        Max:             25        Mean:               14.74
+ 
+Lead In: R07801.00[Default]
+Default Next Question: R07803.00
+--------------------------------------------------------------------------------
+R07804.00    [Q12-4]                                        Survey Year: 1982
+  PRIMARY VARIABLE
+
+ 
+             ALCOHOL USE - FREQUENCY OF 6 OR MORE DRINKS AT ONE TIME IN LAST 
+             MONTH
+ 
+ORIGINAL QUESTION NAME: S13D4274
+ 
+HOW OFTEN HAVE YOU HAD 6 OR MORE DRINKS ON ONE OCCASION DURING THE LAST 30 DAYS?
+ 
+UNIVERSE: R has drunk alcohol; R has had drink in last 30 days
+ 
+    3147       0 NEVER
+    1297       1 ONCE
+    1613       2 2 OR 3 TIMES
+     761       3 4 OR 5 TIMES
+     376       4 6 OR 7 TIMES
+     183       5 8 OR 9 TIMES
+     508       6 10 OR MORE TIMES
+  -------
+    7885
+ 
+Refusal(-1)            2
+Don't Know(-2)         0
+Invalid Skip(-3)       1
+TOTAL =========>    7888   VALID SKIP(-4)    4235     NON-INTERVIEW(-5)     563
+ 
+Min:              0        Max:              6        Mean:                1.56
+ 
+Lead In: R07803.00[Default]
+Default Next Question: R07805.00
+--------------------------------------------------------------------------------
+R07811.00    [ALCH-11]                                      Survey Year: 1982
+  PRIMARY VARIABLE
+
+ 
+             ALCOHOL USE - DRINKING EVER INTERFERED WITH JOB?
+ 
+ORIGINAL QUESTION NAME: S13D4319
+ 
+HAS DRINKING EVER INTERFERED OR CAUSED A PROBLEM WITH YOUR WORK ON A JOB?
+ 
+UNIVERSE: R has drunk alcohol
+ 
+     266       1 YES
+   10805       0 NO
+  -------
+   11071
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      60
+TOTAL =========>   11131   VALID SKIP(-4)     992     NON-INTERVIEW(-5)     563
+ 
+Min:              0        Max:              1        Mean:                 .02
+ 
+Lead In: R07810.00[Default]
+Default Next Question: R07812.00
+--------------------------------------------------------------------------------
+R09132.00    [Q4-4A]                                        Survey Year: 1983
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 83-WAS R IN ACTIVE ARMED FORCES AT LAST INT SAME BRANCH 
+             AS AT LAST INT
+ 
+ORIGINAL QUESTION NAME: Q0525
+ 
+I: WAS R IN ACTIVE FORCES (ARMY, NAVY, AIR FORCE, MARINES, COAST
+GUARD) DURING THIS PERIOD OF SERVICE? (SEE ITEM 4 ON INFORMATION SHEET).
+ 
+UNIVERSE: R in armed forces at DLI; currently serving in same branch
+ 
+     665       1 YES
+     145       0 NO
+  -------
+     810
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     810   VALID SKIP(-4)   11411     NON-INTERVIEW(-5)     465
+ 
+Min:              0        Max:              1        Mean:                 .82
+ 
+Lead In: R09131.00[Default]
+Default Next Question: 
+--------------------------------------------------------------------------------
+R09138.00    [MIL-15]                                       Survey Year: 1983
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 83 - R IN ACTIVE ARMED FORCES AT TIME OF LAST INT?
+ 
+ORIGINAL QUESTION NAME: Q0536
+ 
+I: WAS R SERVING IN ACTIVE FORCES AT TIME OF LAST INTERVIEW? SEE ITEM
+4 ON INFORMATION SHEET.
+ 
+UNIVERSE: R in armed forces at DLI; not currently serving in same branch
+ 
+     184       1 YES
+      37       0 NO
+  -------
+     221
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     221   VALID SKIP(-4)   12000     NON-INTERVIEW(-5)     465
+ 
+Min:              0        Max:              1        Mean:                 .83
+ 
+Lead In: R09137.00[Default]
+Default Next Question: R09139.00
+--------------------------------------------------------------------------------
+R09194.00    [Q4-11]                                        Survey Year: 1983
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 83 - DID R ENTER ACTIVE ARMED FORCES? (MOST RECENT 
+             ENLISTMENT)
+ 
+ORIGINAL QUESTION NAME: Q0665
+ 
+I: DID R ENTER THE ACTIVE FORCES? (Q. 38, CODES 01-04 OR 11)
+ 
+UNIVERSE: R enlisted in armed forces since DLI; currently serving
+ 
+     115       1 YES
+      83       0 NO
+  -------
+     198
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     198   VALID SKIP(-4)   12023     NON-INTERVIEW(-5)     465
+ 
+Min:              0        Max:              1        Mean:                 .58
+ 
+Lead In: R09193.00[Default]
+Default Next Question: R09196.00
+--------------------------------------------------------------------------------
+R09202.00    [Q4-15]                                        Survey Year: 1983
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 83 - IS R CURRENTLY IN ACTIVE ARMED FORCES?
+ 
+ORIGINAL QUESTION NAME: Q0715
+ 
+I: IS R CURRENTLY IN ACTIVE FORCES? (Q. 38 = CODES 01-04 OR 11, OR
+ITEM 4 ON INFORMATION SHEET WAS ACTIVE FORCE BRANCH AND Q. 11A = YES)
+ 
+UNIVERSE: R in armed forces at DLI and currently serving in same branch OR 
+enlisted in armed forces since DLI and currently serving
+ 
+     780       1 YES
+     228       0 NO
+  -------
+    1008
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    1008   VALID SKIP(-4)   11213     NON-INTERVIEW(-5)     465
+ 
+Min:              0        Max:              1        Mean:                 .77
+ 
+Lead In: R09197.00[Default] R09201.00[Default]
+Default Next Question: R09203.00
+--------------------------------------------------------------------------------
+R09274.00    [MIL-13]                                       Survey Year: 1983
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 83 - R IN ACTIVE ARMED FORCES AT TIME OF LAST INT?
+ 
+ORIGINAL QUESTION NAME: Q0868
+ 
+I: WAS R IN ACTIVE FORCES ON DATE OF LAST INTERVIEW? (SEE ITEM 4 ON
+INFORMATION SHEET)
+ 
+UNIVERSE: R in armed forces at DLI and currently serving in same branch OR 
+enlisted in armed forces since DLI and currently serving
+ 
+     695       1 YES
+     298       0 NO
+  -------
+     993
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     993   VALID SKIP(-4)   11228     NON-INTERVIEW(-5)     465
+ 
+Min:              0        Max:              1        Mean:                  .7
+ 
+Lead In: R09273.00[Default] R09272.00[Default]
+Default Next Question: R09275.00
+--------------------------------------------------------------------------------
+R09285.00    [MIL-59]                                       Survey Year: 1983
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 83 - IS R CURRENTLY IN ACTIVE ARMED FORCES?
+ 
+ORIGINAL QUESTION NAME: Q0924
+ 
+I: IS R CURRENTLY IN THE ACTIVE FORCES? (Q. 47 = YES)
+ 
+UNIVERSE: R in armed forces at DLI and currently serving in same branch OR 
+enlisted in armed forces since DLI and currently serving
+ 
+     780       1 YES
+     228       0 NO
+  -------
+    1008
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    1008   VALID SKIP(-4)   11213     NON-INTERVIEW(-5)     465
+ 
+Min:              0        Max:              1        Mean:                 .77
+ 
+Lead In: R09284.00[Default]
+Default Next Question: R09286.00
+--------------------------------------------------------------------------------
+R09337.00    [Q4-12]                                        Survey Year: 1983
+  PRIMARY VARIABLE
+
+ 
+             ANY TIME SERVED ON ACTIVE ARMED FORCES DUTY? (NOT CURRENTLY 
+             ENLISTED)
+ 
+ORIGINAL QUESTION NAME: Q1028
+ 
+DID YOU SERVE ANY TIME ON ACTIVE DUTY IN THE (BRANCH)?
+ 
+UNIVERSE: R enlisted in armed forces since DLI; not currently serving; not in 
+delayed entry program
+ 
+      19       1 YES
+       8       0 NO   (Go To R09365.00)
+  -------
+      27
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>      27   VALID SKIP(-4)   12194     NON-INTERVIEW(-5)     465
+ 
+Min:              0        Max:              1        Mean:                  .7
+ 
+Lead In: R09336.00[Default]
+Default Next Question: R09338.00
+--------------------------------------------------------------------------------
+R09341.00    [MIL-100]                                      Survey Year: 1983
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 83 - DID R ENTER THE ACTIVE ARMED FORCES? (NOT CURRENTLY 
+             ENLISTED)
+ 
+ORIGINAL QUESTION NAME: Q1035
+ 
+I: DID R ENTER THE ACTIVE FORCES? (Q. 38, CODES 01-04 OR 11)
+ 
+UNIVERSE: R enlisted in armed forces since DLI; not currently serving; not in 
+delayed entry program; some active duty
+ 
+      17       1 YES
+       2       0 NO
+  -------
+      19
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>      19   VALID SKIP(-4)   12202     NON-INTERVIEW(-5)     465
+ 
+Min:              0        Max:              1        Mean:                 .89
+ 
+Lead In: R09340.00[Default]
+Default Next Question: R09342.00
+--------------------------------------------------------------------------------
+R09345.00    [Q4-12A]                                       Survey Year: 1983
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 83 - WAS R IN THE ACTIVE ARMED FORCES? (NOT CURRENTLY 
+             ENLISTED)
+ 
+ORIGINAL QUESTION NAME: Q1042
+ 
+I: WAS R IN THE ACTIVE FORCES?
+ 
+UNIVERSE: R enlisted in armed forces since DLI; not currently serving; not in 
+delayed entry program; some active duty
+ 
+      17       1 YES
+       2       0 NO
+  -------
+      19
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>      19   VALID SKIP(-4)   12202     NON-INTERVIEW(-5)     465
+ 
+Min:              0        Max:              1        Mean:                 .89
+ 
+Lead In: R09344.00[Default]
+Default Next Question: R09346.00
+--------------------------------------------------------------------------------
+R09364.00    [MIL-48]                                       Survey Year: 1983
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 83 - IS R CURRENTLY ON ACTIVE ARMED FORCES DUTY?
+ 
+ORIGINAL QUESTION NAME: Q1119
+ 
+I: IS R CURRENTLY ON ACTIVE DUTY IN THE ACTIVE FORCES? (IS Q. 47 CODED "YES"?)
+ 
+UNIVERSE: R in active armed forces since DLI
+ 
+     780       1 YES
+     430       0 NO   (Go To R09365.00)
+  -------
+    1210
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    1210   VALID SKIP(-4)   11011     NON-INTERVIEW(-5)     465
+ 
+Min:              0        Max:              1        Mean:                 .64
+ 
+Lead In: R09363.00[Default]
+Default Next Question: R09464.00
+--------------------------------------------------------------------------------
+R10217.00    [ALCH-2]                                       Survey Year: 1983
+  PRIMARY VARIABLE
+
+ 
+             ALCOHOL USE - AGE WHEN STARTED DRINKING
+ 
+ORIGINAL QUESTION NAME: Q3820
+ 
+HOW OLD WERE YOU WHEN YOU FIRST BEGAN DRINKING ALCOHOLIC BEVERAGES ON A REGULAR 
+BASIS, THAT IS AT LEAST ONCE OR TWICE A MONTH?
+ 
+0 DO NOT DRINK ONCE OR TWICE A MONTH
+ACTUAL AGE
+ 
+    1837           0 TO 9: < 10
+      41          10
+      24          11
+     127          12
+     243          13
+     381          14
+     866          15
+    1838          16
+    1823          17
+    2599          18
+     786          19
+     394          20
+     300          21
+      73          22
+      52          23
+      16          24
+       7          25
+       0          26 TO 99999: 26+
+  -------
+   11407
+ 
+Refusal(-1)            2
+Don't Know(-2)         5
+Invalid Skip(-3)      10
+TOTAL =========>   11424   VALID SKIP(-4)     797     NON-INTERVIEW(-5)     465
+ 
+Min:              0        Max:             25        Mean:               14.35
+ 
+Lead In: R10216.00[Default]
+Default Next Question: R10218.00
+--------------------------------------------------------------------------------
+R10220.00    [Q12-4]                                        Survey Year: 1983
+  PRIMARY VARIABLE
+
+ 
+             ALCOHOL USE - FREQUENCY OF 6 OR MORE DRINKS AT ONE TIME IN LAST 
+             MONTH
+ 
+ORIGINAL QUESTION NAME: Q3825
+ 
+[HAND CARD W] HOW OFTEN HAVE YOU HAD 6 OR MORE DRINKS ON ONE OCCASION DURING THE
+LAST 30 DAYS? WOULD YOU SAY IT WAS...(READ CATEGORIES)..?
+ 
+    3391       0 NEVER
+    1315       1 ONCE
+    1550       2 2 OR 3 TIMES
+     793       3 4 OR 5 TIMES
+     374       4 6 OR 7 TIMES
+     205       5 8 OR 9 TIMES
+     427       6 10 OR MORE TIMES
+  -------
+    8055
+ 
+Refusal(-1)            1
+Don't Know(-2)         0
+Invalid Skip(-3)      16
+TOTAL =========>    8072   VALID SKIP(-4)    4149     NON-INTERVIEW(-5)     465
+ 
+Min:              0        Max:              6        Mean:                1.47
+ 
+Lead In: R10219.00[Default]
+Default Next Question: R10221.00
+--------------------------------------------------------------------------------
+R10221.00    [Q12-5]                                        Survey Year: 1983
+  PRIMARY VARIABLE
+
+ 
+             ALCOHOL USE - # OF DAYS DRANK ALCOHOL IN LAST MONTH
+ 
+ORIGINAL QUESTION NAME: Q3826
+ 
+DURING THE LAST 30 DAYS, ON HOW MANY DAYS DID YOU DRINK ANY ALCOHOLIC BEVERAGES,
+INCLUDING BEER, WINE, OR LIQUOR?
+ 
+ACTUAL DAYS
+ 
+       0           0
+    1073           1
+    1137           2
+     943           3
+     819           4
+     721           5
+     405           6
+     270           7
+     368           8
+      78           9
+     646          10
+      27          11
+     173          12
+      17          13
+      40          14
+     475          15
+     865          16 TO 99999: 16+
+  -------
+    8057
+ 
+Refusal(-1)            1
+Don't Know(-2)         3
+Invalid Skip(-3)      11
+TOTAL =========>    8072   VALID SKIP(-4)    4149     NON-INTERVIEW(-5)     465
+ 
+Min:              1        Max:             30        Mean:                 7.2
+ 
+Lead In: R10220.00[Default]
+Default Next Question: R10222.00
+--------------------------------------------------------------------------------
+R10236.00    [ALCH-11]                                      Survey Year: 1983
+  PRIMARY VARIABLE
+
+ 
+             ALCOHOL USE - DRINKING EVER INTERFERED WITH JOB?
+ 
+ORIGINAL QUESTION NAME: Q3854
+ 
+HAS DRINKING EVER INTERFERED WITH YOUR WORK ON A JOB?
+ 
+     424       1 YES
+   10919       0 NO
+  -------
+   11343
+ 
+Refusal(-1)            1
+Don't Know(-2)         0
+Invalid Skip(-3)      80
+TOTAL =========>   11424   VALID SKIP(-4)     797     NON-INTERVIEW(-5)     465
+ 
+Min:              0        Max:              1        Mean:                 .04
+ 
+Lead In: R10235.00[Default]
+Default Next Question: R10237.00
+--------------------------------------------------------------------------------
+R12219.00    [Q4-4A]                                        Survey Year: 1984
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 84-WAS R IN ACTIVE ARMED FORCES AT LAST INT SAME BRANCH 
+             AS AT LAST INT
+ 
+ORIGINAL QUESTION NAME: Q0912
+ 
+I: WAS R IN ACTIVE FORCES (ARMY, NAVY, AIR FORCE, MARINES, COAST
+GUARD DURING THIS PERIOD OF SERVICE? (SEE ITEM 4 ON INFORMATION
+SHEET.)
+ 
+UNIVERSE: R in armed forces at DLI; currently serving in same branch
+ 
+     625       1 YES
+     177       0 NO
+  -------
+     802
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     802   VALID SKIP(-4)   11267     NON-INTERVIEW(-5)     617
+ 
+Min:              0        Max:              1        Mean:                 .78
+ 
+Lead In: R12218.00[Default]
+Default Next Question: 
+--------------------------------------------------------------------------------
+R12225.00    [MIL-15]                                       Survey Year: 1984
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 84 - R IN ACTIVE ARMED FORCES AT TIME OF LAST INT?
+ 
+ORIGINAL QUESTION NAME: Q0923
+ 
+I: WAS R SERVING IN ACTIVE FORCES AT TIME OF LAST INTERVIEW? SEE ITEM
+4 ON INFORMATION SHEET.
+ 
+UNIVERSE: R in armed forces at DLI; not currently serving in same branch
+ 
+     149       1 YES
+      49       0 NO
+  -------
+     198
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     198   VALID SKIP(-4)   11871     NON-INTERVIEW(-5)     617
+ 
+Min:              0        Max:              1        Mean:                 .75
+ 
+Lead In: R12224.00[Default]
+Default Next Question: R12226.00
+--------------------------------------------------------------------------------
+R12289.00    [Q4-11]                                        Survey Year: 1984
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 84 - DID R ENTER ACTIVE ARMED FORCES? (MOST RECENT 
+             ENLISTMENT)
+ 
+ORIGINAL QUESTION NAME: Q1063
+ 
+I: DID R ENTER THE ACTIVE FORCES? (Q.38, CODES 01-04 OR 11)
+ 
+UNIVERSE: R enlisted in armed forces since DLI; currently serving
+ 
+      82       1 YES
+      61       0 NO
+  -------
+     143
+ 
+Refusal(-1)            0
+Don't Know(-2)         3
+TOTAL =========>     146   VALID SKIP(-4)   11923     NON-INTERVIEW(-5)     617
+ 
+Min:              0        Max:              1        Mean:                 .57
+ 
+Lead In: R12288.00[Default]
+Default Next Question: R12291.00
+--------------------------------------------------------------------------------
+R12300.00    [Q4-15]                                        Survey Year: 1984
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 84 - IS R CURRENTLY IN ACTIVE ARMED FORCES?
+ 
+ORIGINAL QUESTION NAME: Q1115
+ 
+I: IS R CURRENTLY IN ACTIVE FORCES?
+ 
+UNIVERSE: R in armed forces at DLI and currently serving in same branch OR 
+enlisted in armed forces since DLI and currently serving
+ 
+     707       1 YES
+     236       0 NO
+  -------
+     943
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     943   VALID SKIP(-4)   11126     NON-INTERVIEW(-5)     617
+ 
+Min:              0        Max:              1        Mean:                 .75
+ 
+Lead In: R12299.00[Default]
+Default Next Question: R12301.00
+--------------------------------------------------------------------------------
+R12382.00    [MIL-59]                                       Survey Year: 1984
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 84 - IS R CURRENTLY IN ACTIVE ARMED FORCES?
+ 
+ORIGINAL QUESTION NAME: Q1321
+ 
+I: IS R CURRENTLY IN THE ACTIVE FORCES? (Q.50 = YES)
+ 
+UNIVERSE: R in armed forces at DLI and currently serving in same branch OR 
+enlisted in armed forces since DLI and currently serving
+ 
+     707       1 YES
+     236       0 NO
+  -------
+     943
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     943   VALID SKIP(-4)   11126     NON-INTERVIEW(-5)     617
+ 
+Min:              0        Max:              1        Mean:                 .75
+ 
+Lead In: R12381.00[Default]
+Default Next Question: R12383.00
+--------------------------------------------------------------------------------
+R12435.00    [Q4-12]                                        Survey Year: 1984
+  PRIMARY VARIABLE
+
+ 
+             ANY TIME SERVED ON ACTIVE ARMED FORCES DUTY? (NOT CURRENTLY 
+             ENLISTED)
+ 
+ORIGINAL QUESTION NAME: Q1428
+ 
+DID YOU SERVE ANY TIME ON ACTIVE DUTY IN THE (BRANCH)?
+ 
+UNIVERSE: R enlisted in armed forces since DLI; not currently serving; not in 
+delayed entry program
+ 
+      12       1 YES
+       9       0 NO
+  -------
+      21
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>      21   VALID SKIP(-4)   12048     NON-INTERVIEW(-5)     617
+ 
+Min:              0        Max:              1        Mean:                 .57
+ 
+Lead In: R12434.00[Default]
+Default Next Question: R12436.00
+--------------------------------------------------------------------------------
+R12439.00    [MIL-100]                                      Survey Year: 1984
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 84 - DID R ENTER THE ACTIVE ARMED FORCES? (NOT CURRENTLY 
+             ENLISTED)
+ 
+ORIGINAL QUESTION NAME: Q1435
+ 
+I: DID R ENTER THE ACTIVE FORCES?
+ 
+UNIVERSE: R enlisted in armed forces since DLI; not currently serving; not in 
+delayed entry program; some active duty
+ 
+       9       1 YES
+       3       0 NO
+  -------
+      12
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>      12   VALID SKIP(-4)   12057     NON-INTERVIEW(-5)     617
+ 
+Min:              0        Max:              1        Mean:                 .75
+ 
+Lead In: R12438.00[Default]
+Default Next Question: R12440.00
+--------------------------------------------------------------------------------
+R12443.00    [Q4-12A]                                       Survey Year: 1984
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 84 - WAS R IN THE ACTIVE ARMED FORCES? (NOT CURRENTLY 
+             ENLISTED)
+ 
+ORIGINAL QUESTION NAME: Q1442
+ 
+I: WAS R IN THE ACTIVE FORCES?
+ 
+UNIVERSE: R enlisted in armed forces since DLI; not currently serving; not in 
+delayed entry program; some active duty
+ 
+       9       1 YES
+       3       0 NO
+  -------
+      12
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>      12   VALID SKIP(-4)   12057     NON-INTERVIEW(-5)     617
+ 
+Min:              0        Max:              1        Mean:                 .75
+ 
+Lead In: R12442.00[Default]
+Default Next Question: R12444.00
+--------------------------------------------------------------------------------
+R12467.00    [MIL-48]                                       Survey Year: 1984
+  PRIMARY VARIABLE
+
+ 
+             INT CHECK 84 - IS R CURRENTLY ON ACTIVE ARMED FORCES DUTY?
+ 
+ORIGINAL QUESTION NAME: Q1519
+ 
+I: IS R CURRENTLY ON ACTIVE DUTY IN THE ACTIVE FORCES? (IS Q.50 CODED 'YES'?)
+ 
+UNIVERSE: R in active armed forces since DLI
+ 
+     707       1 YES
+     418       0 NO
+  -------
+    1125
+ 
+Refusal(-1)            0
+Don't Know(-2)         2
+TOTAL =========>    1127   VALID SKIP(-4)   10942     NON-INTERVIEW(-5)     617
+ 
+Min:              0        Max:              1        Mean:                 .63
+ 
+Lead In: R12466.00[Default]
+Default Next Question: R12468.00
+--------------------------------------------------------------------------------
+R13912.00    [ALCH-17]                                      Survey Year: 1984
+  PRIMARY VARIABLE
+
+ 
+             ALCOHOL USE - DRINKING EVER INTERFERED WITH JOB? (NO ALCOHOL IN 
+             LAST 30 DAYS)
+ 
+ORIGINAL QUESTION NAME: Q5244
+ 
+HAS DRINKING EVER INTERFERED WITH YOUR WORK ON A JOB?
+ 
+UNIVERSE: R has drunk alcohol; R had drink in last 30 days
+ 
+      74       1 YES
+    3056       0 NO
+  -------
+    3130
+ 
+Refusal(-1)            1
+Don't Know(-2)         0
+Invalid Skip(-3)       8
+TOTAL =========>    3139   VALID SKIP(-4)    8930     NON-INTERVIEW(-5)     617
+ 
+Min:              0        Max:              1        Mean:                 .02
+ 
+Lead In: R13911.00[Default]
+Default Next Question: R13947.00
+--------------------------------------------------------------------------------
+R13913.00    [Q12-4]                                        Survey Year: 1984
+  PRIMARY VARIABLE
+
+ 
+             ALCOHOL USE - FREQUENCY OF 6 OR MORE DRINKS AT ONE TIME IN LAST 
+             MONTH
+ 
+ORIGINAL QUESTION NAME: Q5245
+ 
+(HAND CARD JJ) HOW OFTEN HAVE YOU HAD 6 OR MORE DRINKS ON ONE
+OCCASION DURING THE LAST 30 DAYS? WOULD YOU SAY IT WAS...
+ 
+UNIVERSE: R has drunk alcohol; R had drink in last 30 days
+ 
+    3668       0 NEVER
+    1256       1 ONCE
+    1599       2 2 OR 3 TIMES
+     794       3 4 OR 5 TIMES
+     352       4 6 OR 7 TIMES
+     176       5 8 OR 9 TIMES
+     452       6 10 OR MORE TIMES
+  -------
+    8297
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)       7
+TOTAL =========>    8304   VALID SKIP(-4)    3765     NON-INTERVIEW(-5)     617
+ 
+Min:              0        Max:              6        Mean:                1.43
+ 
+Lead In: None.
+Default Next Question: R13914.00
+--------------------------------------------------------------------------------
+R13914.00    [Q12-5]                                        Survey Year: 1984
+  PRIMARY VARIABLE
+
+ 
+             ALCOHOL USE - # OF DAYS DRANK ALCOHOL IN LAST MONTH
+ 
+ORIGINAL QUESTION NAME: Q5246
+ 
+DURING THE LAST 30 DAYS, ON HOW MANY DAYS DID YOU DRINK ANY ALCOHOLIC BEVERAGES,
+INCLUDING BEER, WINE, OR LIQUOR?
+ 
+ACTUAL DAYS
+ 
+UNIVERSE: R has drunk alcohol; R had drink in last 30 days
+ 
+       2           0
+    1016           1
+    1117           2
+     931           3
+     886           4
+     765           5
+     442           6
+     268           7
+     383           8
+      89           9
+     649          10
+      33          11
+     166          12
+      35          13
+      57          14
+     474          15
+     983          16 TO 99999: 16+
+  -------
+    8296
+ 
+Refusal(-1)            1
+Don't Know(-2)         1
+Invalid Skip(-3)       6
+TOTAL =========>    8304   VALID SKIP(-4)    3765     NON-INTERVIEW(-5)     617
+ 
+Min:              0        Max:             30        Mean:                7.51
+ 
+Lead In: R13913.00[Default]
+Default Next Question: R13915.00
+--------------------------------------------------------------------------------
+R13929.00    [ALCH-11]                                      Survey Year: 1984
+  PRIMARY VARIABLE
+
+ 
+             ALCOHOL USE - DRINKING EVER INTERFERED WITH JOB?
+ 
+ORIGINAL QUESTION NAME: Q5274
+ 
+HAS DRINKING EVER INTERFERED WITH YOUR WORK ON A JOB?
+ 
+UNIVERSE: R has drunk alcohol; R had drink in last 30 days
+ 
+     313       1 YES
+    7923       0 NO
+  -------
+    8236
+ 
+Refusal(-1)            1
+Don't Know(-2)         0
+Invalid Skip(-3)      67
+TOTAL =========>    8304   VALID SKIP(-4)    3765     NON-INTERVIEW(-5)     617
+ 
+Min:              0        Max:              1        Mean:                 .04
+ 
+Lead In: R13928.00[Default]
+Default Next Question: R13930.00
+--------------------------------------------------------------------------------
+R13934.00    [ALCH-18E]                                     Survey Year: 1984
+  PRIMARY VARIABLE
+
+ 
+             ALCOHOL USE - AFRAID MIGHT BE OR MIGHT BECOME AN ALCOHOLIC?
+ 
+ORIGINAL QUESTION NAME: Q5279
+ 
+DURING THE PAST YEAR WERE YOU AFRAID YOU MIGHT BE AN ALCOHOLIC OR THAT YOU MIGHT
+BECOME ONE?
+ 
+UNIVERSE: R has drunk alcohol; R had drink in last 30 days; R could not stop 
+drinking
+ 
+     536       1 YES
+    7752       0 NO
+  -------
+    8288
+ 
+Refusal(-1)            1
+Don't Know(-2)         0
+Invalid Skip(-3)      15
+TOTAL =========>    8304   VALID SKIP(-4)    3765     NON-INTERVIEW(-5)     617
+ 
+Min:              0        Max:              1        Mean:                 .06
+ 
+Lead In: R13933.00[Default]
+Default Next Question: R13935.00
+--------------------------------------------------------------------------------
+R13935.00    [ALCH-18F]                                     Survey Year: 1984
+  PRIMARY VARIABLE
+
+ 
+             ALCOHOL USE - DIFFICULT TO STOP DRINKING UNTIL COMPLETELY 
+             INTOXICATED?
+ 
+ORIGINAL QUESTION NAME: Q5310
+ 
+DURING THE PAST YEAR ONCE YOU STARTED DRINKING, WAS IT DIFFICULT
+FOR YOU TO STOP BEFORE YOU BECAME COMPLETELY INTOXICATED?
+ 
+UNIVERSE: R has drunk alcohol; R had drink in last 30 days; R could not stop 
+drinking; R afraid might be alcoholic
+ 
+     471       1 YES
+    7816       0 NO
+  -------
+    8287
+ 
+Refusal(-1)            1
+Don't Know(-2)         0
+Invalid Skip(-3)      16
+TOTAL =========>    8304   VALID SKIP(-4)    3765     NON-INTERVIEW(-5)     617
+ 
+Min:              0        Max:              1        Mean:                 .06
+ 
+Lead In: R13934.00[Default]
+Default Next Question: R13936.00
+--------------------------------------------------------------------------------
+R13936.00    [ALCH-18G]                                     Survey Year: 1984
+  PRIMARY VARIABLE
+
+ 
+             ALCOHOL USE - UNABLE TO REMEMBER THINGS DONE WHILE DRINKING?
+ 
+ORIGINAL QUESTION NAME: Q5311
+ 
+DURING THE PAST YEAR HAVE YOU AWAKENED THE NEXT DAY NOT BEING ABLE TO REMEMBER 
+THINGS YOU HAD DONE WHILE DRINKING?
+ 
+UNIVERSE: R has drunk alcohol; R had drink in last 30 days; R could not stop 
+drinking; R afraid might be alcoholic
+ 
+    1255       1 YES
+    7036       0 NO
+  -------
+    8291
+ 
+Refusal(-1)            1
+Don't Know(-2)         0
+Invalid Skip(-3)      12
+TOTAL =========>    8304   VALID SKIP(-4)    3765     NON-INTERVIEW(-5)     617
+ 
+Min:              0        Max:              1        Mean:                 .15
+ 
+Lead In: R13935.00[Default]
+Default Next Question: R13937.00
+--------------------------------------------------------------------------------
+R13937.00    [ALCH-18H]                                     Survey Year: 1984
+  PRIMARY VARIABLE
+
+ 
+             ALCOHOL USE - OFTEN TAKEN A DRINK 1ST THING IN THE MORNING?
+ 
+ORIGINAL QUESTION NAME: Q5312
+ 
+DURING THE PAST YEAR HAVE YOU OFTEN TAKEN A DRINK THE FIRST THING
+WHEN YOU GOT UP IN THE MORNING?
+ 
+UNIVERSE: R has drunk alcohol; R had drink in last 30 days; R could not stop 
+drinking; R afraid might be alcoholic
+ 
+     215       1 YES
+    8075       0 NO
+  -------
+    8290
+ 
+Refusal(-1)            1
+Don't Know(-2)         0
+Invalid Skip(-3)      13
+TOTAL =========>    8304   VALID SKIP(-4)    3765     NON-INTERVIEW(-5)     617
+ 
+Min:              0        Max:              1        Mean:                 .03
+ 
+Lead In: R13936.00[Default]
+Default Next Question: R13938.00
