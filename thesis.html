@@ -9,9 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Rachel" />
+<meta name="author" content="Rachel Good" />
 
-<meta name="date" content="2022-02-17" />
+<meta name="date" content="2022-02-21" />
 
 <title>Thesis</title>
 
@@ -166,8 +166,8 @@ pre code {
 
 
 <h1 class="title toc-ignore">Thesis</h1>
-<h4 class="author">Rachel</h4>
-<h4 class="date">2022-02-17</h4>
+<h4 class="author">Rachel Good</h4>
+<h4 class="date">2022-02-21</h4>
 
 </div>
 
@@ -255,10 +255,8 @@ names(new_data) &lt;- c(&#39;R0000100&#39;,
   new_data[new_data == -2] = NA  # Dont know 
   new_data[new_data == -3] = NA  # Invalid missing 
   new_data[new_data == -4] = NA  # Valid missing 
-  new_data[new_data == -5] = NA  # Non-interview 
-
-
-# If there are values not categorized they will be represented as NA
+  new_data[new_data == -5] = NA  # Non-interview </code></pre>
+<pre class="r"><code># If there are values not categorized they will be represented as NA
 
 vallabels = function(data) {
   data$R0029800 &lt;- factor(data$R0029800, 
@@ -643,9 +641,8 @@ vallabels = function(data) {
     labels=c(&quot;NO&quot;,
       &quot;YES&quot;))
   return(data)
-}
-
-varlabels &lt;- c(&quot;ID# (1-12686) 79&quot;,
+}</code></pre>
+<pre class="r"><code>varlabels &lt;- c(&quot;ID# (1-12686) 79&quot;,
   &quot;ICHK SERVED BOTH ACTIVE AF AND GARD 79&quot;,
   &quot;ICHK IN AAF M-RCNT ENLSTMNT 79&quot;,
   &quot;ICHK IN AAF 2ND M-RCNT ENLSTMNT 79&quot;,
@@ -715,10 +712,8 @@ varlabels &lt;- c(&quot;ID# (1-12686) 79&quot;,
   &quot;ALCHL-DIFF STOP DRNK UNTIL INTOX 84&quot;,
   &quot;ALCHL-DONT REMEMBER THING WHILE DRNK 84&quot;,
   &quot;ALCHL-TAKE DRNK 1ST THING MORN 84&quot;
-)
-
-
-# Use qnames rather than rnums
+)</code></pre>
+<pre class="r"><code># Use qnames rather than rnums
 #Change these names to be useful
 #AD = ACTIVE DUTY
 #ARNG= ACTIVE RESERVE NATIONAL GUARD
@@ -737,67 +732,65 @@ qnames = function(data) {
     &quot;SAMPLE_SEX_79&quot;,
     &quot;AD_LAST_INT_NOTSAME_BRANCH_80&quot;,
     &quot;NEW_ENLIST_AD_80&quot;,
-    &quot;CURRENT_AD_YN_80&quot;,#CONFUSION_Q4-15
+    &quot;CURRENT_AD_YN_80&quot;,#G1_CONFUSION_Q4-15
     &quot;AD_LAST_INT_SAME_BRANCH_80&quot;,
-    &quot;CURRENT_AD_YN_80_Q2&quot;,#CONFUSION_MIL-59
+    &quot;CURRENT_AD_YN_80_Q2&quot;,#G1_CONFUSION_MIL-59
     &quot;TIME_SERVED_YN_80&quot;,
-    &quot;CURRENT_AD_YN_80&quot;, #CONFUSION_MIL-48
+    &quot;CURRENT_AD_YN_80&quot;, #G1_CONFUSION_MIL-48
     &quot;AD_LAST_INT_NOTSAME_BRANCH_81&quot;,
     &quot;NEW_ENLIST_AD_81&quot;,
-    &quot;CURRENT_AD_YN_81&quot;,#CONFUSION_Q4-15
+    &quot;CURRENT_AD_YN_81&quot;,#G1_CONFUSION_Q4-15
     &quot;AD_LAST_INT_SAME_BRANCH_81&quot;,
-    &quot;CURRENT_AD_YN_81_Q2&quot;,#CONFUSION_MIL-59
+    &quot;CURRENT_AD_YN_81_Q2&quot;,#G1_CONFUSION_MIL-59
     &quot;TIME_SERVED_YN_81&quot;,
-    &quot;CURRENT_AD_YN_81&quot;, #CONFUSION_MIL-48
+    &quot;CURRENT_AD_YN_81&quot;, #G1_CONFUSION_MIL-48
     &quot;AD_LAST_INT_SAME_BRANCH_82&quot;,
     &quot;AD_LAST_INT_NOTSAME_BRANCH_82&quot;,
     &quot;NEW_ENLIST_AD_82&quot;,
-    &quot;CURRENT_AD_YN_82&quot;,#CONFUSION_Q4-15
+    &quot;CURRENT_AD_YN_82&quot;,#G1_CONFUSION_Q4-15
     &quot;AD_LAST_INT_SAME_BRANCH_82&quot;,
-    &quot;CURRENT_AD_YN_82_Q2&quot;,#CONFUSION_MIL-59
+    &quot;CURRENT_AD_YN_82_Q2&quot;,#G1_CONFUSION_MIL-59
     &quot;TIME_SERVED_YN_82&quot;,
-    &quot;MIL-100_1982&quot;,
-    &quot;Q4-12A_1982&quot;,
-    &quot;MIL-48_1982&quot;,
-    &quot;ALCH-2_1982&quot;,
-    &quot;Q12-4_1982&quot;,
-    &quot;ALCH-11_1982&quot;,
-    &quot;Q4-4A_1983&quot;,
-    &quot;MIL-15_1983&quot;,
-    &quot;Q4-11_1983&quot;,
-    &quot;Q4-15_1983&quot;,
-    &quot;MIL-13_1983&quot;,
-    &quot;MIL-59_1983&quot;,
-    &quot;Q4-12_1983&quot;,
-    &quot;MIL-100_1983&quot;,
-    &quot;Q4-12A_1983&quot;,
-    &quot;MIL-48_1983&quot;,
-    &quot;ALCH-2_1983&quot;,
-    &quot;Q12-4_1983&quot;,
-    &quot;Q12-5_1983&quot;,
-    &quot;ALCH-11_1983&quot;,
-    &quot;Q4-4A_1984&quot;,
-    &quot;MIL-15_1984&quot;,
-    &quot;Q4-11_1984&quot;,
-    &quot;Q4-15_1984&quot;,
-    &quot;MIL-59_1984&quot;,
-    &quot;Q4-12_1984&quot;,
-    &quot;MIL-100_1984&quot;,
-    &quot;Q4-12A_1984&quot;,
-    &quot;MIL-48_1984&quot;,
-    &quot;ALCH-17_1984&quot;,
-    &quot;Q12-4_1984&quot;,
-    &quot;Q12-5_1984&quot;,
-    &quot;ALCH-11_1984&quot;,
-    &quot;ALCH-18E_1984&quot;,
-    &quot;ALCH-18F_1984&quot;,
-    &quot;ALCH-18G_1984&quot;,
-    &quot;ALCH-18H_1984&quot;)
+    &quot;NEW_ENLIST_NOTSERVING_82&quot;,#G2_CONFUSION_MIL-100
+    &quot;ENLISTED_NOTSERVING_82&quot;,#G2_CONFUSION_Q4-12A
+    &quot;CURRENT_AD_YN_82&quot;, #G1_CONFUSION_MIL-48
+    &quot;AGE_START_DRINK_82&quot;,
+    &quot;ALC_FREQ6DRINKS_82&quot;,
+    &quot;ALC_IMPACT_JOB_82&quot;,
+    &quot;AD_LAST_INT_SAME_BRANCH_83&quot;,
+    &quot;AD_LAST_INT_NOTSAME_BRANCH_83&quot;,
+    &quot;NEW_ENLIST_AD_83&quot;,
+    &quot;CURRENT_AD_YN_83&quot;,#G1_CONFUSION_Q4-15
+    &quot;AD_LAST_INT_SAME_BRANCH_83&quot;,
+    &quot;CURRENT_AD_YN_83_Q2&quot;,#G1_CONFUSION_MIL-59
+    &quot;TIME_SERVED_YN_83&quot;,
+    &quot;NEW_ENLIST_NOTSERVING_83&quot;,#G2_CONFUSION_MIL-100
+    &quot;ENLISTED_NOTSERVING_83&quot;,#G2_CONFUSION_Q4-12A,
+    &quot;CURRENT_AD_YN_83&quot;, #G1_CONFUSION_MIL-48,
+    &quot;AGE_START_DRINK_83&quot;,
+    &quot;ALC_FREQ6DRINK_83&quot;,
+    &quot;NUM_DAY_DRANK_LAST_MONTH_83&quot;,
+    &quot;ALC_IMPACT_JOB_83&quot;,
+    &quot;AD_LAST_INT_SAME_BRANCH_84&quot;,
+    &quot;AD_LAST_INT_NOTSAME_BRANCH_84&quot;,
+    &quot;NEW_ENLIST_AD_84&quot;,
+    &quot;CURRENT_AD_YN_84&quot;,#G1_CONFUSION_Q4-15&quot;,
+    &quot;CURRENT_AD_YN_84_Q2&quot;,#G1_CONFUSION_MIL-59
+    &quot;TIME_SERVED_YN_84&quot;,
+    &quot;NEW_ENLIST_NOTSERVING_83&quot;,#G2_CONFUSION_MIL-100
+    &quot;ENLISTED_NOTSERVING_84&quot;,#G2_CONFUSION_Q4-12A,
+    &quot;CURRENT_AD_YN_84&quot;, #G1_CONFUSION_MIL-48,
+    &quot;ALC_IMPACT_JOB_NOALC_LAST30_84&quot;,
+    &quot;ALC_FREQ6DRINK_84&quot;,
+    &quot;NUM_DAY_DRANK_LAST_MONTH_84&quot;,
+    &quot;ALC_IMPACT_JOB_YESALC_LAST30_84&quot;,
+    &quot;AFRAID_ALCOHOLIC_84&quot;,
+    &quot;DRINK_UNTIL_DRUNK_84&quot;,
+    &quot;FORGETS_NEXT_DAY_84&quot;,
+    &quot;DRINK_FIRST_MORNING_84&quot;)
   return(data)
-}
-
-
-#********************************************************************************************************
+}</code></pre>
+<pre class="r"><code>#********************************************************************************************************
 
 # Remove the &#39;#&#39; before the following line to create a data file called &quot;categories&quot; with value labels. 
 #categories &lt;- vallabels(new_data)
@@ -897,69 +890,117 @@ summary(df_data)</code></pre>
 ##                                                              
 ##                                                              
 ##                                                              
-##  CURRENT_AD_YN_82_Q2 TIME_SERVED_YN_82 MIL-100_1982 Q4-12A_1982  MIL-48_1982 
-##  NO  :  184          NO  :   51        NO  :    2   NO  :    2   NO  :  403  
-##  YES :  825          YES :   10        YES :    9   YES :    9   YES :  825  
-##  NA&#39;s:11677          NA&#39;s:12625        NA&#39;s:12675   NA&#39;s:12675   NA&#39;s:11458  
-##                                                                              
-##                                                                              
-##                                                                              
-##                                                                              
-##   ALCH-2_1982              Q12-4_1982   ALCH-11_1982 Q4-4A_1983   MIL-15_1983 
-##  Min.   : 0     NEVER           :3147   NO  :10805   NO  :  145   NO  :   37  
-##  1st Qu.:15     2 OR 3 TIMES    :1613   YES :  266   YES :  665   YES :  184  
-##  Median :16     ONCE            :1297   NA&#39;s: 1615   NA&#39;s:11876   NA&#39;s:12465  
-##  Mean   :15     4 OR 5 TIMES    : 761                                         
-##  3rd Qu.:18     10 OR MORE TIMES: 508                                         
-##  Max.   :25     (Other)         : 559                                         
-##  NA&#39;s   :1575   NA&#39;s            :4801                                         
-##  Q4-11_1983   Q4-15_1983   MIL-13_1983  MIL-59_1983  Q4-12_1983   MIL-100_1983
-##  NO  :   83   NO  :  228   NO  :  298   NO  :  228   NO  :    8   NO  :    2  
-##  YES :  115   YES :  780   YES :  695   YES :  780   YES :   19   YES :   17  
-##  NA&#39;s:12488   NA&#39;s:11678   NA&#39;s:11693   NA&#39;s:11678   NA&#39;s:12659   NA&#39;s:12667  
-##                                                                               
-##                                                                               
-##                                                                               
-##                                                                               
-##  Q4-12A_1983  MIL-48_1983   ALCH-2_1983              Q12-4_1983  
-##  NO  :    2   NO  :  430   Min.   : 0     NEVER           :3391  
-##  YES :   17   YES :  780   1st Qu.:15     2 OR 3 TIMES    :1550  
-##  NA&#39;s:12667   NA&#39;s:11476   Median :17     ONCE            :1315  
-##                            Mean   :14     4 OR 5 TIMES    : 793  
-##                            3rd Qu.:18     10 OR MORE TIMES: 427  
-##                            Max.   :25     (Other)         : 579  
-##                            NA&#39;s   :1279   NA&#39;s            :4631  
-##    Q12-5_1983   ALCH-11_1983 Q4-4A_1984   MIL-15_1984  Q4-11_1984  
-##  Min.   : 1     NO  :10919   NO  :  177   NO  :   49   NO  :   61  
-##  1st Qu.: 2     YES :  424   YES :  625   YES :  149   YES :   82  
-##  Median : 5     NA&#39;s: 1343   NA&#39;s:11884   NA&#39;s:12488   NA&#39;s:12543  
-##  Mean   : 7                                                        
-##  3rd Qu.:10                                                        
-##  Max.   :30                                                        
-##  NA&#39;s   :4629                                                      
-##  Q4-15_1984   MIL-59_1984  Q4-12_1984   MIL-100_1984 Q4-12A_1984  MIL-48_1984 
-##  NO  :  236   NO  :  236   NO  :    9   NO  :    3   NO  :    3   NO  :  418  
-##  YES :  707   YES :  707   YES :   12   YES :    9   YES :    9   YES :  707  
-##  NA&#39;s:11743   NA&#39;s:11743   NA&#39;s:12665   NA&#39;s:12674   NA&#39;s:12674   NA&#39;s:11561  
-##                                                                               
-##                                                                               
-##                                                                               
-##                                                                               
-##  ALCH-17_1984            Q12-4_1984     Q12-5_1984   ALCH-11_1984 ALCH-18E_1984
-##  NO  :3056    NEVER           :3668   Min.   : 0     NO  :7923    NO  :7752    
-##  YES :  74    2 OR 3 TIMES    :1599   1st Qu.: 2     YES : 313    YES : 536    
-##  NA&#39;s:9556    ONCE            :1256   Median : 5     NA&#39;s:4450    NA&#39;s:4398    
-##               4 OR 5 TIMES    : 794   Mean   : 8                               
-##               10 OR MORE TIMES: 452   3rd Qu.:10                               
-##               (Other)         : 528   Max.   :30                               
-##               NA&#39;s            :4389   NA&#39;s   :4390                             
-##  ALCH-18F_1984 ALCH-18G_1984 ALCH-18H_1984
-##  NO  :7816     NO  :7036     NO  :8075    
-##  YES : 471     YES :1255     YES : 215    
-##  NA&#39;s:4399     NA&#39;s:4395     NA&#39;s:4396    
-##                                           
-##                                           
-##                                           
+##  CURRENT_AD_YN_82_Q2 TIME_SERVED_YN_82 NEW_ENLIST_NOTSERVING_82
+##  NO  :  184          NO  :   51        NO  :    2              
+##  YES :  825          YES :   10        YES :    9              
+##  NA&#39;s:11677          NA&#39;s:12625        NA&#39;s:12675              
+##                                                                
+##                                                                
+##                                                                
+##                                                                
+##  ENLISTED_NOTSERVING_82 CURRENT_AD_YN_82 AGE_START_DRINK_82
+##  NO  :    2             NO  :  403       Min.   : 0        
+##  YES :    9             YES :  825       1st Qu.:15        
+##  NA&#39;s:12675             NA&#39;s:11458       Median :16        
+##                                          Mean   :15        
+##                                          3rd Qu.:18        
+##                                          Max.   :25        
+##                                          NA&#39;s   :1575      
+##         ALC_FREQ6DRINKS_82 ALC_IMPACT_JOB_82 AD_LAST_INT_SAME_BRANCH_83
+##  NEVER           :3147     NO  :10805        NO  :  145                
+##  2 OR 3 TIMES    :1613     YES :  266        YES :  665                
+##  ONCE            :1297     NA&#39;s: 1615        NA&#39;s:11876                
+##  4 OR 5 TIMES    : 761                                                 
+##  10 OR MORE TIMES: 508                                                 
+##  (Other)         : 559                                                 
+##  NA&#39;s            :4801                                                 
+##  AD_LAST_INT_NOTSAME_BRANCH_83 NEW_ENLIST_AD_83 CURRENT_AD_YN_83
+##  NO  :   37                    NO  :   83       NO  :  228      
+##  YES :  184                    YES :  115       YES :  780      
+##  NA&#39;s:12465                    NA&#39;s:12488       NA&#39;s:11678      
+##                                                                 
+##                                                                 
+##                                                                 
+##                                                                 
+##  AD_LAST_INT_SAME_BRANCH_83 CURRENT_AD_YN_83_Q2 TIME_SERVED_YN_83
+##  NO  :  298                 NO  :  228          NO  :    8       
+##  YES :  695                 YES :  780          YES :   19       
+##  NA&#39;s:11693                 NA&#39;s:11678          NA&#39;s:12659       
+##                                                                  
+##                                                                  
+##                                                                  
+##                                                                  
+##  NEW_ENLIST_NOTSERVING_83 ENLISTED_NOTSERVING_83 CURRENT_AD_YN_83
+##  NO  :    2               NO  :    2             NO  :  430      
+##  YES :   17               YES :   17             YES :  780      
+##  NA&#39;s:12667               NA&#39;s:12667             NA&#39;s:11476      
+##                                                                  
+##                                                                  
+##                                                                  
+##                                                                  
+##  AGE_START_DRINK_83        ALC_FREQ6DRINK_83 NUM_DAY_DRANK_LAST_MONTH_83
+##  Min.   : 0         NEVER           :3391    Min.   : 1                 
+##  1st Qu.:15         2 OR 3 TIMES    :1550    1st Qu.: 2                 
+##  Median :17         ONCE            :1315    Median : 5                 
+##  Mean   :14         4 OR 5 TIMES    : 793    Mean   : 7                 
+##  3rd Qu.:18         10 OR MORE TIMES: 427    3rd Qu.:10                 
+##  Max.   :25         (Other)         : 579    Max.   :30                 
+##  NA&#39;s   :1279       NA&#39;s            :4631    NA&#39;s   :4629               
+##  ALC_IMPACT_JOB_83 AD_LAST_INT_SAME_BRANCH_84 AD_LAST_INT_NOTSAME_BRANCH_84
+##  NO  :10919        NO  :  177                 NO  :   49                   
+##  YES :  424        YES :  625                 YES :  149                   
+##  NA&#39;s: 1343        NA&#39;s:11884                 NA&#39;s:12488                   
+##                                                                            
+##                                                                            
+##                                                                            
+##                                                                            
+##  NEW_ENLIST_AD_84 CURRENT_AD_YN_84 CURRENT_AD_YN_84_Q2 TIME_SERVED_YN_84
+##  NO  :   61       NO  :  236       NO  :  236          NO  :    9       
+##  YES :   82       YES :  707       YES :  707          YES :   12       
+##  NA&#39;s:12543       NA&#39;s:11743       NA&#39;s:11743          NA&#39;s:12665       
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##  NEW_ENLIST_NOTSERVING_83 ENLISTED_NOTSERVING_84 CURRENT_AD_YN_84
+##  NO  :    3               NO  :    3             NO  :  418      
+##  YES :    9               YES :    9             YES :  707      
+##  NA&#39;s:12674               NA&#39;s:12674             NA&#39;s:11561      
+##                                                                  
+##                                                                  
+##                                                                  
+##                                                                  
+##  ALC_IMPACT_JOB_NOALC_LAST30_84        ALC_FREQ6DRINK_84
+##  NO  :3056                      NEVER           :3668   
+##  YES :  74                      2 OR 3 TIMES    :1599   
+##  NA&#39;s:9556                      ONCE            :1256   
+##                                 4 OR 5 TIMES    : 794   
+##                                 10 OR MORE TIMES: 452   
+##                                 (Other)         : 528   
+##                                 NA&#39;s            :4389   
+##  NUM_DAY_DRANK_LAST_MONTH_84 ALC_IMPACT_JOB_YESALC_LAST30_84
+##  Min.   : 0                  NO  :7923                      
+##  1st Qu.: 2                  YES : 313                      
+##  Median : 5                  NA&#39;s:4450                      
+##  Mean   : 8                                                 
+##  3rd Qu.:10                                                 
+##  Max.   :30                                                 
+##  NA&#39;s   :4390                                               
+##  AFRAID_ALCOHOLIC_84 DRINK_UNTIL_DRUNK_84 FORGETS_NEXT_DAY_84
+##  NO  :7752           NO  :7816            NO  :7036          
+##  YES : 536           YES : 471            YES :1255          
+##  NA&#39;s:4398           NA&#39;s:4399            NA&#39;s:4395          
+##                                                              
+##                                                              
+##                                                              
+##                                                              
+##  DRINK_FIRST_MORNING_84
+##  NO  :8075             
+##  YES : 215             
+##  NA&#39;s:4396             
+##                        
+##                        
+##                        
 ## </code></pre>
 <pre class="r"><code># Remove the &#39;#&#39; before the following lines to produce summaries for the &quot;categories&quot; data file.
 #categories &lt;- vallabels(new_data)
