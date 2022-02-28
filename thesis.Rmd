@@ -10,6 +10,9 @@ output: html_document
 options(digits = 3)
 ```
 
+```{r packages}
+library(dplyr)
+```
 
 ```{r new_data} 
 # Set working directory
@@ -744,4 +747,9 @@ summary(df_data)
 #summary(categories)
 
 #************************************************************************************************************
+```
+
+```{r military_dropped_filter}
+df_rni_military_dropped <- df_data_rni %>% 
+  filter(RNI_2018 == "68: 68  MILITARY SAMPLE DROPPED")
 ```

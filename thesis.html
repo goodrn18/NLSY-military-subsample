@@ -11,7 +11,7 @@
 
 <meta name="author" content="Rachel Good" />
 
-<meta name="date" content="2022-02-22" />
+<meta name="date" content="2022-02-28" />
 
 <title>Thesis</title>
 
@@ -167,11 +167,20 @@ pre code {
 
 <h1 class="title toc-ignore">Thesis</h1>
 <h4 class="author">Rachel Good</h4>
-<h4 class="date">2022-02-22</h4>
+<h4 class="date">2022-02-28</h4>
 
 </div>
 
 
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
 <pre class="r"><code># Set working directory
 # setwd()
 
@@ -1301,6 +1310,8 @@ summary(df_data)</code></pre>
 #summary(categories)
 
 #************************************************************************************************************</code></pre>
+<pre class="r"><code>df_rni_military_dropped &lt;- df_data_rni %&gt;% 
+  filter(RNI_2018 == &quot;68: 68  MILITARY SAMPLE DROPPED&quot;)</code></pre>
 
 
 
