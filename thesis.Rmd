@@ -758,8 +758,28 @@ df_data$RNI_2018 <-df_data_rni$RNI_2018
 
 ```{r military_dropped_filter}
 df_rni_groupings <- df_data %>% 
-  mutate(mil_groups = case_when(RNI_2018 == "68: 68  MILITARY SAMPLE DROPPED" ~ 1))
-#case_when(RNI_2018 == "68: 68  MILITARY SAMPLE DROPPED" ~ 1,
+  mutate(mil_groups = case_when(RNI_2018 == "68: 68  MILITARY SAMPLE DROPPED" ~ 1,
+                                SAMPLE_ID_79 == "MIL MALE WHITE" ~ 2,
+                                SAMPLE_ID_79 == "MIL MALE BLACK" ~ 2,
+                                SAMPLE_ID_79 == "MIL MALE HISPANIC" ~ 2,
+                                SAMPLE_ID_79 == "MIL FEMALE WHITE"~ 2,
+                                SAMPLE_ID_79 == "MIL FEMALE BLACK"~ 2,
+                                SAMPLE_ID_79 == "MIL FEMALE HISPANIC"~ 2,
+                                SAMPLE_ID_79 == "CROSS MALE WHITE" ~ 0,
+                                SAMPLE_ID_79 == "CROSS MALE WH POOR" ~ 0,
+                                SAMPLE_ID_79 == "CROSS MALE BLACK" ~ 0,
+                                SAMPLE_ID_79 == "CROSS MALE HISPANIC" ~ 0,
+                                SAMPLE_ID_79 == "CROSS FEMALE WHITE" ~ 0,
+                                SAMPLE_ID_79 == "CROSS FEMALE WH POOR" ~ 0,
+                                SAMPLE_ID_79 == "CROSS FEMALE BLACK" ~ 0,
+                                SAMPLE_ID_79 == "CROSS FEMALE HISPANIC" ~ 0,
+                                SAMPLE_ID_79 == "SUP MALE WH POOR" ~ 0,
+                                SAMPLE_ID_79 == "SUP MALE BLACK" ~ 0,
+                                SAMPLE_ID_79 == "SUP MALE HISPANIC" ~ 0,
+                                SAMPLE_ID_79 == "SUP FEMALE WH POOR" ~ 0,
+                                SAMPLE_ID_79 == "SUP FEMALE BLACK" ~ 0,
+                                SAMPLE_ID_79 == "SUP FEMALE HISPANIC" ~ 0))
+
 #sample_ID_79 == "condition" ~ 0,
 
 ```
@@ -768,13 +788,13 @@ df_rni_groupings <- df_data %>%
 
 ```{r not_mil_var}
  SAMPLE_ID_79 %>% 
-  mutate(not_mil = "CROSS MALE WHITE" + "CROSS MALE WH POOR" + "CROSS MALE BLACK" + "CROSS MALE HISPANIC" + "CROSS FEMALE WHITE" + "CROSS FEMALE WH POOR" + "CROSS FEMALE BLACK" + "CROSS FEMALE HISPANIC" + "SUP MALE WH POOR" + "SUP MALE BLACK" + "SUP MALE HISPANIC" + "SUP FEMALE WH POOR" + "SUP FEMALE BLACK" + "SUP FEMALE HISPANIC")
+  mutate(not_mil = "CROSS MALE WHITE", "CROSS MALE WH POOR", "CROSS MALE BLACK", "CROSS MALE HISPANIC", "CROSS FEMALE WHITE", "CROSS FEMALE WH POOR", "CROSS FEMALE BLACK", "CROSS FEMALE HISPANIC", "SUP MALE WH POOR", "SUP MALE BLACK", "SUP MALE HISPANIC", "SUP FEMALE WH POOR", "SUP FEMALE BLACK", "SUP FEMALE HISPANIC")
 ```
 
 ```{r mil_stay_var}
 #need to add df_data somewhere?
 SAMPLE_ID_79 %>% 
-  mutate(mil_stay = "MIL MALE WHITE" + "MIL MALE BLACK" + "MIL MALE HISPANIC" + "MIL FEMALE WHITE" + "MIL FEMALE BLACK" + "MIL FEMALE HISPANIC")
+  mutate(mil_stay = "MIL MALE WHITE", "MIL MALE BLACK", "MIL MALE HISPANIC", "MIL FEMALE WHITE", "MIL FEMALE BLACK", "MIL FEMALE HISPANIC")
 ```
 
 ```{r mil_drop_var}
