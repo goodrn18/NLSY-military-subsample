@@ -1,0 +1,604 @@
+---
+title: "Analyses"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,error=TRUE)
+```
+
+# Imports
+
+```{r}
+library(tidyverse)
+library(devtools) 
+library(remotes)
+remotes::install_github(repo="nlsy-links/NlsyLinks")
+remotes::install_github(repo="smasongarrison/discord")
+
+library(discord)
+library(NlsyLinks)
+library(dplyr)
+library(ggplot2)
+```
+# functions
+```{r}
+
+discord_data<- function(
+  outcome,
+  predictors=NULL,
+  doubleentered=F,
+  sep="",
+  scale=T,
+  df=NULL,
+  id=NULL,
+  full=T,
+  ...){
+  arguments <- as.list(match.call())
+  y <- ysort <- NULL
+
+  IVlist <- list()
+  outcome1=subset(df, select=paste0(arguments$outcome,sep,"1"))[,1]
+  outcome2=subset(df, select=paste0(arguments$outcome,sep,"2"))[,1]
+
+  #create id if not supplied
+  if(is.null(id))
+  {
+    id<-rep(1:length(outcome1[,1]))}
+  #If no predictors selected, grab all variables not listed as outcome, and contain sep 1 or sep 2
+  if(is.null(predictors)){
+    predictors<-setdiff(unique(gsub(paste0(sep,"1|",sep,"2"),"",grep(paste0(sep,"1|",sep,"2"),names(df),value = TRUE))),paste0(arguments$outcome))
+    #unpaired.predictors=setdiff(grep(paste0(sep,"1|",sep,"2"),names(df),value = TRUE,invert=TRUE),paste0(arguments$id))
+  }
+
+
+  if(!doubleentered){
+    outcome2x<-outcome2
+    outcome2<-c(outcome2[,1],outcome1[,1])
+    outcome1<-c(outcome1[,1],outcome2x[,1])
+
+    if(scale&is.numeric(outcome1)){
+      outcome1<-scale(outcome1)
+    outcome2<-scale(outcome2)
+    }
+    DV<-data.frame(outcome1,outcome2)
+    DV$outcome_diff<- DV$outcome1-DV$outcome2
+    DV$outcome_mean<-(DV$outcome1+DV$outcome2)/2
+
+    remove(outcome1);remove(outcome2x);remove(outcome2)
+
+    for(i in 1:length(predictors)){
+
+      predictor1x= predictor1=subset(df, select=paste0(predictors[i],sep,"1"))[,1]
+      predictor2=subset(df, select=paste0(predictors[i],sep,"2"))[,1]
+      predictor1<-c(predictor1[,1],predictor2[,1])
+      predictor2<-c(predictor2[,1],predictor1x[,1])
+      if(scale&is.numeric(predictor1)){
+        predictor1<-scale(predictor1)
+        predictor2<-scale(predictor2)
+      }
+      remove(predictor1x)
+      IVi<-data.frame(predictor1,predictor2)
+      IVi$predictor_diff<-IVi$predictor1-IVi$predictor2
+      IVi$predictor_mean<-(IVi$predictor1+IVi$predictor2)/2
+      names(IVi)<-c(paste0(predictors[i],"_1"),paste0(predictors[i],"_2"),paste0(predictors[i],"_diff"),paste0(predictors[i],"_mean"))
+      IVlist[[i]] <- IVi
+
+      names(IVlist)[i]<-paste0("")
+    }
+  }else{
+
+    if(scale&is.numeric(outcome1))
+
+    {outcome1<-scale(outcome1)
+    outcome2<-scale(outcome2)
+    }
+    DV<-data.frame(outcome1,outcome2)
+
+    DV$outcome_diff<-DV$outcome1-DV$outcome2
+    DV$outcome_mean<-(DV$outcome1+DV$outcome2)/2
+
+    remove(outcome1);remove(outcome2)
+    for(i in 1:length(predictors)){
+      predictor1=subset(df, select=paste0(predictors[i],sep,"1"))[,1]
+      predictor2=subset(df, select=paste0(predictors[i],sep,"2"))[,1]
+      if(scale&is.numeric(predictor1))
+      {predictor1<-scale(predictor1)
+      predictor2<-scale(predictor2)
+      }
+      IVi<-data.frame(predictor1,predictor2)
+      IVi$predictor_diff<-IVi$predictor1-IVi$predictor2
+      IVi$predictor_mean<-(IVi$predictor1+IVi$predictor2)/2
+      names(IVi)<-c(paste0(predictors[i],"_1"),paste0(predictors[i],"_2"),paste0(predictors[i],"_diff"),paste0(predictors[i],"_mean"))
+      IVlist[[i]] <- IVi
+      names(IVlist)[i]<-paste0("")
+    }
+  }
+
+
+  DV$id<-id
+  DV$ysort<-0
+  DV$ysort[DV$outcome_diff>0&!is.na(DV$outcome_diff)]<-1
+
+  # randomly select for sorting on identical outcomes
+
+  if(length(unique(DV$id[DV$outcome_diff==0]))>0){
+    select<-sample(c(0,1), replace=TRUE, size=length(unique(DV$id[DV$outcome_diff==0&!is.na(DV$outcome_diff)])))
+    DV$ysort[DV$outcome_diff==0&!is.na(DV$outcome_diff)]<-c(select,abs(select-1))
+
+  }
+  DV$id<-NULL
+  names(DV)<-c(paste0(arguments$outcome,"_1"),paste0(arguments$outcome,"_2"),paste0(arguments$outcome,"_diff"),paste0(arguments$outcome,"_mean"),"ysort")
+
+  merged.data.frame =data.frame(id,DV,IVlist)
+
+  id<-ysort<-NULL #appeases R CMD check
+
+  merged.data.frame<-subset(merged.data.frame,ysort==1)
+  merged.data.frame$ysort<-NULL
+  merged.data.frame <- merged.data.frame[order(merged.data.frame$id),]
+  if(!full)
+  {varskeep<-c("id",paste0(arguments$outcome,"_diff"),paste0(arguments$outcome,"_mean"),paste0(predictors,"_diff"),paste0(predictors,"_mean"))
+
+  merged.data.frame<-merged.data.frame[varskeep]
+  }
+
+  return(merged.data.frame)
+}
+
+
+discord_regression<- function(discord_data=T,
+                              outcome,
+                              predictors=NULL,
+                              doubleentered=F,
+                              sep="",
+                              scale=T,
+                              df=NULL,
+                              id=NULL,
+                              additional_formula=NULL,
+                              ...
+){
+  
+  if(!discord_data){
+   df<- discord_data(outcome=outcome,doubleentered=doubleentered,
+                 sep=sep,
+                 scale=scale,
+                 df=df,
+                 id=id,
+                 full=FALSE)
+  }
+  arguments <- as.list(match.call())
+  if(is.null(predictors)){
+    predictors<-setdiff(unique(gsub("_1|_2|_diff|_mean|id","",names(df))),paste0(arguments$outcome))
+  }
+  if(is.null(additional_formula)){
+    additional_formula=""
+  }
+  regression<-lm(as.formula(paste0(paste0(arguments$outcome,"_diff"," ~ "),paste0(predictors,'_diff+',collapse=""),paste0(predictors,'_mean+',collapse=""),arguments$outcome,"_mean",paste0(additional_formula))),data=df)
+  print(summary(regression))
+  return(regression)
+
+}
+
+```
+
+# Data
+
+```{r}
+
+new_data <- read.table('data/good.dat', sep=' ')
+names(new_data) <- c('R0000100',
+  'R0000500',
+  'R0173600',
+  'R0214700',
+  'R0214800',
+  'R1021800',
+  'R1022000',
+  'R1022100',
+  'R3896810',
+  'T3044200',
+  'T3044300',
+  'T5616100',
+  'T5616200')
+
+
+# Handle missing values
+
+  new_data[new_data == -1] = NA  # Refused 
+  new_data[new_data == -2] = NA  # Dont know 
+  new_data[new_data == -3] = NA  # Invalid missing 
+  new_data[new_data == -4] = NA  # Valid missing 
+  new_data[new_data == -5] = NA  # Non-interview 
+
+
+# If there are values not categorized they will be represented as NA
+
+vallabels = function(data) {
+
+  data$R0173600 <- factor(data$R0173600, 
+    levels=c(1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0), 
+    labels=c("CROSS MALE WHITE",
+      "CROSS MALE WH. POOR",
+      "CROSS MALE BLACK",
+      "CROSS MALE HISPANIC",
+      "CROSS FEMALE WHITE",
+      "CROSS FEMALE WH POOR",
+      "CROSS FEMALE BLACK",
+      "CROSS FEMALE HISPANIC",
+      "SUP MALE WH POOR",
+      "SUP MALE BLACK",
+      "SUP MALE HISPANIC",
+      "SUP FEM WH POOR",
+      "SUP FEMALE BLACK",
+      "SUP FEMALE HISPANIC",
+      "MIL MALE WHITE",
+      "MIL MALE BLACK",
+      "MIL MALE HISPANIC",
+      "MIL FEMALE WHITE",
+      "MIL FEMALE BLACK",
+      "MIL FEMALE HISPANIC"))
+  data$R0214700 <- factor(data$R0214700, 
+    levels=c(1.0,2.0,3.0), 
+    labels=c("HISPANIC",
+      "BLACK",
+      "NON-BLACK, NON-HISPANIC"))
+  data$R0214800 <- factor(data$R0214800, 
+    levels=c(1.0,2.0), 
+    labels=c("MALE",
+      "FEMALE"))
+  data$R1021800[0.0 <= data$R1021800 & data$R1021800 <= 9.0] <- 0.0
+  data$R1021800[26.0 <= data$R1021800 & data$R1021800 <= 99999.0] <- 26.0
+  data$R1021800 <- factor(data$R1021800, 
+    levels=c(0.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0,21.0,22.0,23.0,24.0,25.0,26.0), 
+    labels=c("0 TO 9: < 10",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26 TO 99999: 26+"))
+  data$R1022000 <- factor(data$R1022000, 
+    levels=c(0.0,1.0,2.0,3.0,4.0,5.0,6.0), 
+    labels=c("NEVER",
+      "ONCE",
+      "2 OR 3 TIMES",
+      "4 OR 5 TIMES",
+      "6 OR 7 TIMES",
+      "8 OR 9 TIMES",
+      "10 OR MORE TIMES"))
+  data$R1022100[16.0 <= data$R1022100 & data$R1022100 <= 99999.0] <- 16.0
+  data$R1022100 <- factor(data$R1022100, 
+    levels=c(0.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0), 
+    labels=c("0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16 TO 99999: 16+"))
+  data$R3896810[1.0 <= data$R3896810 & data$R3896810 <= 9.0] <- 1.0
+  data$R3896810[10.0 <= data$R3896810 & data$R3896810 <= 19.0] <- 10.0
+  data$R3896810[20.0 <= data$R3896810 & data$R3896810 <= 29.0] <- 20.0
+  data$R3896810[30.0 <= data$R3896810 & data$R3896810 <= 39.0] <- 30.0
+  data$R3896810[40.0 <= data$R3896810 & data$R3896810 <= 49.0] <- 40.0
+  data$R3896810[50.0 <= data$R3896810 & data$R3896810 <= 59.0] <- 50.0
+  data$R3896810[60.0 <= data$R3896810 & data$R3896810 <= 69.0] <- 60.0
+  data$R3896810 <- factor(data$R3896810, 
+    levels=c(0.0,1.0,10.0,20.0,30.0,40.0,50.0,60.0), 
+    labels=c("0",
+      "1 TO 9",
+      "10 TO 19",
+      "20 TO 29",
+      "30 TO 39",
+      "40 TO 49",
+      "50 TO 59",
+      "60 TO 69"))
+  data$T3044200[10.0 <= data$T3044200 & data$T3044200 <= 999.0] <- 10.0
+  data$T3044200 <- factor(data$T3044200, 
+    levels=c(0.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0), 
+    labels=c("0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10 TO 999: 10+"))
+  data$T3044300 <- factor(data$T3044300, 
+    levels=c(0.0,1.0,2.0,3.0,4.0,5.0), 
+    labels=c("Never in the last 30 days",
+      "Less often than once a week",
+      "1 or 2 times per week",
+      "3 or 4 times per week",
+      "5 or 6 times per week",
+      "Everyday"))
+  # data$T5616100 <- factor(data$T5616100, 
+  #   levels=c(0.0,1.0), 
+  #   labels=c("No",
+  #     "Yes"))
+  # data$T5616200 <- factor(data$T5616200, 
+  #   levels=c(0.0,1.0), 
+  #   labels=c("No",
+  #     "Yes"))
+  return(data)
+}
+
+varlabels <- c("ID# (1-12686) 79",
+  "DATE OF BIRTH - YR 79",
+  "SAMPLE ID  79 INT",
+  "RACL/ETHNIC COHORT /SCRNR 79",
+  "SEX OF R 79",
+  "ALCHL-AGE START DRNK 1 TIME WK 83",
+  "ALCHL-FREQ 6/> DRNK @ 1 TM LAST MO 83",
+  "ALCHL-#DAYS DRANK ALCOHOL LAST MO 83",
+  "20-ITEM CES-D SCORE 92",
+  "# OF DRINKS R HAS ON AVERAGE DAY 2010",
+  "FREQ OF 6 OR MORE DRINKS AT ONCE IN LAST 30 DAYS 2010",
+  "LIVE W ONE DEPRESSED MENTALLY ILL SUICIDAL <18 2016",
+  "LIVE W PROBLEM DRINKER OR ALCHOLIC <18 2016"
+)
+
+
+# Use qnames rather than rnums
+
+qnames = function(data) {
+  names(data) <- c("MCASEID",
+    "YoB",
+    "SAMPLEID",
+    "RACE",
+    "SEX",
+    "DRINKSTART_1983",
+    "DRINKFREQ6_1983",
+    "DRINKFREQ_1983",
+    "CESD_1992",
+    "DRINKAVERAGE_2010",
+    "DRINKFREQ6_2010",
+    "HOMEDEP_2016",
+    "HOMEDRINKER_2016")
+  return(data)
+}
+
+
+#********************************************************************************************************
+
+# sneakiness to work with factors
+
+df_data_good <- qnames(new_data)
+
+df_data_goodx <- qnames(vallabels(new_data))
+
+df_data_good[c("MCASEID","YoB","SAMPLEID","RACE","SEX") ]<-df_data_goodx[c("MCASEID","YoB","SAMPLEID","RACE","SEX") ]
+
+rm(df_data_goodx)
+
+# live with
+
+
+new_data <- read.table('data/livewith.dat', sep=' ')
+names(new_data) <- c('R0000100',
+  'R0173600',
+  'R0214700',
+  'R0214800',
+  'T3974100',
+  'T3974200',
+  'T4912400',
+  'T4912500',
+  'T5616100',
+  'T5616200')
+
+
+# Handle missing values
+
+  new_data[new_data == -1] = NA  # Refused 
+  new_data[new_data == -2] = NA  # Dont know 
+  new_data[new_data == -3] = NA  # Invalid missing 
+  new_data[new_data == -4] = NA  # Valid missing 
+  new_data[new_data == -5] = NA  # Non-interview 
+
+
+# If there are values not categorized they will be represented as NA
+
+vallabels = function(data) {
+  data$R0173600 <- factor(data$R0173600, 
+    levels=c(1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0), 
+    labels=c("CROSS MALE WHITE",
+      "CROSS MALE WH. POOR",
+      "CROSS MALE BLACK",
+      "CROSS MALE HISPANIC",
+      "CROSS FEMALE WHITE",
+      "CROSS FEMALE WH POOR",
+      "CROSS FEMALE BLACK",
+      "CROSS FEMALE HISPANIC",
+      "SUP MALE WH POOR",
+      "SUP MALE BLACK",
+      "SUP MALE HISPANIC",
+      "SUP FEM WH POOR",
+      "SUP FEMALE BLACK",
+      "SUP FEMALE HISPANIC",
+      "MIL MALE WHITE",
+      "MIL MALE BLACK",
+      "MIL MALE HISPANIC",
+      "MIL FEMALE WHITE",
+      "MIL FEMALE BLACK",
+      "MIL FEMALE HISPANIC"))
+  data$R0214700 <- factor(data$R0214700, 
+    levels=c(1.0,2.0,3.0), 
+    labels=c("HISPANIC",
+      "BLACK",
+      "NON-BLACK, NON-HISPANIC"))
+  data$R0214800 <- factor(data$R0214800, 
+    levels=c(1.0,2.0), 
+    labels=c("MALE",
+      "FEMALE"))
+  # data$T3974100 <- factor(data$T3974100, 
+  #   levels=c(0.0,1.0), 
+  #   labels=c("No",
+  #     "Yes"))
+  # data$T3974200 <- factor(data$T3974200, 
+  #   levels=c(0.0,1.0), 
+  #   labels=c("No",
+  #     "Yes"))
+  # data$T4912400 <- factor(data$T4912400, 
+  #   levels=c(0.0,1.0), 
+  #   labels=c("No",
+  #     "Yes"))
+  # data$T4912500 <- factor(data$T4912500, 
+  #   levels=c(0.0,1.0), 
+  #   labels=c("No",
+  #     "Yes"))
+  # data$T5616100 <- factor(data$T5616100, 
+  #   levels=c(0.0,1.0), 
+  #   labels=c("No",
+  #     "Yes"))
+  # data$T5616200 <- factor(data$T5616200, 
+  #   levels=c(0.0,1.0), 
+  #   labels=c("No",
+  #     "Yes"))
+  return(data)
+}
+
+varlabels <- c("ID# (1-12686) 79",
+  "SAMPLE ID  79 INT",
+  "RACL/ETHNIC COHORT /SCRNR 79",
+  "SEX OF R 79",
+  "LIVE W ONE DEPRESSED MENTALLY ILL SUICIDAL <18 2012",
+  "LIVE W PROBLEM DRINKER OR ALCHOLIC <18 2012",
+  "LIVE W ONE DEPRESSED MENTALLY ILL SUICIDAL <18 2014",
+  "LIVE W PROBLEM DRINKER OR ALCHOLIC <18 2014",
+  "LIVE W ONE DEPRESSED MENTALLY ILL SUICIDAL <18 2016",
+  "LIVE W PROBLEM DRINKER OR ALCHOLIC <18 2016"
+)
+
+
+# Use qnames rather than rnums
+
+qnames = function(data) {
+  names(data) <- c("MCASEID",
+    "SAMPLEID",
+    "RAC",
+    "SEX",
+    "HOMEDEP_2012",
+    "HOMEDRINKER_2012",
+    "HOMEDEP_2014",
+    "HOMEDRINKER_2014",
+    "HOMEDEP_2016",
+    "HOMEDRINKER_2016")
+  return(data)
+}
+
+df_data_home <- qnames(vallabels(new_data))
+
+df_data_raw=merge(df_data_good,df_data_home)
+
+```
+
+
+# Summary / data cleaning
+```{r}
+summary(df_data_raw)
+
+
+#Creat Subject Tag
+df_full_gen1 = df_data_raw %>%
+  mutate(SubjectTag=MCASEID*100,
+        CASEID=MCASEID*100,
+        HOMEDRINKER=pmax(HOMEDRINKER_2016,HOMEDRINKER_2014,HOMEDRINKER_2012, na.rm = TRUE),
+       HOMEDEP=pmax(HOMEDEP_2016,HOMEDEP_2014,HOMEDEP_2012, na.rm = TRUE)
+         )
+
+
+#Change Reference Group for Race (to non-black-non-hispanic)
+df_full_gen1 $RACE = relevel(df_full_gen1$RACE, ref=3)
+
+```
+
+
+# Linking
+
+```{r}
+
+### create links double entered
+
+dsLinks <- Links79PairExpanded
+dsLinks$R <-dsLinks$RFull
+dsLinking <- dsLinks
+
+
+outcomeNames=c("RACE","SEX","DRINKSTART_1983",
+    "DRINKFREQ6_1983",
+    "DRINKFREQ_1983",
+    "CESD_1992",
+    "DRINKAVERAGE_2010",
+    "DRINKFREQ6_2010",
+    "HOMEDEP",
+    "HOMEDRINKER")
+
+dsDouble_G1 <- CreatePairLinksDoubleEntered(
+outcomeDataset = df_full_gen1,
+linksPairDataset = dsLinking[dsLinking$RelationshipPath=="Gen1Housemates"&dsLinking$RFull==.5,],
+outcomeNames=outcomeNames
+)
+
+# select first borns
+dsDouble_G1_first=dsDouble_G1[!duplicated(dsDouble_G1$ExtendedID),]
+
+
+
+data_DRINK=discord_data(outcome="DRINKFREQ6_2010",doubleentered=T,id=dsDouble_G1$ExtendedID,df=dsDouble_G1,sep="_S",scale=F)
+
+#caution double entered may mess up siblings; ie mason is not as clever as she thinks she is. from Mason to mason; you can have siblings in there more than once; like if you have 3 kids... think about it... 
+
+model_DRINK_reg=lm(DRINKFREQ6_2010_S1~CESD_1992_S1+as.factor(HOMEDRINKER_S1)+as.factor(HOMEDEP_S1)+RACE_S1+SEX_S1,data=dsDouble_G1)
+summary(model_DRINK_reg)
+
+model_DRINK_discord=discord_regression(
+  outcome="DRINKFREQ6_2010",
+  predictors = c("HOMEDRINKER","HOMEDEP","CESD_1992"),
+  df=data_DRINK,
+  additional_formula = "+ SEX_1+SEX_2+RACE_1")
+
+summary(model_DRINK_discord)
+
+
+
+
+
+
+
+
+# average drinker
+
+data_DRINK=discord_data(outcome="DRINKAVERAGE_2010",doubleentered=T,id=dsDouble_G1$ExtendedID,df=dsDouble_G1,sep="_S",scale=F)
+
+
+model_DRINK_reg=lm(DRINKAVERAGE_2010_S1~CESD_1992_S1+as.factor(HOMEDRINKER_S1)+as.factor(HOMEDEP_S1)+RACE_S1+SEX_S1,data=dsDouble_G1)
+summary(model_DRINK_reg)
+
+model_DRINK_discord=discord_regression(outcome="DRINKAVERAGE_2010",predictors = c("HOMEDRINKER","HOMEDEP","CESD_1992"),df=data_DRINK,additional_formula = "+ SEX_1+SEX_2+RACE_1")
+summary(model_DRINK_discord)
+
+```
