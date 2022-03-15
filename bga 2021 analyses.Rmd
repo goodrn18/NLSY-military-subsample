@@ -398,7 +398,7 @@ rm(df_data_goodx)
 # live with
 
 
-new_data <- read.table('data/livewith.dat', sep=' ')
+new_data <- read.table('data/bgadep/livewith.dat', sep=' ')
 names(new_data) <- c('R0000100',
   'R0173600',
   'R0214700',
