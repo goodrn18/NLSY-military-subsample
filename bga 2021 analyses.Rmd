@@ -186,7 +186,7 @@ discord_regression<- function(discord_data=T,
 
 ```{r}
 
-new_data <- read.table('data/good.dat', sep=' ')
+new_data <- read.table('data/bgadep/good.dat', sep=' ')
 names(new_data) <- c('R0000100',
   'R0000500',
   'R0173600',
