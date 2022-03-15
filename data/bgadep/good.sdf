@@ -1,0 +1,18 @@
+
+
+Reference
+Number     Year    Variable Description                                                                    Question Name       
+---------------------------------------------------------------------------------------------------------------------------------
+R00001.00  1979    IDENTIFICATION CODE                                                                     CASEID              
+R00005.00  1979    DATE OF BIRTH - YEAR                                                                    Q1-3_A~Y            
+R01736.00  1979    SAMPLE IDENTIFICATION CODE                                                              SAMPLE_ID           
+R02147.00  78SCRN  R'S RACIAL/ETHNIC COHORT FROM SCREENER                                                  SAMPLE_RACE         
+R02148.00  1979    SEX OF R                                                                                SAMPLE_SEX          
+R10218.00  1983    ALCOHOL USE - AGE WHEN 1ST STARTED DRINKING AT LEAST ONCE A WEEK                        ALCH-2A             
+R10220.00  1983    ALCOHOL USE - FREQUENCY OF 6 OR MORE DRINKS AT ONE TIME IN LAST MONTH                   Q12-4               
+R10221.00  1983    ALCOHOL USE - # OF DAYS DRANK ALCOHOL IN LAST MONTH                                     Q12-5               
+R38968.10  1992    20-ITEM CES-D SCORE (CESD)                                                              CESD_SCORE_20_ITEM  
+T30442.00  2010    NUMBER OF DRINKS RESPONDENT HAS ON AVERAGE DAY                                          Q12-6               
+T30443.00  2010    FREQUENCY OF 6 OR MORE DRINKS ON ONE OCCASION IN LAST 30 DAYS                           Q12-4               
+T56161.00  2016    CHILDHOOD HEALTH: LIVE WITH ANYONE DEPRESSED, MENTALLY ILL OR SUICIDAL YOUNGER THAN 18  Q11-RCH-HLTH-4      
+T56162.00  2016    CHILDHOOD HEALTH: LIVE WITH PROBLEM DRINKER OR ALCOHOLIC YOUNGER THAN 18                Q11-RCH-HLTH-5      

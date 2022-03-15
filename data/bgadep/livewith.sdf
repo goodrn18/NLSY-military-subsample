@@ -1,0 +1,15 @@
+
+
+Reference
+Number     Year    Variable Description                                                                    Question Name   
+-----------------------------------------------------------------------------------------------------------------------------
+R00001.00  1979    IDENTIFICATION CODE                                                                     CASEID          
+R01736.00  1979    SAMPLE IDENTIFICATION CODE                                                              SAMPLE_ID       
+R02147.00  78SCRN  R'S RACIAL/ETHNIC COHORT FROM SCREENER                                                  SAMPLE_RACE     
+R02148.00  1979    SEX OF R                                                                                SAMPLE_SEX      
+T39741.00  2012    CHILDHOOD HEALTH: LIVE WITH ANYONE DEPRESSED, MENTALLY ILL OR SUICIDAL YOUNGER THAN 18  Q11-RCH-HLTH-4  
+T39742.00  2012    CHILDHOOD HEALTH: LIVE WITH PROBLEM DRINKER OR ALCOHOLIC YOUNGER THAN 18                Q11-RCH-HLTH-5  
+T49124.00  2014    CHILDHOOD HEALTH: LIVE WITH ANYONE DEPRESSED, MENTALLY ILL OR SUICIDAL YOUNGER THAN 18  Q11-RCH-HLTH-4  
+T49125.00  2014    CHILDHOOD HEALTH: LIVE WITH PROBLEM DRINKER OR ALCOHOLIC YOUNGER THAN 18                Q11-RCH-HLTH-5  
+T56161.00  2016    CHILDHOOD HEALTH: LIVE WITH ANYONE DEPRESSED, MENTALLY ILL OR SUICIDAL YOUNGER THAN 18  Q11-RCH-HLTH-4  
+T56162.00  2016    CHILDHOOD HEALTH: LIVE WITH PROBLEM DRINKER OR ALCOHOLIC YOUNGER THAN 18                Q11-RCH-HLTH-5  
