@@ -11,7 +11,7 @@
 
 <meta name="author" content="Rachel Good" />
 
-<meta name="date" content="2022-02-28" />
+<meta name="date" content="2022-03-15" />
 
 <title>Thesis</title>
 
@@ -167,7 +167,7 @@ pre code {
 
 <h1 class="title toc-ignore">Thesis</h1>
 <h4 class="author">Rachel Good</h4>
-<h4 class="date">2022-02-28</h4>
+<h4 class="date">2022-03-15</h4>
 
 </div>
 
@@ -306,7 +306,7 @@ vallabels = function(data) {
   data$R0173600 &lt;- factor(data$R0173600, 
     levels=c(1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0), 
     labels=c(&quot;CROSS MALE WHITE&quot;,
-      &quot;CROSS MALE WH. POOR&quot;,
+      &quot;CROSS MALE WH POOR&quot;,
       &quot;CROSS MALE BLACK&quot;,
       &quot;CROSS MALE HISPANIC&quot;,
       &quot;CROSS FEMALE WHITE&quot;,
@@ -726,77 +726,79 @@ vallabels = function(data) {
 #Change these names to be useful
 #AD = ACTIVE DUTY
 #ARNG= ACTIVE RESERVE NATIONAL GUARD
+#INT = INTERVIEW
+#DLI = DATE LAST INT
 qnames = function(data) {
   names(data) &lt;- c(&quot;CASEID&quot;,
-    &quot;AD_AND_ARNG_79&quot;,
-    &quot;AD_RECENT_ENLIST_79&quot;,
-    &quot;AD_2NDRECENT_ENLIST_79&quot;,
-    &quot;AD_RECENT_SERVICEPERIOD_79&quot;,
-    &quot;CURRENT_AD_YN_79&quot;,
-    &quot;CURRENT_AD_ARNG_79&quot;,
-    &quot;CURRENT_AD_ARNG_STATUS_79&quot;,
-    &quot;CURRENT_AD_ARNG_YN_79&quot;,
+    &quot;AD_AND_ARNG_79&quot;,#MIL-8
+    &quot;AD_RECENT_ENLIST_79&quot;, #Q4-11
+    &quot;AD_2NDRECENT_ENLIST_79&quot;,#Q4-12A
+    &quot;AD_RECENT_SERVICEPERIOD_79&quot;,#MIL-13A
+    &quot;CURRENT_AD_YN_79&quot;,#MIL-27
+    &quot;CURRENT_AD_ARNG_79&quot;,#MIL-36 
+    &quot;CURRENT_AD_ARNG_STATUS_79&quot;,#MIL-48
+    &quot;CURRENT_AD_ARNG_YN_79&quot;,#MIL-59
     &quot;SAMPLE_ID_79&quot;,
     &quot;RACE&quot;,
     &quot;SAMPLE_SEX_79&quot;,
-    &quot;AD_LAST_INT_NOTSAME_BRANCH_80&quot;,
-    &quot;NEW_ENLIST_AD_80&quot;,
-    &quot;CURRENT_AD_YN_80&quot;,#G1_CONFUSION_Q4-15
-    &quot;AD_LAST_INT_SAME_BRANCH_80&quot;,
-    &quot;CURRENT_AD_YN_80_Q2&quot;,#G1_CONFUSION_MIL-59
-    &quot;TIME_SERVED_YN_80&quot;,
-    &quot;CURRENT_AD_YN_80&quot;, #G1_CONFUSION_MIL-48
-    &quot;AD_LAST_INT_NOTSAME_BRANCH_81&quot;,
-    &quot;NEW_ENLIST_AD_81&quot;,
-    &quot;CURRENT_AD_YN_81&quot;,#G1_CONFUSION_Q4-15
-    &quot;AD_LAST_INT_SAME_BRANCH_81&quot;,
-    &quot;CURRENT_AD_YN_81_Q2&quot;,#G1_CONFUSION_MIL-59
-    &quot;TIME_SERVED_YN_81&quot;,
-    &quot;CURRENT_AD_YN_81&quot;, #G1_CONFUSION_MIL-48
-    &quot;AD_LAST_INT_SAME_BRANCH_82&quot;,
-    &quot;AD_LAST_INT_NOTSAME_BRANCH_82&quot;,
-    &quot;NEW_ENLIST_AD_82&quot;,
-    &quot;CURRENT_AD_YN_82&quot;,#G1_CONFUSION_Q4-15
-    &quot;AD_LAST_INT_SAME_BRANCH_82&quot;,
-    &quot;CURRENT_AD_YN_82_Q2&quot;,#G1_CONFUSION_MIL-59
-    &quot;TIME_SERVED_YN_82&quot;,
-    &quot;NEW_ENLIST_NOTSERVING_82&quot;,#G2_CONFUSION_MIL-100
-    &quot;ENLISTED_NOTSERVING_82&quot;,#G2_CONFUSION_Q4-12A
-    &quot;CURRENT_AD_YN_82&quot;, #G1_CONFUSION_MIL-48
-    &quot;AGE_START_DRINK_82&quot;,
-    &quot;ALC_FREQ6DRINKS_82&quot;,
-    &quot;ALC_IMPACT_JOB_82&quot;,
-    &quot;AD_LAST_INT_SAME_BRANCH_83&quot;,
-    &quot;AD_LAST_INT_NOTSAME_BRANCH_83&quot;,
-    &quot;NEW_ENLIST_AD_83&quot;,
-    &quot;CURRENT_AD_YN_83&quot;,#G1_CONFUSION_Q4-15
-    &quot;AD_LAST_INT_SAME_BRANCH_83&quot;,
-    &quot;CURRENT_AD_YN_83_Q2&quot;,#G1_CONFUSION_MIL-59
-    &quot;TIME_SERVED_YN_83&quot;,
-    &quot;NEW_ENLIST_NOTSERVING_83&quot;,#G2_CONFUSION_MIL-100
-    &quot;ENLISTED_NOTSERVING_83&quot;,#G2_CONFUSION_Q4-12A,
-    &quot;CURRENT_AD_YN_83&quot;, #G1_CONFUSION_MIL-48,
-    &quot;AGE_START_DRINK_83&quot;,
-    &quot;ALC_FREQ6DRINK_83&quot;,
-    &quot;NUM_DAY_DRANK_LAST_MONTH_83&quot;,
-    &quot;ALC_IMPACT_JOB_83&quot;,
-    &quot;AD_LAST_INT_SAME_BRANCH_84&quot;,
-    &quot;AD_LAST_INT_NOTSAME_BRANCH_84&quot;,
-    &quot;NEW_ENLIST_AD_84&quot;,
-    &quot;CURRENT_AD_YN_84&quot;,#G1_CONFUSION_Q4-15&quot;,
-    &quot;CURRENT_AD_YN_84_Q2&quot;,#G1_CONFUSION_MIL-59
-    &quot;TIME_SERVED_YN_84&quot;,
-    &quot;NEW_ENLIST_NOTSERVING_83&quot;,#G2_CONFUSION_MIL-100
-    &quot;ENLISTED_NOTSERVING_84&quot;,#G2_CONFUSION_Q4-12A,
-    &quot;CURRENT_AD_YN_84&quot;, #G1_CONFUSION_MIL-48,
-    &quot;ALC_IMPACT_JOB_NOALC_LAST30_84&quot;,
-    &quot;ALC_FREQ6DRINK_84&quot;,
-    &quot;NUM_DAY_DRANK_LAST_MONTH_84&quot;,
-    &quot;ALC_IMPACT_JOB_YESALC_LAST30_84&quot;,
-    &quot;AFRAID_ALCOHOLIC_84&quot;,
-    &quot;DRINK_UNTIL_DRUNK_84&quot;,
-    &quot;FORGETS_NEXT_DAY_84&quot;,
-    &quot;DRINK_FIRST_MORNING_84&quot;)
+    &quot;AD_DLI_NOTSAME_BRANCH_80&quot;,#MIL-15
+    &quot;NEW_ENLIST_AD_80&quot;,#Q4-11
+    &quot;AD_DLI_SAME_BRANCH_80_Q1&quot;,#Q4-15 #G1_CONFUSION_Q4-15 #DUP
+    &quot;AD_DLI_SAME_BRANCH_80_Q2&quot;,#MIL-13
+    &quot;AD_DLI_SAME_BRANCH_80_Q3&quot;,#MIL-59 #G1_CONFUSION_MIL-59
+    &quot;TIME_SERVED_YN_80&quot;,#Q4-12
+    &quot;CURRENT_AD_YN_80&quot;,#MIL-48 #G1_CONFUSION_MIL-48 #DUP
+    &quot;AD_DLI_NOTSAME_BRANCH_81&quot;,#MIL-15
+    &quot;NEW_ENLIST_AD_81&quot;,#Q4-11 
+    &quot;AD_DLI_SAME_BRANCH_81_Q1&quot;,#Q4-15 #G1_CONFUSION_Q4-15
+    &quot;AD_DLI_SAME_BRANCH_81_Q2&quot;,#MIL-13
+    &quot;AD_DLI_SAME_BRANCH_81_Q3&quot;,#MIL-59 #G1_CONFUSION_MIL-59
+    &quot;TIME_SERVED_YN_81&quot;,#Q4-12
+    &quot;CURRENT_AD_YN_81&quot;, #G1_CONFUSION_MIL-48 #DUP
+    &quot;AD_DLI_SAME_BRANCH_82_Q4&quot;,#Q4-4A 
+    &quot;AD_DLI_NOTSAME_BRANCH_82&quot;,#MIL-15
+    &quot;NEW_ENLIST_AD_82&quot;,#Q4-11
+    &quot;AD_DLI_SAME_BRANCH_82_Q1&quot;,#Q4-15 #G1_CONFUSION_Q4-15 #DUP
+    &quot;AD_DLI_SAME_BRANCH_82_Q2&quot;,#MIL-13 #DUP
+    &quot;AD_DLI_SAME_BRANCH_82_Q3&quot;,#MIL-59 #G1_CONFUSION_MIL-59
+    &quot;TIME_SERVED_YN_82&quot;,#Q4-12
+    &quot;NEW_ENLIST_NOTSERVING_82_Q1&quot;,#MIL-100 #G2_CONFUSION_MIL-100
+    &quot;NEW_ENLIST_NOTSERVING_82_Q2&quot;,#Q4-12A #G2_CONFUSION_Q4-12A
+    &quot;CURRENT_AD_YN_82&quot;,#MIL-48 #G1_CONFUSION_MIL-48 #DUP
+    &quot;AGE_START_DRINK_82&quot;,#ALCH-2
+    &quot;ALC_FREQ6DRINKS_82&quot;,#Q12-4
+    &quot;ALC_IMPACT_JOB_82&quot;,#ALCH-11
+    &quot;AD_DLI_SAME_BRANCH_83_Q4&quot;, #Q4-4A
+    &quot;AD_DLI_NOTSAME_BRANCH_83&quot;,#MIL-15
+    &quot;NEW_ENLIST_AD_83&quot;,#Q4-11
+    &quot;AD_DLI_SAME_BRANCH_83_Q1&quot;,#Q4-15 #G1_CONFUSION_Q4-15 #DUP
+    &quot;AD_DLI_SAME_BRANCH_83_Q2&quot;,#MIL-13 #DUP
+    &quot;AD_DLI_SAME_BRANCH_83_Q3&quot;,#MIL-59 #G1_CONFUSION_MIL-59
+    &quot;TIME_SERVED_YN_83&quot;,#Q4-12
+    &quot;NEW_ENLIST_NOTSERVING_83_Q1&quot;,#MIL-100 #G2_CONFUSION_MIL-100 #DUP
+    &quot;NEW_ENLIST_NOTSERVING_83_Q2&quot;,# Q4-12A #G2_CONFUSION_Q4-12A,
+    &quot;CURRENT_AD_YN_83&quot;,#MIL-48 #G1_CONFUSION_MIL-48,#DUP
+    &quot;AGE_START_DRINK_83&quot;,#ALCH-2
+    &quot;ALC_FREQ6DRINK_83&quot;,#Q12-4
+    &quot;NUM_DAY_DRANK_LAST_MONTH_83&quot;,#Q12-5
+    &quot;ALC_IMPACT_JOB_83&quot;,#ALCH-11
+    &quot;AD_DLI_SAME_BRANCH_84_Q4&quot;,#Q4-4A
+    &quot;AD_DLI_NOTSAME_BRANCH_84&quot;,#MIL-15
+    &quot;NEW_ENLIST_AD_84&quot;,#Q4-11
+    &quot;AD_DLI_SAME_BRANCH_84_Q1&quot;,#Q4-14 #G1_CONFUSION_Q4-15&quot; #DUP
+    &quot;AD_DLI_SAME_BRANCH_84_Q3&quot;,#MIL-59 #G1_CONFUSION_MIL-59
+    &quot;TIME_SERVED_YN_84&quot;,#Q4-12
+    &quot;NEW_ENLIST_NOTSERVING_84_Q1&quot;,#MIL-100 #G2_CONFUSION_MIL-100 #DUP
+    &quot;NEW_ENLIST_NOTSERVING_84_Q2&quot;,#Q4-12A #G2_CONFUSION_Q4-12A,
+    &quot;CURRENT_AD_YN_84&quot;,#MIL-48 #G1_CONFUSION_MIL-48, #DUP
+    &quot;ALC_IMPACT_JOB_NOALC_LAST30_84&quot;,#ALCH-17
+    &quot;ALC_FREQ6DRINK_84&quot;,#Q12-4
+    &quot;NUM_DAY_DRANK_LAST_MONTH_84&quot;,#Q12-5
+    &quot;ALC_IMPACT_JOB_YESALC_LAST30_84&quot;,#ALCH-11
+    &quot;AFRAID_ALCOHOLIC_84&quot;,#ALCH-18E
+    &quot;DRINK_UNTIL_DRUNK_84&quot;,#ALCH-18F
+    &quot;FORGETS_NEXT_DAY_84&quot;,#ALCH-18G
+    &quot;DRINK_FIRST_MORNING_84&quot;) #ALCH-18H
   return(data)
 }</code></pre>
 <pre class="r"><code>#********************************************************************************************************
@@ -843,110 +845,110 @@ summary(df_data)</code></pre>
 ##                        SUP FEM WH POOR    : 901  
 ##                        SUP FEMALE HISPANIC: 751  
 ##                        (Other)            :4347  
-##                       RACE      SAMPLE_SEX_79 AD_LAST_INT_NOTSAME_BRANCH_80
-##  HISPANIC               :2002   MALE  :6403   NO  :    8                   
-##  BLACK                  :3174   FEMALE:6283   YES :  241                   
-##  NON-BLACK, NON-HISPANIC:7510                 NA&#39;s:12437                   
-##                                                                            
-##                                                                            
-##                                                                            
-##                                                                            
-##  NEW_ENLIST_AD_80 CURRENT_AD_YN_80 AD_LAST_INT_SAME_BRANCH_80
-##  NO  :   46       NO  :   78       NO  :  159                
-##  YES :  103       YES :  993       YES :  906                
-##  NA&#39;s:12537       NA&#39;s:11615       NA&#39;s:11621                
-##                                                              
-##                                                              
-##                                                              
-##                                                              
-##  CURRENT_AD_YN_80_Q2 TIME_SERVED_YN_80 CURRENT_AD_YN_80
-##  NO  :   78          NO  :   73        NO  :  312      
-##  YES :  993          YES :   11        YES :  994      
-##  NA&#39;s:11615          NA&#39;s:12602        NA&#39;s:11380      
-##                                                        
-##                                                        
-##                                                        
-##                                                        
-##  AD_LAST_INT_NOTSAME_BRANCH_81 NEW_ENLIST_AD_81 CURRENT_AD_YN_81
-##  NO  :    9                    NO  :   58       NO  :  129      
-##  YES :  252                    YES :  110       YES :  855      
-##  NA&#39;s:12425                    NA&#39;s:12518       NA&#39;s:11702      
-##                                                                 
-##                                                                 
-##                                                                 
-##                                                                 
-##  AD_LAST_INT_SAME_BRANCH_81 CURRENT_AD_YN_81_Q2 TIME_SERVED_YN_81
-##  NO  :  212                 NO  :  129          NO  :   97       
-##  YES :  765                 YES :  855          YES :    6       
-##  NA&#39;s:11709                 NA&#39;s:11702          NA&#39;s:12583       
-##                                                                  
-##                                                                  
-##                                                                  
-##                                                                  
-##  CURRENT_AD_YN_81 AD_LAST_INT_SAME_BRANCH_82 AD_LAST_INT_NOTSAME_BRANCH_82
-##  NO  :  370       NO  :  113                 NO  :   26                   
-##  YES :  858       YES :  685                 YES :  203                   
-##  NA&#39;s:11458       NA&#39;s:11888                 NA&#39;s:12457                   
-##                                                                           
-##                                                                           
-##                                                                           
-##                                                                           
-##  NEW_ENLIST_AD_82 CURRENT_AD_YN_82 AD_LAST_INT_SAME_BRANCH_82
-##  NO  :   72       NO  :  184       NO  :  289                
-##  YES :  140       YES :  825       YES :  706                
-##  NA&#39;s:12474       NA&#39;s:11677       NA&#39;s:11691                
-##                                                              
-##                                                              
-##                                                              
-##                                                              
-##  CURRENT_AD_YN_82_Q2 TIME_SERVED_YN_82 NEW_ENLIST_NOTSERVING_82
-##  NO  :  184          NO  :   51        NO  :    2              
-##  YES :  825          YES :   10        YES :    9              
-##  NA&#39;s:11677          NA&#39;s:12625        NA&#39;s:12675              
-##                                                                
-##                                                                
-##                                                                
-##                                                                
-##  ENLISTED_NOTSERVING_82 CURRENT_AD_YN_82 AGE_START_DRINK_82
-##  NO  :    2             NO  :  403       Min.   : 0        
-##  YES :    9             YES :  825       1st Qu.:15        
-##  NA&#39;s:12675             NA&#39;s:11458       Median :16        
-##                                          Mean   :15        
-##                                          3rd Qu.:18        
-##                                          Max.   :25        
-##                                          NA&#39;s   :1575      
-##         ALC_FREQ6DRINKS_82 ALC_IMPACT_JOB_82 AD_LAST_INT_SAME_BRANCH_83
-##  NEVER           :3147     NO  :10805        NO  :  145                
-##  2 OR 3 TIMES    :1613     YES :  266        YES :  665                
-##  ONCE            :1297     NA&#39;s: 1615        NA&#39;s:11876                
-##  4 OR 5 TIMES    : 761                                                 
-##  10 OR MORE TIMES: 508                                                 
-##  (Other)         : 559                                                 
-##  NA&#39;s            :4801                                                 
-##  AD_LAST_INT_NOTSAME_BRANCH_83 NEW_ENLIST_AD_83 CURRENT_AD_YN_83
-##  NO  :   37                    NO  :   83       NO  :  228      
-##  YES :  184                    YES :  115       YES :  780      
-##  NA&#39;s:12465                    NA&#39;s:12488       NA&#39;s:11678      
-##                                                                 
-##                                                                 
-##                                                                 
-##                                                                 
-##  AD_LAST_INT_SAME_BRANCH_83 CURRENT_AD_YN_83_Q2 TIME_SERVED_YN_83
-##  NO  :  298                 NO  :  228          NO  :    8       
-##  YES :  695                 YES :  780          YES :   19       
-##  NA&#39;s:11693                 NA&#39;s:11678          NA&#39;s:12659       
-##                                                                  
-##                                                                  
-##                                                                  
-##                                                                  
-##  NEW_ENLIST_NOTSERVING_83 ENLISTED_NOTSERVING_83 CURRENT_AD_YN_83
-##  NO  :    2               NO  :    2             NO  :  430      
-##  YES :   17               YES :   17             YES :  780      
-##  NA&#39;s:12667               NA&#39;s:12667             NA&#39;s:11476      
-##                                                                  
-##                                                                  
-##                                                                  
-##                                                                  
+##                       RACE      SAMPLE_SEX_79 AD_DLI_NOTSAME_BRANCH_80
+##  HISPANIC               :2002   MALE  :6403   NO  :    8              
+##  BLACK                  :3174   FEMALE:6283   YES :  241              
+##  NON-BLACK, NON-HISPANIC:7510                 NA&#39;s:12437              
+##                                                                       
+##                                                                       
+##                                                                       
+##                                                                       
+##  NEW_ENLIST_AD_80 AD_DLI_SAME_BRANCH_80_Q1 AD_DLI_SAME_BRANCH_80_Q2
+##  NO  :   46       NO  :   78               NO  :  159              
+##  YES :  103       YES :  993               YES :  906              
+##  NA&#39;s:12537       NA&#39;s:11615               NA&#39;s:11621              
+##                                                                    
+##                                                                    
+##                                                                    
+##                                                                    
+##  AD_DLI_SAME_BRANCH_80_Q3 TIME_SERVED_YN_80 CURRENT_AD_YN_80
+##  NO  :   78               NO  :   73        NO  :  312      
+##  YES :  993               YES :   11        YES :  994      
+##  NA&#39;s:11615               NA&#39;s:12602        NA&#39;s:11380      
+##                                                             
+##                                                             
+##                                                             
+##                                                             
+##  AD_DLI_NOTSAME_BRANCH_81 NEW_ENLIST_AD_81 AD_DLI_SAME_BRANCH_81_Q1
+##  NO  :    9               NO  :   58       NO  :  129              
+##  YES :  252               YES :  110       YES :  855              
+##  NA&#39;s:12425               NA&#39;s:12518       NA&#39;s:11702              
+##                                                                    
+##                                                                    
+##                                                                    
+##                                                                    
+##  AD_DLI_SAME_BRANCH_81_Q2 AD_DLI_SAME_BRANCH_81_Q3 TIME_SERVED_YN_81
+##  NO  :  212               NO  :  129               NO  :   97       
+##  YES :  765               YES :  855               YES :    6       
+##  NA&#39;s:11709               NA&#39;s:11702               NA&#39;s:12583       
+##                                                                     
+##                                                                     
+##                                                                     
+##                                                                     
+##  CURRENT_AD_YN_81 AD_DLI_SAME_BRANCH_82_Q4 AD_DLI_NOTSAME_BRANCH_82
+##  NO  :  370       NO  :  113               NO  :   26              
+##  YES :  858       YES :  685               YES :  203              
+##  NA&#39;s:11458       NA&#39;s:11888               NA&#39;s:12457              
+##                                                                    
+##                                                                    
+##                                                                    
+##                                                                    
+##  NEW_ENLIST_AD_82 AD_DLI_SAME_BRANCH_82_Q1 AD_DLI_SAME_BRANCH_82_Q2
+##  NO  :   72       NO  :  184               NO  :  289              
+##  YES :  140       YES :  825               YES :  706              
+##  NA&#39;s:12474       NA&#39;s:11677               NA&#39;s:11691              
+##                                                                    
+##                                                                    
+##                                                                    
+##                                                                    
+##  AD_DLI_SAME_BRANCH_82_Q3 TIME_SERVED_YN_82 NEW_ENLIST_NOTSERVING_82_Q1
+##  NO  :  184               NO  :   51        NO  :    2                 
+##  YES :  825               YES :   10        YES :    9                 
+##  NA&#39;s:11677               NA&#39;s:12625        NA&#39;s:12675                 
+##                                                                        
+##                                                                        
+##                                                                        
+##                                                                        
+##  NEW_ENLIST_NOTSERVING_82_Q2 CURRENT_AD_YN_82 AGE_START_DRINK_82
+##  NO  :    2                  NO  :  403       Min.   : 0        
+##  YES :    9                  YES :  825       1st Qu.:15        
+##  NA&#39;s:12675                  NA&#39;s:11458       Median :16        
+##                                               Mean   :15        
+##                                               3rd Qu.:18        
+##                                               Max.   :25        
+##                                               NA&#39;s   :1575      
+##         ALC_FREQ6DRINKS_82 ALC_IMPACT_JOB_82 AD_DLI_SAME_BRANCH_83_Q4
+##  NEVER           :3147     NO  :10805        NO  :  145              
+##  2 OR 3 TIMES    :1613     YES :  266        YES :  665              
+##  ONCE            :1297     NA&#39;s: 1615        NA&#39;s:11876              
+##  4 OR 5 TIMES    : 761                                               
+##  10 OR MORE TIMES: 508                                               
+##  (Other)         : 559                                               
+##  NA&#39;s            :4801                                               
+##  AD_DLI_NOTSAME_BRANCH_83 NEW_ENLIST_AD_83 AD_DLI_SAME_BRANCH_83_Q1
+##  NO  :   37               NO  :   83       NO  :  228              
+##  YES :  184               YES :  115       YES :  780              
+##  NA&#39;s:12465               NA&#39;s:12488       NA&#39;s:11678              
+##                                                                    
+##                                                                    
+##                                                                    
+##                                                                    
+##  AD_DLI_SAME_BRANCH_83_Q2 AD_DLI_SAME_BRANCH_83_Q3 TIME_SERVED_YN_83
+##  NO  :  298               NO  :  228               NO  :    8       
+##  YES :  695               YES :  780               YES :   19       
+##  NA&#39;s:11693               NA&#39;s:11678               NA&#39;s:12659       
+##                                                                     
+##                                                                     
+##                                                                     
+##                                                                     
+##  NEW_ENLIST_NOTSERVING_83_Q1 NEW_ENLIST_NOTSERVING_83_Q2 CURRENT_AD_YN_83
+##  NO  :    2                  NO  :    2                  NO  :  430      
+##  YES :   17                  YES :   17                  YES :  780      
+##  NA&#39;s:12667                  NA&#39;s:12667                  NA&#39;s:11476      
+##                                                                          
+##                                                                          
+##                                                                          
+##                                                                          
 ##  AGE_START_DRINK_83        ALC_FREQ6DRINK_83 NUM_DAY_DRANK_LAST_MONTH_83
 ##  Min.   : 0         NEVER           :3391    Min.   : 1                 
 ##  1st Qu.:15         2 OR 3 TIMES    :1550    1st Qu.: 2                 
@@ -955,38 +957,38 @@ summary(df_data)</code></pre>
 ##  3rd Qu.:18         10 OR MORE TIMES: 427    3rd Qu.:10                 
 ##  Max.   :25         (Other)         : 579    Max.   :30                 
 ##  NA&#39;s   :1279       NA&#39;s            :4631    NA&#39;s   :4629               
-##  ALC_IMPACT_JOB_83 AD_LAST_INT_SAME_BRANCH_84 AD_LAST_INT_NOTSAME_BRANCH_84
-##  NO  :10919        NO  :  177                 NO  :   49                   
-##  YES :  424        YES :  625                 YES :  149                   
-##  NA&#39;s: 1343        NA&#39;s:11884                 NA&#39;s:12488                   
-##                                                                            
-##                                                                            
-##                                                                            
-##                                                                            
-##  NEW_ENLIST_AD_84 CURRENT_AD_YN_84 CURRENT_AD_YN_84_Q2 TIME_SERVED_YN_84
-##  NO  :   61       NO  :  236       NO  :  236          NO  :    9       
-##  YES :   82       YES :  707       YES :  707          YES :   12       
-##  NA&#39;s:12543       NA&#39;s:11743       NA&#39;s:11743          NA&#39;s:12665       
-##                                                                         
-##                                                                         
-##                                                                         
-##                                                                         
-##  NEW_ENLIST_NOTSERVING_83 ENLISTED_NOTSERVING_84 CURRENT_AD_YN_84
-##  NO  :    3               NO  :    3             NO  :  418      
-##  YES :    9               YES :    9             YES :  707      
-##  NA&#39;s:12674               NA&#39;s:12674             NA&#39;s:11561      
-##                                                                  
-##                                                                  
-##                                                                  
-##                                                                  
-##  ALC_IMPACT_JOB_NOALC_LAST30_84        ALC_FREQ6DRINK_84
-##  NO  :3056                      NEVER           :3668   
-##  YES :  74                      2 OR 3 TIMES    :1599   
-##  NA&#39;s:9556                      ONCE            :1256   
-##                                 4 OR 5 TIMES    : 794   
-##                                 10 OR MORE TIMES: 452   
-##                                 (Other)         : 528   
-##                                 NA&#39;s            :4389   
+##  ALC_IMPACT_JOB_83 AD_DLI_SAME_BRANCH_84_Q4 AD_DLI_NOTSAME_BRANCH_84
+##  NO  :10919        NO  :  177               NO  :   49              
+##  YES :  424        YES :  625               YES :  149              
+##  NA&#39;s: 1343        NA&#39;s:11884               NA&#39;s:12488              
+##                                                                     
+##                                                                     
+##                                                                     
+##                                                                     
+##  NEW_ENLIST_AD_84 AD_DLI_SAME_BRANCH_84_Q1 AD_DLI_SAME_BRANCH_84_Q3
+##  NO  :   61       NO  :  236               NO  :  236              
+##  YES :   82       YES :  707               YES :  707              
+##  NA&#39;s:12543       NA&#39;s:11743               NA&#39;s:11743              
+##                                                                    
+##                                                                    
+##                                                                    
+##                                                                    
+##  TIME_SERVED_YN_84 NEW_ENLIST_NOTSERVING_84_Q1 NEW_ENLIST_NOTSERVING_84_Q2
+##  NO  :    9        NO  :    3                  NO  :    3                 
+##  YES :   12        YES :    9                  YES :    9                 
+##  NA&#39;s:12665        NA&#39;s:12674                  NA&#39;s:12674                 
+##                                                                           
+##                                                                           
+##                                                                           
+##                                                                           
+##  CURRENT_AD_YN_84 ALC_IMPACT_JOB_NOALC_LAST30_84        ALC_FREQ6DRINK_84
+##  NO  :  418       NO  :3056                      NEVER           :3668   
+##  YES :  707       YES :  74                      2 OR 3 TIMES    :1599   
+##  NA&#39;s:11561       NA&#39;s:9556                      ONCE            :1256   
+##                                                  4 OR 5 TIMES    : 794   
+##                                                  10 OR MORE TIMES: 452   
+##                                                  (Other)         : 528   
+##                                                  NA&#39;s            :4389   
 ##  NUM_DAY_DRANK_LAST_MONTH_84 ALC_IMPACT_JOB_YESALC_LAST30_84
 ##  Min.   : 0                  NO  :7923                      
 ##  1st Qu.: 2                  YES : 313                      
@@ -1129,110 +1131,110 @@ summary(df_data)</code></pre>
 ##                        SUP FEM WH POOR    : 901  
 ##                        SUP FEMALE HISPANIC: 751  
 ##                        (Other)            :4347  
-##                       RACE      SAMPLE_SEX_79 AD_LAST_INT_NOTSAME_BRANCH_80
-##  HISPANIC               :2002   MALE  :6403   NO  :    8                   
-##  BLACK                  :3174   FEMALE:6283   YES :  241                   
-##  NON-BLACK, NON-HISPANIC:7510                 NA&#39;s:12437                   
-##                                                                            
-##                                                                            
-##                                                                            
-##                                                                            
-##  NEW_ENLIST_AD_80 CURRENT_AD_YN_80 AD_LAST_INT_SAME_BRANCH_80
-##  NO  :   46       NO  :   78       NO  :  159                
-##  YES :  103       YES :  993       YES :  906                
-##  NA&#39;s:12537       NA&#39;s:11615       NA&#39;s:11621                
-##                                                              
-##                                                              
-##                                                              
-##                                                              
-##  CURRENT_AD_YN_80_Q2 TIME_SERVED_YN_80 CURRENT_AD_YN_80
-##  NO  :   78          NO  :   73        NO  :  312      
-##  YES :  993          YES :   11        YES :  994      
-##  NA&#39;s:11615          NA&#39;s:12602        NA&#39;s:11380      
-##                                                        
-##                                                        
-##                                                        
-##                                                        
-##  AD_LAST_INT_NOTSAME_BRANCH_81 NEW_ENLIST_AD_81 CURRENT_AD_YN_81
-##  NO  :    9                    NO  :   58       NO  :  129      
-##  YES :  252                    YES :  110       YES :  855      
-##  NA&#39;s:12425                    NA&#39;s:12518       NA&#39;s:11702      
-##                                                                 
-##                                                                 
-##                                                                 
-##                                                                 
-##  AD_LAST_INT_SAME_BRANCH_81 CURRENT_AD_YN_81_Q2 TIME_SERVED_YN_81
-##  NO  :  212                 NO  :  129          NO  :   97       
-##  YES :  765                 YES :  855          YES :    6       
-##  NA&#39;s:11709                 NA&#39;s:11702          NA&#39;s:12583       
-##                                                                  
-##                                                                  
-##                                                                  
-##                                                                  
-##  CURRENT_AD_YN_81 AD_LAST_INT_SAME_BRANCH_82 AD_LAST_INT_NOTSAME_BRANCH_82
-##  NO  :  370       NO  :  113                 NO  :   26                   
-##  YES :  858       YES :  685                 YES :  203                   
-##  NA&#39;s:11458       NA&#39;s:11888                 NA&#39;s:12457                   
-##                                                                           
-##                                                                           
-##                                                                           
-##                                                                           
-##  NEW_ENLIST_AD_82 CURRENT_AD_YN_82 AD_LAST_INT_SAME_BRANCH_82
-##  NO  :   72       NO  :  184       NO  :  289                
-##  YES :  140       YES :  825       YES :  706                
-##  NA&#39;s:12474       NA&#39;s:11677       NA&#39;s:11691                
-##                                                              
-##                                                              
-##                                                              
-##                                                              
-##  CURRENT_AD_YN_82_Q2 TIME_SERVED_YN_82 NEW_ENLIST_NOTSERVING_82
-##  NO  :  184          NO  :   51        NO  :    2              
-##  YES :  825          YES :   10        YES :    9              
-##  NA&#39;s:11677          NA&#39;s:12625        NA&#39;s:12675              
-##                                                                
-##                                                                
-##                                                                
-##                                                                
-##  ENLISTED_NOTSERVING_82 CURRENT_AD_YN_82 AGE_START_DRINK_82
-##  NO  :    2             NO  :  403       Min.   : 0        
-##  YES :    9             YES :  825       1st Qu.:15        
-##  NA&#39;s:12675             NA&#39;s:11458       Median :16        
-##                                          Mean   :15        
-##                                          3rd Qu.:18        
-##                                          Max.   :25        
-##                                          NA&#39;s   :1575      
-##         ALC_FREQ6DRINKS_82 ALC_IMPACT_JOB_82 AD_LAST_INT_SAME_BRANCH_83
-##  NEVER           :3147     NO  :10805        NO  :  145                
-##  2 OR 3 TIMES    :1613     YES :  266        YES :  665                
-##  ONCE            :1297     NA&#39;s: 1615        NA&#39;s:11876                
-##  4 OR 5 TIMES    : 761                                                 
-##  10 OR MORE TIMES: 508                                                 
-##  (Other)         : 559                                                 
-##  NA&#39;s            :4801                                                 
-##  AD_LAST_INT_NOTSAME_BRANCH_83 NEW_ENLIST_AD_83 CURRENT_AD_YN_83
-##  NO  :   37                    NO  :   83       NO  :  228      
-##  YES :  184                    YES :  115       YES :  780      
-##  NA&#39;s:12465                    NA&#39;s:12488       NA&#39;s:11678      
-##                                                                 
-##                                                                 
-##                                                                 
-##                                                                 
-##  AD_LAST_INT_SAME_BRANCH_83 CURRENT_AD_YN_83_Q2 TIME_SERVED_YN_83
-##  NO  :  298                 NO  :  228          NO  :    8       
-##  YES :  695                 YES :  780          YES :   19       
-##  NA&#39;s:11693                 NA&#39;s:11678          NA&#39;s:12659       
-##                                                                  
-##                                                                  
-##                                                                  
-##                                                                  
-##  NEW_ENLIST_NOTSERVING_83 ENLISTED_NOTSERVING_83 CURRENT_AD_YN_83
-##  NO  :    2               NO  :    2             NO  :  430      
-##  YES :   17               YES :   17             YES :  780      
-##  NA&#39;s:12667               NA&#39;s:12667             NA&#39;s:11476      
-##                                                                  
-##                                                                  
-##                                                                  
-##                                                                  
+##                       RACE      SAMPLE_SEX_79 AD_DLI_NOTSAME_BRANCH_80
+##  HISPANIC               :2002   MALE  :6403   NO  :    8              
+##  BLACK                  :3174   FEMALE:6283   YES :  241              
+##  NON-BLACK, NON-HISPANIC:7510                 NA&#39;s:12437              
+##                                                                       
+##                                                                       
+##                                                                       
+##                                                                       
+##  NEW_ENLIST_AD_80 AD_DLI_SAME_BRANCH_80_Q1 AD_DLI_SAME_BRANCH_80_Q2
+##  NO  :   46       NO  :   78               NO  :  159              
+##  YES :  103       YES :  993               YES :  906              
+##  NA&#39;s:12537       NA&#39;s:11615               NA&#39;s:11621              
+##                                                                    
+##                                                                    
+##                                                                    
+##                                                                    
+##  AD_DLI_SAME_BRANCH_80_Q3 TIME_SERVED_YN_80 CURRENT_AD_YN_80
+##  NO  :   78               NO  :   73        NO  :  312      
+##  YES :  993               YES :   11        YES :  994      
+##  NA&#39;s:11615               NA&#39;s:12602        NA&#39;s:11380      
+##                                                             
+##                                                             
+##                                                             
+##                                                             
+##  AD_DLI_NOTSAME_BRANCH_81 NEW_ENLIST_AD_81 AD_DLI_SAME_BRANCH_81_Q1
+##  NO  :    9               NO  :   58       NO  :  129              
+##  YES :  252               YES :  110       YES :  855              
+##  NA&#39;s:12425               NA&#39;s:12518       NA&#39;s:11702              
+##                                                                    
+##                                                                    
+##                                                                    
+##                                                                    
+##  AD_DLI_SAME_BRANCH_81_Q2 AD_DLI_SAME_BRANCH_81_Q3 TIME_SERVED_YN_81
+##  NO  :  212               NO  :  129               NO  :   97       
+##  YES :  765               YES :  855               YES :    6       
+##  NA&#39;s:11709               NA&#39;s:11702               NA&#39;s:12583       
+##                                                                     
+##                                                                     
+##                                                                     
+##                                                                     
+##  CURRENT_AD_YN_81 AD_DLI_SAME_BRANCH_82_Q4 AD_DLI_NOTSAME_BRANCH_82
+##  NO  :  370       NO  :  113               NO  :   26              
+##  YES :  858       YES :  685               YES :  203              
+##  NA&#39;s:11458       NA&#39;s:11888               NA&#39;s:12457              
+##                                                                    
+##                                                                    
+##                                                                    
+##                                                                    
+##  NEW_ENLIST_AD_82 AD_DLI_SAME_BRANCH_82_Q1 AD_DLI_SAME_BRANCH_82_Q2
+##  NO  :   72       NO  :  184               NO  :  289              
+##  YES :  140       YES :  825               YES :  706              
+##  NA&#39;s:12474       NA&#39;s:11677               NA&#39;s:11691              
+##                                                                    
+##                                                                    
+##                                                                    
+##                                                                    
+##  AD_DLI_SAME_BRANCH_82_Q3 TIME_SERVED_YN_82 NEW_ENLIST_NOTSERVING_82_Q1
+##  NO  :  184               NO  :   51        NO  :    2                 
+##  YES :  825               YES :   10        YES :    9                 
+##  NA&#39;s:11677               NA&#39;s:12625        NA&#39;s:12675                 
+##                                                                        
+##                                                                        
+##                                                                        
+##                                                                        
+##  NEW_ENLIST_NOTSERVING_82_Q2 CURRENT_AD_YN_82 AGE_START_DRINK_82
+##  NO  :    2                  NO  :  403       Min.   : 0        
+##  YES :    9                  YES :  825       1st Qu.:15        
+##  NA&#39;s:12675                  NA&#39;s:11458       Median :16        
+##                                               Mean   :15        
+##                                               3rd Qu.:18        
+##                                               Max.   :25        
+##                                               NA&#39;s   :1575      
+##         ALC_FREQ6DRINKS_82 ALC_IMPACT_JOB_82 AD_DLI_SAME_BRANCH_83_Q4
+##  NEVER           :3147     NO  :10805        NO  :  145              
+##  2 OR 3 TIMES    :1613     YES :  266        YES :  665              
+##  ONCE            :1297     NA&#39;s: 1615        NA&#39;s:11876              
+##  4 OR 5 TIMES    : 761                                               
+##  10 OR MORE TIMES: 508                                               
+##  (Other)         : 559                                               
+##  NA&#39;s            :4801                                               
+##  AD_DLI_NOTSAME_BRANCH_83 NEW_ENLIST_AD_83 AD_DLI_SAME_BRANCH_83_Q1
+##  NO  :   37               NO  :   83       NO  :  228              
+##  YES :  184               YES :  115       YES :  780              
+##  NA&#39;s:12465               NA&#39;s:12488       NA&#39;s:11678              
+##                                                                    
+##                                                                    
+##                                                                    
+##                                                                    
+##  AD_DLI_SAME_BRANCH_83_Q2 AD_DLI_SAME_BRANCH_83_Q3 TIME_SERVED_YN_83
+##  NO  :  298               NO  :  228               NO  :    8       
+##  YES :  695               YES :  780               YES :   19       
+##  NA&#39;s:11693               NA&#39;s:11678               NA&#39;s:12659       
+##                                                                     
+##                                                                     
+##                                                                     
+##                                                                     
+##  NEW_ENLIST_NOTSERVING_83_Q1 NEW_ENLIST_NOTSERVING_83_Q2 CURRENT_AD_YN_83
+##  NO  :    2                  NO  :    2                  NO  :  430      
+##  YES :   17                  YES :   17                  YES :  780      
+##  NA&#39;s:12667                  NA&#39;s:12667                  NA&#39;s:11476      
+##                                                                          
+##                                                                          
+##                                                                          
+##                                                                          
 ##  AGE_START_DRINK_83        ALC_FREQ6DRINK_83 NUM_DAY_DRANK_LAST_MONTH_83
 ##  Min.   : 0         NEVER           :3391    Min.   : 1                 
 ##  1st Qu.:15         2 OR 3 TIMES    :1550    1st Qu.: 2                 
@@ -1241,38 +1243,38 @@ summary(df_data)</code></pre>
 ##  3rd Qu.:18         10 OR MORE TIMES: 427    3rd Qu.:10                 
 ##  Max.   :25         (Other)         : 579    Max.   :30                 
 ##  NA&#39;s   :1279       NA&#39;s            :4631    NA&#39;s   :4629               
-##  ALC_IMPACT_JOB_83 AD_LAST_INT_SAME_BRANCH_84 AD_LAST_INT_NOTSAME_BRANCH_84
-##  NO  :10919        NO  :  177                 NO  :   49                   
-##  YES :  424        YES :  625                 YES :  149                   
-##  NA&#39;s: 1343        NA&#39;s:11884                 NA&#39;s:12488                   
-##                                                                            
-##                                                                            
-##                                                                            
-##                                                                            
-##  NEW_ENLIST_AD_84 CURRENT_AD_YN_84 CURRENT_AD_YN_84_Q2 TIME_SERVED_YN_84
-##  NO  :   61       NO  :  236       NO  :  236          NO  :    9       
-##  YES :   82       YES :  707       YES :  707          YES :   12       
-##  NA&#39;s:12543       NA&#39;s:11743       NA&#39;s:11743          NA&#39;s:12665       
-##                                                                         
-##                                                                         
-##                                                                         
-##                                                                         
-##  NEW_ENLIST_NOTSERVING_83 ENLISTED_NOTSERVING_84 CURRENT_AD_YN_84
-##  NO  :    3               NO  :    3             NO  :  418      
-##  YES :    9               YES :    9             YES :  707      
-##  NA&#39;s:12674               NA&#39;s:12674             NA&#39;s:11561      
-##                                                                  
-##                                                                  
-##                                                                  
-##                                                                  
-##  ALC_IMPACT_JOB_NOALC_LAST30_84        ALC_FREQ6DRINK_84
-##  NO  :3056                      NEVER           :3668   
-##  YES :  74                      2 OR 3 TIMES    :1599   
-##  NA&#39;s:9556                      ONCE            :1256   
-##                                 4 OR 5 TIMES    : 794   
-##                                 10 OR MORE TIMES: 452   
-##                                 (Other)         : 528   
-##                                 NA&#39;s            :4389   
+##  ALC_IMPACT_JOB_83 AD_DLI_SAME_BRANCH_84_Q4 AD_DLI_NOTSAME_BRANCH_84
+##  NO  :10919        NO  :  177               NO  :   49              
+##  YES :  424        YES :  625               YES :  149              
+##  NA&#39;s: 1343        NA&#39;s:11884               NA&#39;s:12488              
+##                                                                     
+##                                                                     
+##                                                                     
+##                                                                     
+##  NEW_ENLIST_AD_84 AD_DLI_SAME_BRANCH_84_Q1 AD_DLI_SAME_BRANCH_84_Q3
+##  NO  :   61       NO  :  236               NO  :  236              
+##  YES :   82       YES :  707               YES :  707              
+##  NA&#39;s:12543       NA&#39;s:11743               NA&#39;s:11743              
+##                                                                    
+##                                                                    
+##                                                                    
+##                                                                    
+##  TIME_SERVED_YN_84 NEW_ENLIST_NOTSERVING_84_Q1 NEW_ENLIST_NOTSERVING_84_Q2
+##  NO  :    9        NO  :    3                  NO  :    3                 
+##  YES :   12        YES :    9                  YES :    9                 
+##  NA&#39;s:12665        NA&#39;s:12674                  NA&#39;s:12674                 
+##                                                                           
+##                                                                           
+##                                                                           
+##                                                                           
+##  CURRENT_AD_YN_84 ALC_IMPACT_JOB_NOALC_LAST30_84        ALC_FREQ6DRINK_84
+##  NO  :  418       NO  :3056                      NEVER           :3668   
+##  YES :  707       YES :  74                      2 OR 3 TIMES    :1599   
+##  NA&#39;s:11561       NA&#39;s:9556                      ONCE            :1256   
+##                                                  4 OR 5 TIMES    : 794   
+##                                                  10 OR MORE TIMES: 452   
+##                                                  (Other)         : 528   
+##                                                  NA&#39;s            :4389   
 ##  NUM_DAY_DRANK_LAST_MONTH_84 ALC_IMPACT_JOB_YESALC_LAST30_84
 ##  Min.   : 0                  NO  :7923                      
 ##  1st Qu.: 2                  YES : 313                      
@@ -1310,8 +1312,414 @@ summary(df_data)</code></pre>
 #summary(categories)
 
 #************************************************************************************************************</code></pre>
-<pre class="r"><code>df_rni_military_dropped &lt;- df_data_rni %&gt;% 
-  filter(RNI_2018 == &quot;68: 68  MILITARY SAMPLE DROPPED&quot;)</code></pre>
+<pre class="r"><code>df_data$RNI_2018 &lt;-df_data_rni$RNI_2018</code></pre>
+<pre class="r"><code>df_rni_groupings &lt;- df_data %&gt;% 
+  mutate(mil_groups = case_when(RNI_2018 == &quot;68: 68  MILITARY SAMPLE DROPPED&quot; ~ 1,
+                                SAMPLE_ID_79 == &quot;MIL MALE WHITE&quot; ~ 2,
+                                SAMPLE_ID_79 == &quot;MIL MALE BLACK&quot; ~ 2,
+                                SAMPLE_ID_79 == &quot;MIL MALE HISPANIC&quot; ~ 2,
+                                SAMPLE_ID_79 == &quot;MIL FEMALE WHITE&quot;~ 2,
+                                SAMPLE_ID_79 == &quot;MIL FEMALE BLACK&quot;~ 2,
+                                SAMPLE_ID_79 == &quot;MIL FEMALE HISPANIC&quot;~ 2,
+                                SAMPLE_ID_79 == &quot;CROSS MALE WHITE&quot; ~ 0,
+                                SAMPLE_ID_79 == &quot;CROSS MALE WH POOR&quot; ~ 0,
+                                SAMPLE_ID_79 == &quot;CROSS MALE BLACK&quot; ~ 0,
+                                SAMPLE_ID_79 == &quot;CROSS MALE HISPANIC&quot; ~ 0,
+                                SAMPLE_ID_79 == &quot;CROSS FEMALE WHITE&quot; ~ 0,
+                                SAMPLE_ID_79 == &quot;CROSS FEMALE WH POOR&quot; ~ 0,
+                                SAMPLE_ID_79 == &quot;CROSS FEMALE BLACK&quot; ~ 0,
+                                SAMPLE_ID_79 == &quot;CROSS FEMALE HISPANIC&quot; ~ 0,
+                                SAMPLE_ID_79 == &quot;SUP MALE WH POOR&quot; ~ 0,
+                                SAMPLE_ID_79 == &quot;SUP MALE BLACK&quot; ~ 0,
+                                SAMPLE_ID_79 == &quot;SUP MALE HISPANIC&quot; ~ 0,
+                                SAMPLE_ID_79 == &quot;SUP FEMALE WH POOR&quot; ~ 0,
+                                SAMPLE_ID_79 == &quot;SUP FEMALE BLACK&quot; ~ 0,
+                                SAMPLE_ID_79 == &quot;SUP FEMALE HISPANIC&quot; ~ 0))</code></pre>
+<div id="combining-bga-data" class="section level1">
+<h1>Combining BGA Data</h1>
+<pre class="r"><code>new_data &lt;- read.table(&#39;data/bgadep/good.dat&#39;, sep=&#39; &#39;)
+names(new_data) &lt;- c(&#39;R0000100&#39;,
+  &#39;R0000500&#39;,
+  &#39;R0173600&#39;,
+  &#39;R0214700&#39;,
+  &#39;R0214800&#39;,
+  &#39;R1021800&#39;,
+  &#39;R1022000&#39;,
+  &#39;R1022100&#39;,
+  &#39;R3896810&#39;,
+  &#39;T3044200&#39;,
+  &#39;T3044300&#39;,
+  &#39;T5616100&#39;,
+  &#39;T5616200&#39;)
+
+
+# Handle missing values
+
+  new_data[new_data == -1] = NA  # Refused 
+  new_data[new_data == -2] = NA  # Dont know 
+  new_data[new_data == -3] = NA  # Invalid missing 
+  new_data[new_data == -4] = NA  # Valid missing 
+  new_data[new_data == -5] = NA  # Non-interview 
+
+
+# If there are values not categorized they will be represented as NA
+
+vallabels = function(data) {
+
+  data$R0173600 &lt;- factor(data$R0173600, 
+    levels=c(1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0), 
+    labels=c(&quot;CROSS MALE WHITE&quot;,
+      &quot;CROSS MALE WH. POOR&quot;,
+      &quot;CROSS MALE BLACK&quot;,
+      &quot;CROSS MALE HISPANIC&quot;,
+      &quot;CROSS FEMALE WHITE&quot;,
+      &quot;CROSS FEMALE WH POOR&quot;,
+      &quot;CROSS FEMALE BLACK&quot;,
+      &quot;CROSS FEMALE HISPANIC&quot;,
+      &quot;SUP MALE WH POOR&quot;,
+      &quot;SUP MALE BLACK&quot;,
+      &quot;SUP MALE HISPANIC&quot;,
+      &quot;SUP FEM WH POOR&quot;,
+      &quot;SUP FEMALE BLACK&quot;,
+      &quot;SUP FEMALE HISPANIC&quot;,
+      &quot;MIL MALE WHITE&quot;,
+      &quot;MIL MALE BLACK&quot;,
+      &quot;MIL MALE HISPANIC&quot;,
+      &quot;MIL FEMALE WHITE&quot;,
+      &quot;MIL FEMALE BLACK&quot;,
+      &quot;MIL FEMALE HISPANIC&quot;))
+  data$R0214700 &lt;- factor(data$R0214700, 
+    levels=c(1.0,2.0,3.0), 
+    labels=c(&quot;HISPANIC&quot;,
+      &quot;BLACK&quot;,
+      &quot;NON-BLACK, NON-HISPANIC&quot;))
+  data$R0214800 &lt;- factor(data$R0214800, 
+    levels=c(1.0,2.0), 
+    labels=c(&quot;MALE&quot;,
+      &quot;FEMALE&quot;))
+  data$R1021800[0.0 &lt;= data$R1021800 &amp; data$R1021800 &lt;= 9.0] &lt;- 0.0
+  data$R1021800[26.0 &lt;= data$R1021800 &amp; data$R1021800 &lt;= 99999.0] &lt;- 26.0
+  data$R1021800 &lt;- factor(data$R1021800, 
+    levels=c(0.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0,21.0,22.0,23.0,24.0,25.0,26.0), 
+    labels=c(&quot;0 TO 9: &lt; 10&quot;,
+      &quot;10&quot;,
+      &quot;11&quot;,
+      &quot;12&quot;,
+      &quot;13&quot;,
+      &quot;14&quot;,
+      &quot;15&quot;,
+      &quot;16&quot;,
+      &quot;17&quot;,
+      &quot;18&quot;,
+      &quot;19&quot;,
+      &quot;20&quot;,
+      &quot;21&quot;,
+      &quot;22&quot;,
+      &quot;23&quot;,
+      &quot;24&quot;,
+      &quot;25&quot;,
+      &quot;26 TO 99999: 26+&quot;))
+  data$R1022000 &lt;- factor(data$R1022000, 
+    levels=c(0.0,1.0,2.0,3.0,4.0,5.0,6.0), 
+    labels=c(&quot;NEVER&quot;,
+      &quot;ONCE&quot;,
+      &quot;2 OR 3 TIMES&quot;,
+      &quot;4 OR 5 TIMES&quot;,
+      &quot;6 OR 7 TIMES&quot;,
+      &quot;8 OR 9 TIMES&quot;,
+      &quot;10 OR MORE TIMES&quot;))
+  data$R1022100[16.0 &lt;= data$R1022100 &amp; data$R1022100 &lt;= 99999.0] &lt;- 16.0
+  data$R1022100 &lt;- factor(data$R1022100, 
+    levels=c(0.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0), 
+    labels=c(&quot;0&quot;,
+      &quot;1&quot;,
+      &quot;2&quot;,
+      &quot;3&quot;,
+      &quot;4&quot;,
+      &quot;5&quot;,
+      &quot;6&quot;,
+      &quot;7&quot;,
+      &quot;8&quot;,
+      &quot;9&quot;,
+      &quot;10&quot;,
+      &quot;11&quot;,
+      &quot;12&quot;,
+      &quot;13&quot;,
+      &quot;14&quot;,
+      &quot;15&quot;,
+      &quot;16 TO 99999: 16+&quot;))
+  data$R3896810[1.0 &lt;= data$R3896810 &amp; data$R3896810 &lt;= 9.0] &lt;- 1.0
+  data$R3896810[10.0 &lt;= data$R3896810 &amp; data$R3896810 &lt;= 19.0] &lt;- 10.0
+  data$R3896810[20.0 &lt;= data$R3896810 &amp; data$R3896810 &lt;= 29.0] &lt;- 20.0
+  data$R3896810[30.0 &lt;= data$R3896810 &amp; data$R3896810 &lt;= 39.0] &lt;- 30.0
+  data$R3896810[40.0 &lt;= data$R3896810 &amp; data$R3896810 &lt;= 49.0] &lt;- 40.0
+  data$R3896810[50.0 &lt;= data$R3896810 &amp; data$R3896810 &lt;= 59.0] &lt;- 50.0
+  data$R3896810[60.0 &lt;= data$R3896810 &amp; data$R3896810 &lt;= 69.0] &lt;- 60.0
+  data$R3896810 &lt;- factor(data$R3896810, 
+    levels=c(0.0,1.0,10.0,20.0,30.0,40.0,50.0,60.0), 
+    labels=c(&quot;0&quot;,
+      &quot;1 TO 9&quot;,
+      &quot;10 TO 19&quot;,
+      &quot;20 TO 29&quot;,
+      &quot;30 TO 39&quot;,
+      &quot;40 TO 49&quot;,
+      &quot;50 TO 59&quot;,
+      &quot;60 TO 69&quot;))
+  data$T3044200[10.0 &lt;= data$T3044200 &amp; data$T3044200 &lt;= 999.0] &lt;- 10.0
+  data$T3044200 &lt;- factor(data$T3044200, 
+    levels=c(0.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0), 
+    labels=c(&quot;0&quot;,
+      &quot;1&quot;,
+      &quot;2&quot;,
+      &quot;3&quot;,
+      &quot;4&quot;,
+      &quot;5&quot;,
+      &quot;6&quot;,
+      &quot;7&quot;,
+      &quot;8&quot;,
+      &quot;9&quot;,
+      &quot;10 TO 999: 10+&quot;))
+  data$T3044300 &lt;- factor(data$T3044300, 
+    levels=c(0.0,1.0,2.0,3.0,4.0,5.0), 
+    labels=c(&quot;Never in the last 30 days&quot;,
+      &quot;Less often than once a week&quot;,
+      &quot;1 or 2 times per week&quot;,
+      &quot;3 or 4 times per week&quot;,
+      &quot;5 or 6 times per week&quot;,
+      &quot;Everyday&quot;))
+  # data$T5616100 &lt;- factor(data$T5616100, 
+  #   levels=c(0.0,1.0), 
+  #   labels=c(&quot;No&quot;,
+  #     &quot;Yes&quot;))
+  # data$T5616200 &lt;- factor(data$T5616200, 
+  #   levels=c(0.0,1.0), 
+  #   labels=c(&quot;No&quot;,
+  #     &quot;Yes&quot;))
+  return(data)
+}
+
+varlabels &lt;- c(&quot;ID# (1-12686) 79&quot;,
+  &quot;DATE OF BIRTH - YR 79&quot;,
+  &quot;SAMPLE ID  79 INT&quot;,
+  &quot;RACL/ETHNIC COHORT /SCRNR 79&quot;,
+  &quot;SEX OF R 79&quot;,
+  &quot;ALCHL-AGE START DRNK 1 TIME WK 83&quot;,
+  &quot;ALCHL-FREQ 6/&gt; DRNK @ 1 TM LAST MO 83&quot;,
+  &quot;ALCHL-#DAYS DRANK ALCOHOL LAST MO 83&quot;,
+  &quot;20-ITEM CES-D SCORE 92&quot;,
+  &quot;# OF DRINKS R HAS ON AVERAGE DAY 2010&quot;,
+  &quot;FREQ OF 6 OR MORE DRINKS AT ONCE IN LAST 30 DAYS 2010&quot;,
+  &quot;LIVE W ONE DEPRESSED MENTALLY ILL SUICIDAL &lt;18 2016&quot;,
+  &quot;LIVE W PROBLEM DRINKER OR ALCHOLIC &lt;18 2016&quot;
+)
+
+
+# Use qnames rather than rnums
+
+qnames = function(data) {
+  names(data) &lt;- c(&quot;MCASEID&quot;,
+    &quot;YoB&quot;,
+    &quot;SAMPLEID&quot;,
+    &quot;RACE&quot;,
+    &quot;SEX&quot;,
+    &quot;DRINKSTART_1983&quot;,
+    &quot;DRINKFREQ6_1983&quot;,
+    &quot;DRINKFREQ_1983&quot;,
+    &quot;CESD_1992&quot;,
+    &quot;DRINKAVERAGE_2010&quot;,
+    &quot;DRINKFREQ6_2010&quot;,
+    &quot;HOMEDEP_2016&quot;,
+    &quot;HOMEDRINKER_2016&quot;)
+  return(data)
+}
+
+
+#********************************************************************************************************
+
+# sneakiness to work with factors
+
+df_data_good &lt;- qnames(new_data)
+
+df_data_goodx &lt;- qnames(vallabels(new_data))
+
+df_data_good[c(&quot;MCASEID&quot;,&quot;YoB&quot;,&quot;SAMPLEID&quot;,&quot;RACE&quot;,&quot;SEX&quot;) ]&lt;-df_data_goodx[c(&quot;MCASEID&quot;,&quot;YoB&quot;,&quot;SAMPLEID&quot;,&quot;RACE&quot;,&quot;SEX&quot;) ]
+
+rm(df_data_goodx)
+
+# live with
+
+
+new_data &lt;- read.table(&#39;data/bgadep/livewith.dat&#39;, sep=&#39; &#39;)
+names(new_data) &lt;- c(&#39;R0000100&#39;,
+  &#39;R0173600&#39;,
+  &#39;R0214700&#39;,
+  &#39;R0214800&#39;,
+  &#39;T3974100&#39;,
+  &#39;T3974200&#39;,
+  &#39;T4912400&#39;,
+  &#39;T4912500&#39;,
+  &#39;T5616100&#39;,
+  &#39;T5616200&#39;)
+
+
+# Handle missing values
+
+  new_data[new_data == -1] = NA  # Refused 
+  new_data[new_data == -2] = NA  # Dont know 
+  new_data[new_data == -3] = NA  # Invalid missing 
+  new_data[new_data == -4] = NA  # Valid missing 
+  new_data[new_data == -5] = NA  # Non-interview 
+
+
+# If there are values not categorized they will be represented as NA
+
+vallabels = function(data) {
+  data$R0173600 &lt;- factor(data$R0173600, 
+    levels=c(1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0), 
+    labels=c(&quot;CROSS MALE WHITE&quot;,
+      &quot;CROSS MALE WH. POOR&quot;,
+      &quot;CROSS MALE BLACK&quot;,
+      &quot;CROSS MALE HISPANIC&quot;,
+      &quot;CROSS FEMALE WHITE&quot;,
+      &quot;CROSS FEMALE WH POOR&quot;,
+      &quot;CROSS FEMALE BLACK&quot;,
+      &quot;CROSS FEMALE HISPANIC&quot;,
+      &quot;SUP MALE WH POOR&quot;,
+      &quot;SUP MALE BLACK&quot;,
+      &quot;SUP MALE HISPANIC&quot;,
+      &quot;SUP FEM WH POOR&quot;,
+      &quot;SUP FEMALE BLACK&quot;,
+      &quot;SUP FEMALE HISPANIC&quot;,
+      &quot;MIL MALE WHITE&quot;,
+      &quot;MIL MALE BLACK&quot;,
+      &quot;MIL MALE HISPANIC&quot;,
+      &quot;MIL FEMALE WHITE&quot;,
+      &quot;MIL FEMALE BLACK&quot;,
+      &quot;MIL FEMALE HISPANIC&quot;))
+  data$R0214700 &lt;- factor(data$R0214700, 
+    levels=c(1.0,2.0,3.0), 
+    labels=c(&quot;HISPANIC&quot;,
+      &quot;BLACK&quot;,
+      &quot;NON-BLACK, NON-HISPANIC&quot;))
+  data$R0214800 &lt;- factor(data$R0214800, 
+    levels=c(1.0,2.0), 
+    labels=c(&quot;MALE&quot;,
+      &quot;FEMALE&quot;))
+  # data$T3974100 &lt;- factor(data$T3974100, 
+  #   levels=c(0.0,1.0), 
+  #   labels=c(&quot;No&quot;,
+  #     &quot;Yes&quot;))
+  # data$T3974200 &lt;- factor(data$T3974200, 
+  #   levels=c(0.0,1.0), 
+  #   labels=c(&quot;No&quot;,
+  #     &quot;Yes&quot;))
+  # data$T4912400 &lt;- factor(data$T4912400, 
+  #   levels=c(0.0,1.0), 
+  #   labels=c(&quot;No&quot;,
+  #     &quot;Yes&quot;))
+  # data$T4912500 &lt;- factor(data$T4912500, 
+  #   levels=c(0.0,1.0), 
+  #   labels=c(&quot;No&quot;,
+  #     &quot;Yes&quot;))
+  # data$T5616100 &lt;- factor(data$T5616100, 
+  #   levels=c(0.0,1.0), 
+  #   labels=c(&quot;No&quot;,
+  #     &quot;Yes&quot;))
+  # data$T5616200 &lt;- factor(data$T5616200, 
+  #   levels=c(0.0,1.0), 
+  #   labels=c(&quot;No&quot;,
+  #     &quot;Yes&quot;))
+  return(data)
+}
+
+varlabels &lt;- c(&quot;ID# (1-12686) 79&quot;,
+  &quot;SAMPLE ID  79 INT&quot;,
+  &quot;RACL/ETHNIC COHORT /SCRNR 79&quot;,
+  &quot;SEX OF R 79&quot;,
+  &quot;LIVE W ONE DEPRESSED MENTALLY ILL SUICIDAL &lt;18 2012&quot;,
+  &quot;LIVE W PROBLEM DRINKER OR ALCHOLIC &lt;18 2012&quot;,
+  &quot;LIVE W ONE DEPRESSED MENTALLY ILL SUICIDAL &lt;18 2014&quot;,
+  &quot;LIVE W PROBLEM DRINKER OR ALCHOLIC &lt;18 2014&quot;,
+  &quot;LIVE W ONE DEPRESSED MENTALLY ILL SUICIDAL &lt;18 2016&quot;,
+  &quot;LIVE W PROBLEM DRINKER OR ALCHOLIC &lt;18 2016&quot;
+)
+
+
+# Use qnames rather than rnums
+
+qnames = function(data) {
+  names(data) &lt;- c(&quot;MCASEID&quot;,
+    &quot;SAMPLEID&quot;,
+    &quot;RAC&quot;,
+    &quot;SEX&quot;,
+    &quot;HOMEDEP_2012&quot;,
+    &quot;HOMEDRINKER_2012&quot;,
+    &quot;HOMEDEP_2014&quot;,
+    &quot;HOMEDRINKER_2014&quot;,
+    &quot;HOMEDEP_2016&quot;,
+    &quot;HOMEDRINKER_2016&quot;)
+  return(data)
+}
+
+df_data_home &lt;- qnames(vallabels(new_data))
+
+df_data_raw=merge(df_data_good,df_data_home)</code></pre>
+</div>
+<div id="summary-data-cleaning" class="section level1">
+<h1>Summary / data cleaning</h1>
+<pre class="r"><code>summary(df_data_raw)</code></pre>
+<pre><code>##     MCASEID                     SAMPLEID        SEX        HOMEDEP_2016  
+##  Min.   :    1   CROSS FEMALE WHITE :2279   MALE  :6403   Min.   :0      
+##  1st Qu.: 3172   CROSS MALE WHITE   :2236   FEMALE:6283   1st Qu.:0      
+##  Median : 6344   SUP MALE BLACK     :1105                 Median :0      
+##  Mean   : 6344   SUP FEMALE BLACK   :1067                 Mean   :0      
+##  3rd Qu.: 9515   SUP FEM WH POOR    : 901                 3rd Qu.:0      
+##  Max.   :12686   SUP FEMALE HISPANIC: 751                 Max.   :1      
+##                  (Other)            :4347                 NA&#39;s   :12556  
+##  HOMEDRINKER_2016      YoB                            RACE      DRINKSTART_1983
+##  Min.   :0        Min.   :57.0   HISPANIC               :2002   Min.   : 0     
+##  1st Qu.:0        1st Qu.:58.0   BLACK                  :3174   1st Qu.: 0     
+##  Median :0        Median :60.0   NON-BLACK, NON-HISPANIC:7510   Median :17     
+##  Mean   :0        Mean   :60.3                                  Mean   :13     
+##  3rd Qu.:0        3rd Qu.:62.0                                  3rd Qu.:18     
+##  Max.   :1        Max.   :64.0                                  Max.   :26     
+##  NA&#39;s   :12557                                                  NA&#39;s   :3073   
+##  DRINKFREQ6_1983 DRINKFREQ_1983   CESD_1992    DRINKAVERAGE_2010
+##  Min.   :0       Min.   : 1     Min.   : 0     Min.   : 1       
+##  1st Qu.:0       1st Qu.: 2     1st Qu.: 3     1st Qu.: 1       
+##  Median :1       Median : 5     Median : 7     Median : 2       
+##  Mean   :1       Mean   : 7     Mean   :10     Mean   : 3       
+##  3rd Qu.:2       3rd Qu.:10     3rd Qu.:14     3rd Qu.: 3       
+##  Max.   :6       Max.   :30     Max.   :59     Max.   :30       
+##  NA&#39;s   :4631    NA&#39;s   :4629   NA&#39;s   :3708   NA&#39;s   :8532     
+##  DRINKFREQ6_2010                      RAC        HOMEDEP_2012  HOMEDRINKER_2012
+##  Min.   :0       HISPANIC               :2002   Min.   :0      Min.   :0       
+##  1st Qu.:0       BLACK                  :3174   1st Qu.:0      1st Qu.:0       
+##  Median :0       NON-BLACK, NON-HISPANIC:7510   Median :0      Median :0       
+##  Mean   :0                                      Mean   :0      Mean   :0       
+##  3rd Qu.:1                                      3rd Qu.:0      3rd Qu.:0       
+##  Max.   :5                                      Max.   :1      Max.   :1       
+##  NA&#39;s   :8526                                   NA&#39;s   :5418   NA&#39;s   :5411    
+##   HOMEDEP_2014   HOMEDRINKER_2014
+##  Min.   :0       Min.   :0       
+##  1st Qu.:0       1st Qu.:0       
+##  Median :0       Median :0       
+##  Mean   :0       Mean   :0       
+##  3rd Qu.:0       3rd Qu.:0       
+##  Max.   :1       Max.   :1       
+##  NA&#39;s   :12396   NA&#39;s   :12395</code></pre>
+<pre class="r"><code>#Creat Subject Tag
+df_full_gen1 = df_data_raw %&gt;%
+  mutate(SubjectTag=MCASEID*100,
+        CASEID=MCASEID*100,
+        HOMEDRINKER=pmax(HOMEDRINKER_2016,HOMEDRINKER_2014,HOMEDRINKER_2012, na.rm = TRUE),
+       HOMEDEP=pmax(HOMEDEP_2016,HOMEDEP_2014,HOMEDEP_2012, na.rm = TRUE)
+         )
+
+
+#Change Reference Group for Race (to non-black-non-hispanic)
+df_full_gen1 $RACE = relevel(df_full_gen1$RACE, ref=3)</code></pre>
+</div>
 
 
 
