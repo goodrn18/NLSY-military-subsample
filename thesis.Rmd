@@ -758,27 +758,27 @@ df_data$RNI_2018 <-df_data_rni$RNI_2018
 
 ```{r military_dropped_filter}
 df_rni_groupings <- df_data %>% 
-  mutate(mil_groups = case_when(RNI_2018 == "68: 68  MILITARY SAMPLE DROPPED" ~ 1,
-                                SAMPLE_ID_79 == "MIL MALE WHITE" ~ 2,
-                                SAMPLE_ID_79 == "MIL MALE BLACK" ~ 2,
-                                SAMPLE_ID_79 == "MIL MALE HISPANIC" ~ 2,
-                                SAMPLE_ID_79 == "MIL FEMALE WHITE"~ 2,
-                                SAMPLE_ID_79 == "MIL FEMALE BLACK"~ 2,
-                                SAMPLE_ID_79 == "MIL FEMALE HISPANIC"~ 2,
-                                SAMPLE_ID_79 == "CROSS MALE WHITE" ~ 0,
-                                SAMPLE_ID_79 == "CROSS MALE WH POOR" ~ 0,
-                                SAMPLE_ID_79 == "CROSS MALE BLACK" ~ 0,
-                                SAMPLE_ID_79 == "CROSS MALE HISPANIC" ~ 0,
-                                SAMPLE_ID_79 == "CROSS FEMALE WHITE" ~ 0,
-                                SAMPLE_ID_79 == "CROSS FEMALE WH POOR" ~ 0,
-                                SAMPLE_ID_79 == "CROSS FEMALE BLACK" ~ 0,
-                                SAMPLE_ID_79 == "CROSS FEMALE HISPANIC" ~ 0,
-                                SAMPLE_ID_79 == "SUP MALE WH POOR" ~ 0,
-                                SAMPLE_ID_79 == "SUP MALE BLACK" ~ 0,
-                                SAMPLE_ID_79 == "SUP MALE HISPANIC" ~ 0,
-                                SAMPLE_ID_79 == "SUP FEMALE WH POOR" ~ 0,
-                                SAMPLE_ID_79 == "SUP FEMALE BLACK" ~ 0,
-                                SAMPLE_ID_79 == "SUP FEMALE HISPANIC" ~ 0))
+  mutate(mil_groups = case_when(RNI_2018 == "68: 68  MILITARY SAMPLE DROPPED" ~ "MIL_DROP",
+                                SAMPLE_ID_79 == "MIL MALE WHITE" ~ "OG_MIL",
+                                SAMPLE_ID_79 == "MIL MALE BLACK" ~ "OG_MIL",
+                                SAMPLE_ID_79 == "MIL MALE HISPANIC" ~ "OG_MIL",
+                                SAMPLE_ID_79 == "MIL FEMALE WHITE"~ "OG_MIL",
+                                SAMPLE_ID_79 == "MIL FEMALE BLACK"~ "OG_MIL",
+                                SAMPLE_ID_79 == "MIL FEMALE HISPANIC"~ "OG_MIL",
+                                SAMPLE_ID_79 == "CROSS MALE WHITE" ~ "NON_MIL",
+                                SAMPLE_ID_79 == "CROSS MALE WH POOR" ~ "NON_MIL",
+                                SAMPLE_ID_79 == "CROSS MALE BLACK" ~ "NON_MIL",
+                                SAMPLE_ID_79 == "CROSS MALE HISPANIC" ~ "NON_MIL",
+                                SAMPLE_ID_79 == "CROSS FEMALE WHITE" ~ "NON_MIL",
+                                SAMPLE_ID_79 == "CROSS FEMALE WH POOR" ~ "NON_MIL",
+                                SAMPLE_ID_79 == "CROSS FEMALE BLACK" ~ "NON_MIL",
+                                SAMPLE_ID_79 == "CROSS FEMALE HISPANIC" ~ "NON_MIL",
+                                SAMPLE_ID_79 == "SUP MALE WH POOR" ~ "NON_MIL",
+                                SAMPLE_ID_79 == "SUP MALE BLACK" ~ "NON_MIL",
+                                SAMPLE_ID_79 == "SUP MALE HISPANIC" ~ "NON_MIL",
+                                SAMPLE_ID_79 == "SUP FEMALE WH POOR" ~ "NON_MIL",
+                                SAMPLE_ID_79 == "SUP FEMALE BLACK" ~ "NON_MIL",
+                                SAMPLE_ID_79 == "SUP FEMALE HISPANIC" ~ "NON_MIL"))
 
 ```
 
@@ -1139,6 +1139,6 @@ df_full_gen1 $RACE = relevel(df_full_gen1$RACE, ref=3)
 # name = lm([target_variable] ~ [predictor_var1 + predictor_var2 + ...], data = [data_source])
 #to add linear regression line to plot use abline()
 
-trial = lm(NUM_DAY_DRANK_LAST_MONTH_83 ~ mil_groups, data = df_rni_groupings)
+trial = lm(NUM_DAY_DRANK_LAST_MONTH_83 ~ as.factor(mil_groups), data = df_rni_groupings)
 summary(trial)
 ```
