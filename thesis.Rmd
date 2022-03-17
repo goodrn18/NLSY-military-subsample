@@ -1134,3 +1134,8 @@ df_full_gen1 = df_data_raw %>%
 df_full_gen1 $RACE = relevel(df_full_gen1$RACE, ref=3)
 
 ```
+
+```{r linear_regression_basics}
+# name = lm([target_variable] ~ [predictor_var1 + predictor_var2 + ...], data = [data_source])
+#to add linear regression line to plot use abline()
+```
