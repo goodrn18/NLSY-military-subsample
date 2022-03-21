@@ -1139,6 +1139,6 @@ df_full_gen1 $RACE = relevel(df_full_gen1$RACE, ref=3)
 # name = lm([target_variable] ~ [predictor_var1 + predictor_var2 + ...], data = [data_source])
 #to add linear regression line to plot use abline()
 
-trial = lm(NUM_DAY_DRANK_LAST_MONTH_83 ~ as.factor(mil_groups), data = df_rni_groupings)
-summary(trial)
+days_per_month_83 = lm(NUM_DAY_DRANK_LAST_MONTH_83 ~ as.factor(mil_groups), data = df_rni_groupings)
+summary(days_per_month_83)
 ```
