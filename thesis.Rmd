@@ -1142,6 +1142,11 @@ df_full_gen1 $RACE = relevel(df_full_gen1$RACE, ref=3)
 days_per_month_83 = lm(NUM_DAY_DRANK_LAST_MONTH_83 ~ as.factor(mil_groups), data = df_rni_groupings)
 summary(days_per_month_83)
 ```
+```{r race_reference_group}
+df_rni_groupings$RACE=relevel(df_rni_groupings$RACE, ref='NON-BLACK, NON-HISPANIC')
+
+```
+
 ```{r lm_num_day_controls_83}
 days_per_month_83_controls = lm(NUM_DAY_DRANK_LAST_MONTH_83 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
 summary(days_per_month_83_controls)
@@ -1157,6 +1162,7 @@ summary(age_start_83)
 ```
 
 ```{r recode_freq6}
+#COME BACK LATER TO FIX ORDINAL
 df_rni_groupings <- df_rni_groupings %>% 
   mutate(recode_alc_freq6drinks_82 = case_when(ALC_FREQ6DRINKS_82 == "NEVER" ~ 0,
                                 ALC_FREQ6DRINKS_82 == "ONCE" ~ 1,
@@ -1195,12 +1201,16 @@ freq_6_84 = lm(recode_alc_freq6drinks_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79
 summary(freq_6_84)
 ```
 
+```{r recode_impact_job}
+df_rni_groupings <- df_rni_groupings %>% 
+  mutate(recode_alc_impact_job_82 = case_when(ALC_IMPACT_JOB_82 == "NO" ~ 0,
+                                ALC_IMPACT_JOB_82 == "YES" ~ 1))
 
-
+```
 
 ```{r lm_impact_job_82} 
 # CONTINUE RECODING VARIABLES HERE
-impact_job_82 = lm(ALC_IMPACT_JOB_82 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+impact_job_82 = glm(ALC_IMPACT_JOB_82 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = "binomial")
 summary(impact_job_82)
 ```
 
