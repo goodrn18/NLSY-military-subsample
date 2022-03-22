@@ -1157,10 +1157,44 @@ summary(age_start_83)
 ```
 
 ```{r lm_freq_6_drinks_82}
-freq_6_82 = lm(ALC_FREQ6DRINKS_82 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+freq_6_82 = lm(recode_alc_freq6drinks_82 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
 summary(freq_6_82)
-# need to code alc_freq6 to be numerical and not categorical
 ```
+
+```{r lm_freq_6_drinks_83}
+freq_6_83 = lm(recode_alc_freq6drinks_83 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+summary(freq_6_83)
+```
+
+```{r lm_freq_6_drinks_84}
+freq_6_84 = lm(recode_alc_freq6drinks_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+summary(freq_6_84)
+```
+
+```{r recode_freq6}
+df_rni_groupings <- df_rni_groupings %>% 
+  mutate(recode_alc_freq6drinks_82 = case_when(ALC_FREQ6DRINKS_82 == "NEVER" ~ 0,
+                                ALC_FREQ6DRINKS_82 == "ONCE" ~ 1,
+                                ALC_FREQ6DRINKS_82 == "2 OR 3 TIMES" ~ 2,
+                                ALC_FREQ6DRINKS_82 == "4 OR 5 TIMES" ~ 3,
+                                ALC_FREQ6DRINKS_82 == "10 OR MORE TIMES" ~ 4))
+
+df_rni_groupings <- df_rni_groupings %>% 
+  mutate(recode_alc_freq6drinks_83 = case_when(ALC_FREQ6DRINK_83 == "NEVER" ~ 0,
+                                ALC_FREQ6DRINK_83 == "ONCE" ~ 1,
+                                ALC_FREQ6DRINK_83 == "2 OR 3 TIMES" ~ 2,
+                                ALC_FREQ6DRINK_83 == "4 OR 5 TIMES" ~ 3,
+                                ALC_FREQ6DRINK_83 == "10 OR MORE TIMES" ~ 4))
+
+df_rni_groupings <- df_rni_groupings %>% 
+  mutate(recode_alc_freq6drinks_84 = case_when(ALC_FREQ6DRINK_84 == "NEVER" ~ 0,
+                                ALC_FREQ6DRINK_84 == "ONCE" ~ 1,
+                                ALC_FREQ6DRINK_84 == "2 OR 3 TIMES" ~ 2,
+                                ALC_FREQ6DRINK_84 == "4 OR 5 TIMES" ~ 3,
+                                ALC_FREQ6DRINK_84 == "10 OR MORE TIMES" ~ 4))
+
+```
+
 
 ```{r lm_impact_job_82}
 impact_job_82 = lm(ALC_IMPACT_JOB_82 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
