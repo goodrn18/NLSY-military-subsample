@@ -1156,21 +1156,6 @@ age_start_83 = lm(AGE_START_DRINK_83 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + R
 summary(age_start_83)
 ```
 
-```{r lm_freq_6_drinks_82}
-freq_6_82 = lm(recode_alc_freq6drinks_82 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
-summary(freq_6_82)
-```
-
-```{r lm_freq_6_drinks_83}
-freq_6_83 = lm(recode_alc_freq6drinks_83 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
-summary(freq_6_83)
-```
-
-```{r lm_freq_6_drinks_84}
-freq_6_84 = lm(recode_alc_freq6drinks_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
-summary(freq_6_84)
-```
-
 ```{r recode_freq6}
 df_rni_groupings <- df_rni_groupings %>% 
   mutate(recode_alc_freq6drinks_82 = case_when(ALC_FREQ6DRINKS_82 == "NEVER" ~ 0,
@@ -1195,8 +1180,26 @@ df_rni_groupings <- df_rni_groupings %>%
 
 ```
 
+```{r lm_freq_6_drinks_82}
+freq_6_82 = lm(recode_alc_freq6drinks_82 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+summary(freq_6_82)
+```
 
-```{r lm_impact_job_82}
+```{r lm_freq_6_drinks_83}
+freq_6_83 = lm(recode_alc_freq6drinks_83 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+summary(freq_6_83)
+```
+
+```{r lm_freq_6_drinks_84}
+freq_6_84 = lm(recode_alc_freq6drinks_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+summary(freq_6_84)
+```
+
+
+
+
+```{r lm_impact_job_82} 
+# CONTINUE RECODING VARIABLES HERE
 impact_job_82 = lm(ALC_IMPACT_JOB_82 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
 summary(impact_job_82)
 ```
