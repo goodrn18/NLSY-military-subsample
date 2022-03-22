@@ -1142,3 +1142,52 @@ df_full_gen1 $RACE = relevel(df_full_gen1$RACE, ref=3)
 days_per_month_83 = lm(NUM_DAY_DRANK_LAST_MONTH_83 ~ as.factor(mil_groups), data = df_rni_groupings)
 summary(days_per_month_83)
 ```
+```{r lm_num_day_controls_83}
+days_per_month_83_controls = lm(NUM_DAY_DRANK_LAST_MONTH_83 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+summary(days_per_month_83_controls)
+```
+```{r lm_age_start_82}
+age_start_82 = lm(AGE_START_DRINK_82 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+summary(age_start_82)
+```
+
+```{r lm_age_start_83}
+age_start_83 = lm(AGE_START_DRINK_83 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+summary(age_start_83)
+```
+
+```{r lm_freq_6_drinks_82}
+freq_6_82 = lm(ALC_FREQ6DRINKS_82 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+summary(freq_6_82)
+# need to code alc_freq6 to be numerical and not categorical
+```
+
+```{r lm_impact_job_82}
+impact_job_82 = lm(ALC_IMPACT_JOB_82 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+summary(impact_job_82)
+```
+
+```{r lm_impact_job_noalc_last30_84}
+impact_job_noalc_last30_84 = lm(ALC_IMPACT_JOB_NOALC_LAST30_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+summary(impact_job_noalc_last30_84)
+```
+
+```{r lm_afraid_alcoholic_84}
+afraid_alc_84 = lm(AFRAID_ALCOHOLIC_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+summary(afraid_alc_84)
+```
+
+```{r lm_drink_til_drunk_84}
+drink_til_drunk_84 = lm(DRINK_UNTIL_DRUNK_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+summary(drink_til_drunk_84)
+```
+
+```{r lm_forget_next_84}
+forget_next_84 = lm(FORGETS_NEXT_DAY_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+summary(forget_next_84)
+```
+
+```{r lm_AM_drink_first_84}
+AM_drink_first_84 = lm(DRINK_FIRST_MORNING_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+summary(AM_drink_first_84)
+```
