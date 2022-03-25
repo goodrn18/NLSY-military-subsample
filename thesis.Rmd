@@ -1205,36 +1205,67 @@ summary(freq_6_84)
 df_rni_groupings <- df_rni_groupings %>% 
   mutate(recode_alc_impact_job_82 = case_when(ALC_IMPACT_JOB_82 == "NO" ~ 0,
                                 ALC_IMPACT_JOB_82 == "YES" ~ 1))
+df_rni_groupings <- df_rni_groupings %>% 
+  mutate(recode_alc_impact_job_83 = case_when(ALC_IMPACT_JOB_83 == "NO" ~ 0,
+                                ALC_IMPACT_JOB_83 == "YES" ~ 1))
+df_rni_groupings <- df_rni_groupings %>% 
+  mutate(recode_impact_job_noalc_last30_84 = case_when(ALC_IMPACT_JOB_NOALC_LAST30_84 == "NO" ~ 0,
+                                ALC_IMPACT_JOB_NOALC_LAST30_84 == "YES" ~ 1))
 
 ```
 
 ```{r lm_impact_job_82} 
-# CONTINUE RECODING VARIABLES HERE
-impact_job_82 = glm(ALC_IMPACT_JOB_82 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = "binomial")
+
+impact_job_82 = glm(recode_alc_impact_job_82 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = "binomial")
 summary(impact_job_82)
+```
+```{r lm_impact_job_8} 
+
+impact_job_83 = glm(recode_alc_impact_job_83 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = "binomial")
+summary(impact_job_83)
 ```
 
 ```{r lm_impact_job_noalc_last30_84}
-impact_job_noalc_last30_84 = lm(ALC_IMPACT_JOB_NOALC_LAST30_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+impact_job_noalc_last30_84 = glm(recode_impact_job_noalc_last30_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = "binomial")
 summary(impact_job_noalc_last30_84)
+```
+```{r recode_afraid_alcoholic}
+df_rni_groupings <- df_rni_groupings %>% 
+  mutate(recode_afraid_alcoholic_84 = case_when(AFRAID_ALCOHOLIC_84 == "NO" ~ 0,
+                                AFRAID_ALCOHOLIC_84 == "YES" ~ 1))
 ```
 
 ```{r lm_afraid_alcoholic_84}
-afraid_alc_84 = lm(AFRAID_ALCOHOLIC_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+afraid_alc_84 = glm(recode_afraid_alcoholic_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = "binomial")
 summary(afraid_alc_84)
+```
+```{r recode_drink_til_drunk}
+df_rni_groupings <- df_rni_groupings %>% 
+  mutate(recode_drink_til_drunk_84 = case_when(DRINK_UNTIL_DRUNK_84 == "NO" ~ 0,
+                                DRINK_UNTIL_DRUNK_84 == "YES" ~ 1))
 ```
 
 ```{r lm_drink_til_drunk_84}
-drink_til_drunk_84 = lm(DRINK_UNTIL_DRUNK_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+drink_til_drunk_84 = glm(recode_drink_til_drunk_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = "binomial")
 summary(drink_til_drunk_84)
+```
+```{r recode_forget_next}
+df_rni_groupings <- df_rni_groupings %>% 
+  mutate(recode_forget_next_84 = case_when(FORGETS_NEXT_DAY_84 == "NO" ~ 0,
+                                FORGETS_NEXT_DAY_84 == "YES" ~ 1))
 ```
 
 ```{r lm_forget_next_84}
-forget_next_84 = lm(FORGETS_NEXT_DAY_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+forget_next_84 = glm(recode_forget_next_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = "binomial")
 summary(forget_next_84)
+```
+```{r recode_AM_drink}
+df_rni_groupings <- df_rni_groupings %>% 
+  mutate(recode_AM_drink_84 = case_when(DRINK_FIRST_MORNING_84 == "NO" ~ 0,
+                                DRINK_FIRST_MORNING_84 == "YES" ~ 1))
 ```
 
 ```{r lm_AM_drink_first_84}
-AM_drink_first_84 = lm(DRINK_FIRST_MORNING_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+AM_drink_first_84 = glm(recode_AM_drink_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = "binomial")
 summary(AM_drink_first_84)
 ```
