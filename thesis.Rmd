@@ -12,6 +12,7 @@ options(digits = 3)
 
 ```{r packages}
 library(dplyr)
+library(ggplot2)
 ```
 
 ```{r new_data} 
@@ -779,6 +780,14 @@ df_rni_groupings <- df_data %>%
                                 SAMPLE_ID_79 == "SUP FEMALE WH POOR" ~ "NON_MIL",
                                 SAMPLE_ID_79 == "SUP FEMALE BLACK" ~ "NON_MIL",
                                 SAMPLE_ID_79 == "SUP FEMALE HISPANIC" ~ "NON_MIL"))
+
+```
+
+
+```{r mil_group_visualization}
+ggplot(data = df_rni_groupings,
+       mapping = aes(x = mil_group))+
+  geom_bar
 
 ```
 
