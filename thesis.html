@@ -11,7 +11,7 @@
 
 <meta name="author" content="Rachel Good" />
 
-<meta name="date" content="2022-03-15" />
+<meta name="date" content="2022-04-02" />
 
 <title>Thesis</title>
 
@@ -167,7 +167,7 @@ pre code {
 
 <h1 class="title toc-ignore">Thesis</h1>
 <h4 class="author">Rachel Good</h4>
-<h4 class="date">2022-03-15</h4>
+<h4 class="date">2022-04-02</h4>
 
 </div>
 
@@ -181,6 +181,7 @@ pre code {
 <pre><code>## The following objects are masked from &#39;package:base&#39;:
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(ggplot2)</code></pre>
 <pre class="r"><code># Set working directory
 # setwd()
 
@@ -1314,27 +1315,31 @@ summary(df_data)</code></pre>
 #************************************************************************************************************</code></pre>
 <pre class="r"><code>df_data$RNI_2018 &lt;-df_data_rni$RNI_2018</code></pre>
 <pre class="r"><code>df_rni_groupings &lt;- df_data %&gt;% 
-  mutate(mil_groups = case_when(RNI_2018 == &quot;68: 68  MILITARY SAMPLE DROPPED&quot; ~ 1,
-                                SAMPLE_ID_79 == &quot;MIL MALE WHITE&quot; ~ 2,
-                                SAMPLE_ID_79 == &quot;MIL MALE BLACK&quot; ~ 2,
-                                SAMPLE_ID_79 == &quot;MIL MALE HISPANIC&quot; ~ 2,
-                                SAMPLE_ID_79 == &quot;MIL FEMALE WHITE&quot;~ 2,
-                                SAMPLE_ID_79 == &quot;MIL FEMALE BLACK&quot;~ 2,
-                                SAMPLE_ID_79 == &quot;MIL FEMALE HISPANIC&quot;~ 2,
-                                SAMPLE_ID_79 == &quot;CROSS MALE WHITE&quot; ~ 0,
-                                SAMPLE_ID_79 == &quot;CROSS MALE WH POOR&quot; ~ 0,
-                                SAMPLE_ID_79 == &quot;CROSS MALE BLACK&quot; ~ 0,
-                                SAMPLE_ID_79 == &quot;CROSS MALE HISPANIC&quot; ~ 0,
-                                SAMPLE_ID_79 == &quot;CROSS FEMALE WHITE&quot; ~ 0,
-                                SAMPLE_ID_79 == &quot;CROSS FEMALE WH POOR&quot; ~ 0,
-                                SAMPLE_ID_79 == &quot;CROSS FEMALE BLACK&quot; ~ 0,
-                                SAMPLE_ID_79 == &quot;CROSS FEMALE HISPANIC&quot; ~ 0,
-                                SAMPLE_ID_79 == &quot;SUP MALE WH POOR&quot; ~ 0,
-                                SAMPLE_ID_79 == &quot;SUP MALE BLACK&quot; ~ 0,
-                                SAMPLE_ID_79 == &quot;SUP MALE HISPANIC&quot; ~ 0,
-                                SAMPLE_ID_79 == &quot;SUP FEMALE WH POOR&quot; ~ 0,
-                                SAMPLE_ID_79 == &quot;SUP FEMALE BLACK&quot; ~ 0,
-                                SAMPLE_ID_79 == &quot;SUP FEMALE HISPANIC&quot; ~ 0))</code></pre>
+  mutate(mil_groups = case_when(RNI_2018 == &quot;68: 68  MILITARY SAMPLE DROPPED&quot; ~ &quot;MIL_DROP&quot;,
+                                SAMPLE_ID_79 == &quot;MIL MALE WHITE&quot; ~ &quot;OG_MIL&quot;,
+                                SAMPLE_ID_79 == &quot;MIL MALE BLACK&quot; ~ &quot;OG_MIL&quot;,
+                                SAMPLE_ID_79 == &quot;MIL MALE HISPANIC&quot; ~ &quot;OG_MIL&quot;,
+                                SAMPLE_ID_79 == &quot;MIL FEMALE WHITE&quot;~ &quot;OG_MIL&quot;,
+                                SAMPLE_ID_79 == &quot;MIL FEMALE BLACK&quot;~ &quot;OG_MIL&quot;,
+                                SAMPLE_ID_79 == &quot;MIL FEMALE HISPANIC&quot;~ &quot;OG_MIL&quot;,
+                                SAMPLE_ID_79 == &quot;CROSS MALE WHITE&quot; ~ &quot;NON_MIL&quot;,
+                                SAMPLE_ID_79 == &quot;CROSS MALE WH POOR&quot; ~ &quot;NON_MIL&quot;,
+                                SAMPLE_ID_79 == &quot;CROSS MALE BLACK&quot; ~ &quot;NON_MIL&quot;,
+                                SAMPLE_ID_79 == &quot;CROSS MALE HISPANIC&quot; ~ &quot;NON_MIL&quot;,
+                                SAMPLE_ID_79 == &quot;CROSS FEMALE WHITE&quot; ~ &quot;NON_MIL&quot;,
+                                SAMPLE_ID_79 == &quot;CROSS FEMALE WH POOR&quot; ~ &quot;NON_MIL&quot;,
+                                SAMPLE_ID_79 == &quot;CROSS FEMALE BLACK&quot; ~ &quot;NON_MIL&quot;,
+                                SAMPLE_ID_79 == &quot;CROSS FEMALE HISPANIC&quot; ~ &quot;NON_MIL&quot;,
+                                SAMPLE_ID_79 == &quot;SUP MALE WH POOR&quot; ~ &quot;NON_MIL&quot;,
+                                SAMPLE_ID_79 == &quot;SUP MALE BLACK&quot; ~ &quot;NON_MIL&quot;,
+                                SAMPLE_ID_79 == &quot;SUP MALE HISPANIC&quot; ~ &quot;NON_MIL&quot;,
+                                SAMPLE_ID_79 == &quot;SUP FEMALE WH POOR&quot; ~ &quot;NON_MIL&quot;,
+                                SAMPLE_ID_79 == &quot;SUP FEMALE BLACK&quot; ~ &quot;NON_MIL&quot;,
+                                SAMPLE_ID_79 == &quot;SUP FEMALE HISPANIC&quot; ~ &quot;NON_MIL&quot;))</code></pre>
+<pre class="r"><code>ggplot(data = df_rni_groupings,
+       mapping = aes(x = mil_groups))+
+  geom_bar()</code></pre>
+<p><img src="data:image/png;base64,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" width="672" /></p>
 <div id="combining-bga-data" class="section level1">
 <h1>Combining BGA Data</h1>
 <pre class="r"><code>new_data &lt;- read.table(&#39;data/bgadep/good.dat&#39;, sep=&#39; &#39;)
@@ -1719,6 +1724,441 @@ df_full_gen1 = df_data_raw %&gt;%
 
 #Change Reference Group for Race (to non-black-non-hispanic)
 df_full_gen1 $RACE = relevel(df_full_gen1$RACE, ref=3)</code></pre>
+<pre class="r"><code># name = lm([target_variable] ~ [predictor_var1 + predictor_var2 + ...], data = [data_source])
+#to add linear regression line to plot use abline()
+
+days_per_month_83 = lm(NUM_DAY_DRANK_LAST_MONTH_83 ~ as.factor(mil_groups), data = df_rni_groupings)
+summary(days_per_month_83)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = NUM_DAY_DRANK_LAST_MONTH_83 ~ as.factor(mil_groups), 
+##     data = df_rni_groupings)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+##  -7.25  -5.18  -2.18   2.82  22.82 
+## 
+## Coefficients:
+##                              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)                     8.250      0.250   33.03  &lt; 2e-16 ***
+## as.factor(mil_groups)NON_MIL   -1.072      0.264   -4.06  4.9e-05 ***
+## as.factor(mil_groups)OG_MIL    -0.146      0.615   -0.24     0.81    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 6.98 on 7553 degrees of freedom
+##   (5130 observations deleted due to missingness)
+## Multiple R-squared:  0.00245,    Adjusted R-squared:  0.00218 
+## F-statistic: 9.27 on 2 and 7553 DF,  p-value: 9.52e-05</code></pre>
+<pre class="r"><code>df_rni_groupings$RACE=relevel(df_rni_groupings$RACE, ref=&#39;NON-BLACK, NON-HISPANIC&#39;)</code></pre>
+<pre class="r"><code>days_per_month_83_controls = lm(NUM_DAY_DRANK_LAST_MONTH_83 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+summary(days_per_month_83_controls)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = NUM_DAY_DRANK_LAST_MONTH_83 ~ as.factor(mil_groups) + 
+##     SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+##  -8.83  -4.39  -2.12   2.35  26.08 
+## 
+## Coefficients:
+##                              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)                     9.829      0.251   39.20  &lt; 2e-16 ***
+## as.factor(mil_groups)NON_MIL   -0.705      0.257   -2.74   0.0062 ** 
+## as.factor(mil_groups)OG_MIL    -0.813      0.599   -1.36   0.1751    
+## SAMPLE_SEX_79FEMALE            -3.470      0.159  -21.80  &lt; 2e-16 ***
+## RACEHISPANIC                   -1.737      0.223   -7.77  8.6e-15 ***
+## RACEBLACK                      -1.108      0.192   -5.77  8.4e-09 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 6.73 on 7550 degrees of freedom
+##   (5130 observations deleted due to missingness)
+## Multiple R-squared:  0.0715, Adjusted R-squared:  0.0709 
+## F-statistic:  116 on 5 and 7550 DF,  p-value: &lt;2e-16</code></pre>
+<pre class="r"><code>age_start_82 = lm(AGE_START_DRINK_82 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+summary(age_start_82)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = AGE_START_DRINK_82 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + 
+##     RACE, data = df_rni_groupings)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -16.027   0.033   1.529   3.239  10.529 
+## 
+## Coefficients:
+##                              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)                   16.0271     0.1837   87.25  &lt; 2e-16 ***
+## as.factor(mil_groups)NON_MIL  -1.2665     0.1881   -6.73  1.7e-11 ***
+## as.factor(mil_groups)OG_MIL   -0.0604     0.4532   -0.13   0.8940    
+## SAMPLE_SEX_79FEMALE           -0.2894     0.1117   -2.59   0.0096 ** 
+## RACEHISPANIC                  -0.0987     0.1572   -0.63   0.5303    
+## RACEBLACK                     -0.0174     0.1325   -0.13   0.8958    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 5.61 on 10313 degrees of freedom
+##   (2367 observations deleted due to missingness)
+## Multiple R-squared:  0.00614,    Adjusted R-squared:  0.00566 
+## F-statistic: 12.7 on 5 and 10313 DF,  p-value: 2.27e-12</code></pre>
+<pre class="r"><code>age_start_83 = lm(AGE_START_DRINK_83 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+summary(age_start_83)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = AGE_START_DRINK_83 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + 
+##     RACE, data = df_rni_groupings)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -16.03  -0.09   2.16   3.56  11.69 
+## 
+## Coefficients:
+##                              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)                    15.758      0.206   76.44   &lt;2e-16 ***
+## as.factor(mil_groups)NON_MIL   -0.668      0.211   -3.16   0.0016 ** 
+## as.factor(mil_groups)OG_MIL     0.268      0.514    0.52   0.6021    
+## SAMPLE_SEX_79FEMALE            -1.255      0.125  -10.04   &lt;2e-16 ***
+## RACEHISPANIC                   -0.524      0.176   -2.98   0.0029 ** 
+## RACEBLACK                      -0.391      0.147   -2.65   0.0080 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 6.36 on 10590 degrees of freedom
+##   (2090 observations deleted due to missingness)
+## Multiple R-squared:  0.0132, Adjusted R-squared:  0.0127 
+## F-statistic: 28.3 on 5 and 10590 DF,  p-value: &lt;2e-16</code></pre>
+<pre class="r"><code>#COME BACK LATER TO FIX ORDINAL
+df_rni_groupings &lt;- df_rni_groupings %&gt;% 
+  mutate(recode_alc_freq6drinks_82 = case_when(ALC_FREQ6DRINKS_82 == &quot;NEVER&quot; ~ 0,
+                                ALC_FREQ6DRINKS_82 == &quot;ONCE&quot; ~ 1,
+                                ALC_FREQ6DRINKS_82 == &quot;2 OR 3 TIMES&quot; ~ 2,
+                                ALC_FREQ6DRINKS_82 == &quot;4 OR 5 TIMES&quot; ~ 3,
+                                ALC_FREQ6DRINKS_82 == &quot;10 OR MORE TIMES&quot; ~ 4))
+
+df_rni_groupings &lt;- df_rni_groupings %&gt;% 
+  mutate(recode_alc_freq6drinks_83 = case_when(ALC_FREQ6DRINK_83 == &quot;NEVER&quot; ~ 0,
+                                ALC_FREQ6DRINK_83 == &quot;ONCE&quot; ~ 1,
+                                ALC_FREQ6DRINK_83 == &quot;2 OR 3 TIMES&quot; ~ 2,
+                                ALC_FREQ6DRINK_83 == &quot;4 OR 5 TIMES&quot; ~ 3,
+                                ALC_FREQ6DRINK_83 == &quot;10 OR MORE TIMES&quot; ~ 4))
+
+df_rni_groupings &lt;- df_rni_groupings %&gt;% 
+  mutate(recode_alc_freq6drinks_84 = case_when(ALC_FREQ6DRINK_84 == &quot;NEVER&quot; ~ 0,
+                                ALC_FREQ6DRINK_84 == &quot;ONCE&quot; ~ 1,
+                                ALC_FREQ6DRINK_84 == &quot;2 OR 3 TIMES&quot; ~ 2,
+                                ALC_FREQ6DRINK_84 == &quot;4 OR 5 TIMES&quot; ~ 3,
+                                ALC_FREQ6DRINK_84 == &quot;10 OR MORE TIMES&quot; ~ 4))</code></pre>
+<pre class="r"><code>freq_6_82 = lm(recode_alc_freq6drinks_82 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+summary(freq_6_82)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = recode_alc_freq6drinks_82 ~ as.factor(mil_groups) + 
+##     SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -1.616 -0.902 -0.534  1.098  3.438 
+## 
+## Coefficients:
+##                              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)                    1.5338     0.0485   31.61   &lt;2e-16 ***
+## as.factor(mil_groups)NON_MIL   0.0819     0.0496    1.65    0.098 .  
+## as.factor(mil_groups)OG_MIL    0.0524     0.1163    0.45    0.653    
+## SAMPLE_SEX_79FEMALE           -0.7135     0.0306  -23.35   &lt;2e-16 ***
+## RACEHISPANIC                  -0.0338     0.0440   -0.77    0.442    
+## RACEBLACK                     -0.3403     0.0370   -9.20   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.24 on 6829 degrees of freedom
+##   (5851 observations deleted due to missingness)
+## Multiple R-squared:  0.085,  Adjusted R-squared:  0.0843 
+## F-statistic:  127 on 5 and 6829 DF,  p-value: &lt;2e-16</code></pre>
+<pre class="r"><code>freq_6_83 = lm(recode_alc_freq6drinks_83 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+summary(freq_6_83)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = recode_alc_freq6drinks_83 ~ as.factor(mil_groups) + 
+##     SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -1.628 -0.852 -0.480  0.824  3.588 
+## 
+## Coefficients:
+##                              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)                    1.4807     0.0469   31.57   &lt;2e-16 ***
+## as.factor(mil_groups)NON_MIL   0.0678     0.0480    1.42    0.157    
+## as.factor(mil_groups)OG_MIL    0.1474     0.1109    1.33    0.184    
+## SAMPLE_SEX_79FEMALE           -0.6965     0.0295  -23.57   &lt;2e-16 ***
+## RACEHISPANIC                  -0.0687     0.0417   -1.65    0.099 .  
+## RACEBLACK                     -0.3724     0.0357  -10.44   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.21 on 6983 degrees of freedom
+##   (5697 observations deleted due to missingness)
+## Multiple R-squared:  0.0886, Adjusted R-squared:  0.0879 
+## F-statistic:  136 on 5 and 6983 DF,  p-value: &lt;2e-16</code></pre>
+<pre class="r"><code>freq_6_84 = lm(recode_alc_freq6drinks_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+summary(freq_6_84)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = recode_alc_freq6drinks_84 ~ as.factor(mil_groups) + 
+##     SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -1.543 -0.803 -0.474  0.787  3.526 
+## 
+## Coefficients:
+##                              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)                    1.4123     0.0465   30.35   &lt;2e-16 ***
+## as.factor(mil_groups)NON_MIL   0.1305     0.0479    2.73   0.0064 ** 
+## as.factor(mil_groups)OG_MIL    0.0447     0.1106    0.40   0.6864    
+## SAMPLE_SEX_79FEMALE           -0.7397     0.0290  -25.53   &lt;2e-16 ***
+## RACEHISPANIC                  -0.0542     0.0407   -1.33   0.1836    
+## RACEBLACK                     -0.3295     0.0346   -9.52   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.21 on 7263 degrees of freedom
+##   (5417 observations deleted due to missingness)
+## Multiple R-squared:  0.0941, Adjusted R-squared:  0.0935 
+## F-statistic:  151 on 5 and 7263 DF,  p-value: &lt;2e-16</code></pre>
+<pre class="r"><code>df_rni_groupings &lt;- df_rni_groupings %&gt;% 
+  mutate(recode_alc_impact_job_82 = case_when(ALC_IMPACT_JOB_82 == &quot;NO&quot; ~ 0,
+                                ALC_IMPACT_JOB_82 == &quot;YES&quot; ~ 1))
+df_rni_groupings &lt;- df_rni_groupings %&gt;% 
+  mutate(recode_alc_impact_job_83 = case_when(ALC_IMPACT_JOB_83 == &quot;NO&quot; ~ 0,
+                                ALC_IMPACT_JOB_83 == &quot;YES&quot; ~ 1))
+df_rni_groupings &lt;- df_rni_groupings %&gt;% 
+  mutate(recode_impact_job_noalc_last30_84 = case_when(ALC_IMPACT_JOB_NOALC_LAST30_84 == &quot;NO&quot; ~ 0,
+                                ALC_IMPACT_JOB_NOALC_LAST30_84 == &quot;YES&quot; ~ 1))</code></pre>
+<pre class="r"><code>impact_job_82 = glm(recode_alc_impact_job_82 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = &quot;binomial&quot;)
+summary(impact_job_82)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = recode_alc_impact_job_82 ~ as.factor(mil_groups) + 
+##     SAMPLE_SEX_79 + RACE, family = &quot;binomial&quot;, data = df_rni_groupings)
+## 
+## Deviance Residuals: 
+##    Min      1Q  Median      3Q     Max  
+## -0.363  -0.266  -0.199  -0.158   3.155  
+## 
+## Coefficients:
+##                              Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)                    -2.689      0.156  -17.26  &lt; 2e-16 ***
+## as.factor(mil_groups)NON_MIL   -0.638      0.169   -3.79  0.00015 ***
+## as.factor(mil_groups)OG_MIL    -0.145      0.419   -0.35  0.72880    
+## SAMPLE_SEX_79FEMALE            -0.589      0.138   -4.26  2.0e-05 ***
+## RACEHISPANIC                   -0.206      0.183   -1.13  0.25911    
+## RACEBLACK                      -1.056      0.208   -5.07  3.9e-07 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 2403.6  on 10278  degrees of freedom
+## Residual deviance: 2330.0  on 10273  degrees of freedom
+##   (2407 observations deleted due to missingness)
+## AIC: 2342
+## 
+## Number of Fisher Scoring iterations: 7</code></pre>
+<pre class="r"><code>impact_job_83 = glm(recode_alc_impact_job_83 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = &quot;binomial&quot;)
+summary(impact_job_83)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = recode_alc_impact_job_83 ~ as.factor(mil_groups) + 
+##     SAMPLE_SEX_79 + RACE, family = &quot;binomial&quot;, data = df_rni_groupings)
+## 
+## Deviance Residuals: 
+##    Min      1Q  Median      3Q     Max  
+## -0.452  -0.332  -0.233  -0.222   2.974  
+## 
+## Coefficients:
+##                              Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)                    -2.399      0.136  -17.69  &lt; 2e-16 ***
+## as.factor(mil_groups)NON_MIL   -0.474      0.146   -3.26   0.0011 ** 
+## as.factor(mil_groups)OG_MIL     0.169      0.321    0.53   0.5983    
+## SAMPLE_SEX_79FEMALE            -0.720      0.115   -6.23  4.5e-10 ***
+## RACEHISPANIC                   -0.228      0.150   -1.52   0.1283    
+## RACEBLACK                      -0.816      0.153   -5.34  9.3e-08 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 3349.8  on 10538  degrees of freedom
+## Residual deviance: 3250.0  on 10533  degrees of freedom
+##   (2147 observations deleted due to missingness)
+## AIC: 3262
+## 
+## Number of Fisher Scoring iterations: 6</code></pre>
+<pre class="r"><code>impact_job_noalc_last30_84 = glm(recode_impact_job_noalc_last30_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = &quot;binomial&quot;)
+summary(impact_job_noalc_last30_84)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = recode_impact_job_noalc_last30_84 ~ as.factor(mil_groups) + 
+##     SAMPLE_SEX_79 + RACE, family = &quot;binomial&quot;, data = df_rni_groupings)
+## 
+## Deviance Residuals: 
+##    Min      1Q  Median      3Q     Max  
+## -0.551  -0.225  -0.185  -0.121   3.247  
+## 
+## Coefficients:
+##                              Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)                    -2.365      0.320   -7.40  1.4e-13 ***
+## as.factor(mil_groups)NON_MIL   -0.447      0.346   -1.29  0.19640    
+## as.factor(mil_groups)OG_MIL     0.559      0.692    0.81  0.41945    
+## SAMPLE_SEX_79FEMALE            -1.251      0.275   -4.56  5.2e-06 ***
+## RACEHISPANIC                   -0.849      0.412   -2.06  0.03917 *  
+## RACEBLACK                      -1.202      0.351   -3.42  0.00062 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 656.19  on 2829  degrees of freedom
+## Residual deviance: 604.70  on 2824  degrees of freedom
+##   (9856 observations deleted due to missingness)
+## AIC: 616.7
+## 
+## Number of Fisher Scoring iterations: 7</code></pre>
+<pre class="r"><code>df_rni_groupings &lt;- df_rni_groupings %&gt;% 
+  mutate(recode_afraid_alcoholic_84 = case_when(AFRAID_ALCOHOLIC_84 == &quot;NO&quot; ~ 0,
+                                AFRAID_ALCOHOLIC_84 == &quot;YES&quot; ~ 1))</code></pre>
+<pre class="r"><code>afraid_alc_84 = glm(recode_afraid_alcoholic_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = &quot;binomial&quot;)
+summary(afraid_alc_84)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = recode_afraid_alcoholic_84 ~ as.factor(mil_groups) + 
+##     SAMPLE_SEX_79 + RACE, family = &quot;binomial&quot;, data = df_rni_groupings)
+## 
+## Deviance Residuals: 
+##    Min      1Q  Median      3Q     Max  
+## -0.517  -0.414  -0.397  -0.259   2.611  
+## 
+## Coefficients:
+##                              Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)                   -2.2138     0.1367  -16.19  &lt; 2e-16 ***
+## as.factor(mil_groups)NON_MIL  -0.2894     0.1445   -2.00    0.045 *  
+## as.factor(mil_groups)OG_MIL    0.0603     0.2938    0.21    0.837    
+## SAMPLE_SEX_79FEMALE           -0.8730     0.1096   -7.96  1.7e-15 ***
+## RACEHISPANIC                   0.0903     0.1340    0.67    0.501    
+## RACEBLACK                      0.2092     0.1102    1.90    0.058 .  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 3727.8  on 7778  degrees of freedom
+## Residual deviance: 3645.2  on 7773  degrees of freedom
+##   (4907 observations deleted due to missingness)
+## AIC: 3657
+## 
+## Number of Fisher Scoring iterations: 6</code></pre>
+<pre class="r"><code>df_rni_groupings &lt;- df_rni_groupings %&gt;% 
+  mutate(recode_drink_til_drunk_84 = case_when(DRINK_UNTIL_DRUNK_84 == &quot;NO&quot; ~ 0,
+                                DRINK_UNTIL_DRUNK_84 == &quot;YES&quot; ~ 1))</code></pre>
+<pre class="r"><code>drink_til_drunk_84 = glm(recode_drink_til_drunk_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = &quot;binomial&quot;)
+summary(drink_til_drunk_84)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = recode_drink_til_drunk_84 ~ as.factor(mil_groups) + 
+##     SAMPLE_SEX_79 + RACE, family = &quot;binomial&quot;, data = df_rni_groupings)
+## 
+## Deviance Residuals: 
+##    Min      1Q  Median      3Q     Max  
+## -0.480  -0.385  -0.319  -0.291   2.702  
+## 
+## Coefficients:
+##                              Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)                    -2.465      0.152  -16.25  &lt; 2e-16 ***
+## as.factor(mil_groups)NON_MIL   -0.101      0.159   -0.63  0.52616    
+## as.factor(mil_groups)OG_MIL     0.128      0.340    0.38  0.70543    
+## SAMPLE_SEX_79FEMALE            -0.572      0.109   -5.26  1.4e-07 ***
+## RACEHISPANIC                    0.235      0.127    1.85  0.06455 .  
+## RACEBLACK                      -0.486      0.138   -3.52  0.00043 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 3415.9  on 7777  degrees of freedom
+## Residual deviance: 3363.2  on 7772  degrees of freedom
+##   (4908 observations deleted due to missingness)
+## AIC: 3375
+## 
+## Number of Fisher Scoring iterations: 6</code></pre>
+<pre class="r"><code>df_rni_groupings &lt;- df_rni_groupings %&gt;% 
+  mutate(recode_forget_next_84 = case_when(FORGETS_NEXT_DAY_84 == &quot;NO&quot; ~ 0,
+                                FORGETS_NEXT_DAY_84 == &quot;YES&quot; ~ 1))</code></pre>
+<pre class="r"><code>forget_next_84 = glm(recode_forget_next_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = &quot;binomial&quot;)
+summary(forget_next_84)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = recode_forget_next_84 ~ as.factor(mil_groups) + 
+##     SAMPLE_SEX_79 + RACE, family = &quot;binomial&quot;, data = df_rni_groupings)
+## 
+## Deviance Residuals: 
+##    Min      1Q  Median      3Q     Max  
+## -0.706  -0.658  -0.500  -0.448   2.427  
+## 
+## Coefficients:
+##                              Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)                   -1.4205     0.1041  -13.64  &lt; 2e-16 ***
+## as.factor(mil_groups)NON_MIL   0.1588     0.1086    1.46    0.144    
+## as.factor(mil_groups)OG_MIL   -0.0460     0.2553   -0.18    0.857    
+## SAMPLE_SEX_79FEMALE           -0.7552     0.0711  -10.62  &lt; 2e-16 ***
+## RACEHISPANIC                  -0.2333     0.0913   -2.56    0.011 *  
+## RACEBLACK                     -0.7158     0.0893   -8.01  1.1e-15 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 6647.0  on 7781  degrees of freedom
+## Residual deviance: 6450.8  on 7776  degrees of freedom
+##   (4904 observations deleted due to missingness)
+## AIC: 6463
+## 
+## Number of Fisher Scoring iterations: 5</code></pre>
+<pre class="r"><code>df_rni_groupings &lt;- df_rni_groupings %&gt;% 
+  mutate(recode_AM_drink_84 = case_when(DRINK_FIRST_MORNING_84 == &quot;NO&quot; ~ 0,
+                                DRINK_FIRST_MORNING_84 == &quot;YES&quot; ~ 1))</code></pre>
+<pre class="r"><code>AM_drink_first_84 = glm(recode_AM_drink_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = &quot;binomial&quot;)
+summary(AM_drink_first_84)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = recode_AM_drink_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + 
+##     RACE, family = &quot;binomial&quot;, data = df_rni_groupings)
+## 
+## Deviance Residuals: 
+##    Min      1Q  Median      3Q     Max  
+## -0.368  -0.277  -0.250  -0.136   3.125  
+## 
+## Coefficients:
+##                              Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)                    -3.243      0.218  -14.91  &lt; 2e-16 ***
+## as.factor(mil_groups)NON_MIL   -0.203      0.230   -0.88  0.37626    
+## as.factor(mil_groups)OG_MIL    -0.655      0.555   -1.18  0.23755    
+## SAMPLE_SEX_79FEMALE            -1.429      0.199   -7.17  7.3e-13 ***
+## RACEHISPANIC                    0.294      0.203    1.44  0.14851    
+## RACEBLACK                       0.584      0.161    3.64  0.00028 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 1909.9  on 7780  degrees of freedom
+## Residual deviance: 1829.1  on 7775  degrees of freedom
+##   (4905 observations deleted due to missingness)
+## AIC: 1841
+## 
+## Number of Fisher Scoring iterations: 7</code></pre>
 </div>
 
 

@@ -786,8 +786,8 @@ df_rni_groupings <- df_data %>%
 
 ```{r mil_group_visualization}
 ggplot(data = df_rni_groupings,
-       mapping = aes(x = mil_group))+
-  geom_bar
+       mapping = aes(x = mil_groups))+
+  geom_bar()
 
 ```
 
