@@ -26,7 +26,7 @@ source('analyses/import_Military-Subsample_Alcohol.R')
 #INT = INTERVIEW
 #DLI = DATE LAST INT
 qnames = function(data) {
-  names(data) <- c("CASEID",
+  names(data) <- c("MCASEID",
     "AD_AND_ARNG_79",#MIL-8
     "AD_RECENT_ENLIST_79", #Q4-11
     "AD_2NDRECENT_ENLIST_79",#Q4-12A
@@ -35,9 +35,9 @@ qnames = function(data) {
     "CURRENT_AD_ARNG_79",#MIL-36 
     "CURRENT_AD_ARNG_STATUS_79",#MIL-48
     "CURRENT_AD_ARNG_YN_79",#MIL-59
-    "SAMPLE_ID_79",
+    "SAMPLEID",
     "RACE",
-    "SAMPLE_SEX_79",
+    "SEX",
     "AD_DLI_NOTSAME_BRANCH_80",#MIL-15
     "NEW_ENLIST_AD_80",#Q4-11
     "AD_DLI_SAME_BRANCH_80_Q1",#Q4-15 #G1_CONFUSION_Q4-15 #DUP
@@ -111,7 +111,7 @@ source('analyses/import_noninterview_var.R')
 
 
 qnames = function(data) {
-  names(data) <- c("CASEID_1979",
+  names(data) <- c("MCASEID",
     "RNI_2018")
   return(data)
 }
@@ -130,26 +130,26 @@ remove(df_data_rni)
 ```{r military_dropped_filter}
 df_data <- df_data %>% 
   mutate(mil_groups = case_when(RNI_2018 == "68: 68  MILITARY SAMPLE DROPPED" ~ "MIL_DROP",
-                                SAMPLE_ID_79 == "MIL MALE WHITE" ~ "OG_MIL",
-                                SAMPLE_ID_79 == "MIL MALE BLACK" ~ "OG_MIL",
-                                SAMPLE_ID_79 == "MIL MALE HISPANIC" ~ "OG_MIL",
-                                SAMPLE_ID_79 == "MIL FEMALE WHITE"~ "OG_MIL",
-                                SAMPLE_ID_79 == "MIL FEMALE BLACK"~ "OG_MIL",
-                                SAMPLE_ID_79 == "MIL FEMALE HISPANIC"~ "OG_MIL",
-                                SAMPLE_ID_79 == "CROSS MALE WHITE" ~ "NON_MIL",
-                                SAMPLE_ID_79 == "CROSS MALE WH POOR" ~ "NON_MIL",
-                                SAMPLE_ID_79 == "CROSS MALE BLACK" ~ "NON_MIL",
-                                SAMPLE_ID_79 == "CROSS MALE HISPANIC" ~ "NON_MIL",
-                                SAMPLE_ID_79 == "CROSS FEMALE WHITE" ~ "NON_MIL",
-                                SAMPLE_ID_79 == "CROSS FEMALE WH POOR" ~ "NON_MIL",
-                                SAMPLE_ID_79 == "CROSS FEMALE BLACK" ~ "NON_MIL",
-                                SAMPLE_ID_79 == "CROSS FEMALE HISPANIC" ~ "NON_MIL",
-                                SAMPLE_ID_79 == "SUP MALE WH POOR" ~ "NON_MIL",
-                                SAMPLE_ID_79 == "SUP MALE BLACK" ~ "NON_MIL",
-                                SAMPLE_ID_79 == "SUP MALE HISPANIC" ~ "NON_MIL",
-                                SAMPLE_ID_79 == "SUP FEMALE WH POOR" ~ "NON_MIL",
-                                SAMPLE_ID_79 == "SUP FEMALE BLACK" ~ "NON_MIL",
-                                SAMPLE_ID_79 == "SUP FEMALE HISPANIC" ~ "NON_MIL"))
+                                SAMPLEID == "MIL MALE WHITE" ~ "OG_MIL",
+                                SAMPLEID == "MIL MALE BLACK" ~ "OG_MIL",
+                                SAMPLEID == "MIL MALE HISPANIC" ~ "OG_MIL",
+                                SAMPLEID == "MIL FEMALE WHITE"~ "OG_MIL",
+                                SAMPLEID == "MIL FEMALE BLACK"~ "OG_MIL",
+                                SAMPLEID == "MIL FEMALE HISPANIC"~ "OG_MIL",
+                                SAMPLEID == "CROSS MALE WHITE" ~ "NON_MIL",
+                                SAMPLEID == "CROSS MALE WH POOR" ~ "NON_MIL",
+                                SAMPLEID == "CROSS MALE BLACK" ~ "NON_MIL",
+                                SAMPLEID == "CROSS MALE HISPANIC" ~ "NON_MIL",
+                                SAMPLEID == "CROSS FEMALE WHITE" ~ "NON_MIL",
+                                SAMPLEID == "CROSS FEMALE WH POOR" ~ "NON_MIL",
+                                SAMPLEID == "CROSS FEMALE BLACK" ~ "NON_MIL",
+                                SAMPLEID == "CROSS FEMALE HISPANIC" ~ "NON_MIL",
+                                SAMPLEID == "SUP MALE WH POOR" ~ "NON_MIL",
+                                SAMPLEID == "SUP MALE BLACK" ~ "NON_MIL",
+                                SAMPLEID == "SUP MALE HISPANIC" ~ "NON_MIL",
+                                SAMPLEID == "SUP FEMALE WH POOR" ~ "NON_MIL",
+                                SAMPLEID == "SUP FEMALE BLACK" ~ "NON_MIL",
+                                SAMPLEID == "SUP FEMALE HISPANIC" ~ "NON_MIL"))
 
 ```
 
@@ -191,10 +191,10 @@ df_data_good <- qnames(new_data)
 
 df_data_goodx <- qnames(vallabels(new_data))
 
-df_data_good[c("MCASEID","YoB","SAMPLEID","RACE","SEX") ]<-df_data_goodx[c("MCASEID","YoB","SAMPLEID","RACE","SEX") ]
+df_data_good[c("MCASEID", "YoB", "SAMPLEID", "RACE", "SEX")] <-
+  df_data_goodx[c("MCASEID", "YoB", "SAMPLEID", "RACE", "SEX")]
 
-rm(df_data_goodx)
-rm(new_data)
+rm(df_data_goodx);rm(new_data)
 
 # live with
 
@@ -203,7 +203,7 @@ source("analyses/import_livewith.R")
 qnames = function(data) {
   names(data) <- c("MCASEID",
     "SAMPLEID",
-    "RAC",
+    "RACE",
     "SEX",
     "HOMEDEP_2012",
     "HOMEDRINKER_2012",
@@ -216,40 +216,83 @@ qnames = function(data) {
 
 df_data_home <- qnames(vallabels(new_data))
 
-rm(new_data)
+# drops duplicate variables
+df_data_goodhome <- merge(df_data_good,df_data_home,
+                          by = c("MCASEID"),
+                          suffixes = c("", ".y")) %>%
+  select(-ends_with(".y"))
 
+# dropped older dfs
+rm(new_data);rm(df_data_good); rm(df_data_home)
 ```
 
-```{r merg}
-df_data_raw=merge(df_data_good,df_data)
-df_data_raw=merge(df_data_good,df_data_home)
-
-```
-
-# Summary / data cleaning
+# new
 ```{r}
-summary(df_data_raw)
+source('analyses/import_alccesd.R')
 
 
-#Creat Subject Tag
-df_full_gen1 = df_data_raw %>%
-  mutate(SubjectTag=MCASEID*100,
-        CASEID=MCASEID*100,
-        HOMEDRINKER=pmax(HOMEDRINKER_2016,HOMEDRINKER_2014,HOMEDRINKER_2012, na.rm = TRUE),
-       HOMEDEP=pmax(HOMEDEP_2016,HOMEDEP_2014,HOMEDEP_2012, na.rm = TRUE)
-         )
+qnames = function(data) {
+  names(data) <- c("H40-CESD_SCORE_7_ITEM_XRND",
+                   "MCASEID",
+                   "SAMPLEID",
+                   "RACE",
+                   "SEX",
+                   "CESD_SCORE_7_ITEM_1992",
+                   "Q12-5_1992",
+                   "Q12-6_1992",
+                   "CESD_SCORE_7_ITEM_1994",
+                   "Q12-4_1994",
+                   "Q12-5_1994",
+                   "Q12-6_1994",
+                   "Q12-6_2014")
+  return(data)
+}
+
+
+df_data_alccesd <- qnames(vallabels(new_data))
+
+rm(new_data)
+```
+
+```{r merge}
+# merge data sets together
+# Creat Subject Tag
+
+
+
+df_full_gen1 <- merge(df_data,
+                      df_data_goodhome,
+                      by = c("MCASEID"),
+                      suffixes = c("", ".y")) %>%
+  select(-ends_with(".y")) %>%
+  merge(df_data_alccesd,
+                      by = c("MCASEID"),
+                      suffixes = c("", ".y")) %>%
+  select(-ends_with(".y")) %>%
+  mutate(
+    SubjectTag = MCASEID * 100,
+    CASEID = MCASEID * 100,
+    HOMEDRINKER = pmax(HOMEDRINKER_2016, HOMEDRINKER_2014, HOMEDRINKER_2012,
+                       na.rm = TRUE),
+    HOMEDEP = pmax(HOMEDEP_2016, HOMEDEP_2014, HOMEDEP_2012,
+                   na.rm = TRUE)
+  )
 
 
 #Change Reference Group for Race (to non-black-non-hispanic)
-df_full_gen1 $RACE = relevel(df_full_gen1$RACE, ref=3)
+df_full_gen1$RACE = relevel(df_full_gen1$RACE, ref=3)
+# df_full_gen1$RACE=relevel(df_full_gen1$RACE, ref='NON-BLACK, NON-HISPANIC')
+rm(df_data);rm(df_data_goodhome)
 
 ```
 
-```{r linear_regression_basics}
+```{r linear_regression_basics, error=TRUE}
+
 # name = lm([target_variable] ~ [predictor_var1 + predictor_var2 + ...], data = [data_source])
 #to add linear regression line to plot use abline()
 
-days_per_month_83 = lm(NUM_DAY_DRANK_LAST_MONTH_83 ~ as.factor(mil_groups), data = df_rni_groupings)
+days_per_month_83 = lm(NUM_DAY_DRANK_LAST_MONTH_83 ~ as.factor(mil_groups), data = df_full_gen1)
+
 summary(days_per_month_83)
 
 
@@ -258,73 +301,70 @@ age_start.graph <- days_per_month_83 %>% ggplot(data = days_per_month_83,mapping
 
 age_start.graph
 ```
-```{r race_reference_group}
-df_rni_groupings$RACE=relevel(df_rni_groupings$RACE, ref='NON-BLACK, NON-HISPANIC')
 
-```
 
 ```{r lm_num_day_controls_83}
-days_per_month_83_controls = lm(NUM_DAY_DRANK_LAST_MONTH_83 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+
+days_per_month_83_controls = lm(NUM_DAY_DRANK_LAST_MONTH_83 ~ as.factor(mil_groups) + SEX + RACE, data = df_full_gen1)
 summary(days_per_month_83_controls)
 ```
 ```{r lm_age_start_82}
-age_start_82 = lm(AGE_START_DRINK_82 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+age_start_82 = lm(AGE_START_DRINK_82 ~ as.factor(mil_groups) + SEX + RACE, data = df_full_gen1)
 summary(age_start_82)
 ```
 
 ```{r lm_age_start_83}
-age_start_83 = lm(AGE_START_DRINK_83 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+age_start_83 = lm(AGE_START_DRINK_83 ~ as.factor(mil_groups) + SEX + RACE, data = df_full_gen1)
 summary(age_start_83)
 ```
 
 ```{r recode_freq6}
+
 #COME BACK LATER TO FIX ORDINAL
-df_rni_groupings <- df_rni_groupings %>% 
+
+df_full_gen1 <- df_full_gen1 %>% 
   mutate(recode_alc_freq6drinks_82 = case_when(ALC_FREQ6DRINKS_82 == "NEVER" ~ 0,
                                 ALC_FREQ6DRINKS_82 == "ONCE" ~ 1,
                                 ALC_FREQ6DRINKS_82 == "2 OR 3 TIMES" ~ 2,
                                 ALC_FREQ6DRINKS_82 == "4 OR 5 TIMES" ~ 3,
-                                ALC_FREQ6DRINKS_82 == "10 OR MORE TIMES" ~ 4))
-
-df_rni_groupings <- df_rni_groupings %>% 
-  mutate(recode_alc_freq6drinks_83 = case_when(ALC_FREQ6DRINK_83 == "NEVER" ~ 0,
+                                ALC_FREQ6DRINKS_82 == "10 OR MORE TIMES" ~ 4),
+         recode_alc_freq6drinks_83 = case_when(ALC_FREQ6DRINK_83 == "NEVER" ~ 0,
                                 ALC_FREQ6DRINK_83 == "ONCE" ~ 1,
                                 ALC_FREQ6DRINK_83 == "2 OR 3 TIMES" ~ 2,
                                 ALC_FREQ6DRINK_83 == "4 OR 5 TIMES" ~ 3,
-                                ALC_FREQ6DRINK_83 == "10 OR MORE TIMES" ~ 4))
-
-df_rni_groupings <- df_rni_groupings %>% 
-  mutate(recode_alc_freq6drinks_84 = case_when(ALC_FREQ6DRINK_84 == "NEVER" ~ 0,
+                                ALC_FREQ6DRINK_83 == "10 OR MORE TIMES" ~ 4),
+         recode_alc_freq6drinks_84 = case_when(ALC_FREQ6DRINK_84 == "NEVER" ~ 0,
                                 ALC_FREQ6DRINK_84 == "ONCE" ~ 1,
                                 ALC_FREQ6DRINK_84 == "2 OR 3 TIMES" ~ 2,
                                 ALC_FREQ6DRINK_84 == "4 OR 5 TIMES" ~ 3,
-                                ALC_FREQ6DRINK_84 == "10 OR MORE TIMES" ~ 4))
+                                ALC_FREQ6DRINK_84 == "10 OR MORE TIMES" ~ 4)
+         )
 
 ```
 
 ```{r lm_freq_6_drinks_82}
-freq_6_82 = lm(recode_alc_freq6drinks_82 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+freq_6_82 = lm(recode_alc_freq6drinks_82 ~ as.factor(mil_groups) + SEX + RACE, data = df_full_gen1)
 summary(freq_6_82)
 ```
 
 ```{r lm_freq_6_drinks_83}
-freq_6_83 = lm(recode_alc_freq6drinks_83 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+freq_6_83 = lm(recode_alc_freq6drinks_83 ~ as.factor(mil_groups) + SEX + RACE, data = df_full_gen1)
 summary(freq_6_83)
 ```
 
 ```{r lm_freq_6_drinks_84}
-freq_6_84 = lm(recode_alc_freq6drinks_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings)
+freq_6_84 = lm(recode_alc_freq6drinks_84 ~ as.factor(mil_groups) + SEX + RACE, data = df_full_gen1)
 summary(freq_6_84)
 ```
 
 ```{r recode_impact_job}
-df_rni_groupings <- df_rni_groupings %>% 
+df_full_gen1 <- df_full_gen1 %>% 
   mutate(recode_alc_impact_job_82 = case_when(ALC_IMPACT_JOB_82 == "NO" ~ 0,
                                 ALC_IMPACT_JOB_82 == "YES" ~ 1))
-df_rni_groupings <- df_rni_groupings %>% 
+df_full_gen1 <- df_full_gen1 %>% 
   mutate(recode_alc_impact_job_83 = case_when(ALC_IMPACT_JOB_83 == "NO" ~ 0,
                                 ALC_IMPACT_JOB_83 == "YES" ~ 1))
-df_rni_groupings <- df_rni_groupings %>% 
+df_full_gen1 <- df_full_gen1 %>% 
   mutate(recode_impact_job_noalc_last30_84 = case_when(ALC_IMPACT_JOB_NOALC_LAST30_84 == "NO" ~ 0,
                                 ALC_IMPACT_JOB_NOALC_LAST30_84 == "YES" ~ 1))
 
@@ -332,57 +372,61 @@ df_rni_groupings <- df_rni_groupings %>%
 
 ```{r lm_impact_job_82} 
 
-impact_job_82 = glm(recode_alc_impact_job_82 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = "binomial")
-summary(impact_job_82)
+glm(recode_alc_impact_job_82 ~ as.factor(mil_groups) + SEX + RACE, data = df_full_gen1, family = "binomial") %>%
+summary()
 ```
 ```{r lm_impact_job_8} 
 
-impact_job_83 = glm(recode_alc_impact_job_83 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = "binomial")
-summary(impact_job_83)
+glm(recode_alc_impact_job_83 ~ as.factor(mil_groups) + SEX + RACE, data = df_full_gen1, family = "binomial")%>%
+summary()
 ```
 
 ```{r lm_impact_job_noalc_last30_84}
-impact_job_noalc_last30_84 = glm(recode_impact_job_noalc_last30_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = "binomial")
-summary(impact_job_noalc_last30_84)
+ glm(recode_impact_job_noalc_last30_84 ~ as.factor(mil_groups) + SEX + RACE, data = df_full_gen1, family = "binomial") %>%
+summary()
 ```
 ```{r recode_afraid_alcoholic}
-df_rni_groupings <- df_rni_groupings %>% 
+df_full_gen1 <- df_full_gen1 %>% 
   mutate(recode_afraid_alcoholic_84 = case_when(AFRAID_ALCOHOLIC_84 == "NO" ~ 0,
                                 AFRAID_ALCOHOLIC_84 == "YES" ~ 1))
 ```
 
 ```{r lm_afraid_alcoholic_84}
-afraid_alc_84 = glm(recode_afraid_alcoholic_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = "binomial")
+
+afraid_alc_84 = glm(recode_afraid_alcoholic_84 ~ as.factor(mil_groups) + SEX + RACE, data = df_full_gen1, family = "binomial")
 summary(afraid_alc_84)
 ```
 ```{r recode_drink_til_drunk}
-df_rni_groupings <- df_rni_groupings %>% 
+df_full_gen1 <- df_full_gen1 %>% 
   mutate(recode_drink_til_drunk_84 = case_when(DRINK_UNTIL_DRUNK_84 == "NO" ~ 0,
                                 DRINK_UNTIL_DRUNK_84 == "YES" ~ 1))
 ```
 
 ```{r lm_drink_til_drunk_84}
-drink_til_drunk_84 = glm(recode_drink_til_drunk_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = "binomial")
+drink_til_drunk_84 = glm(recode_drink_til_drunk_84 ~ as.factor(mil_groups) + SEX + RACE, data = df_full_gen1, family = "binomial")
 summary(drink_til_drunk_84)
 ```
 ```{r recode_forget_next}
-df_rni_groupings <- df_rni_groupings %>% 
+df_full_gen1 <- df_full_gen1 %>% 
   mutate(recode_forget_next_84 = case_when(FORGETS_NEXT_DAY_84 == "NO" ~ 0,
                                 FORGETS_NEXT_DAY_84 == "YES" ~ 1))
 ```
 
 ```{r lm_forget_next_84}
-forget_next_84 = glm(recode_forget_next_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = "binomial")
+
+forget_next_84 = glm(recode_forget_next_84 ~ as.factor(mil_groups) + SEX + RACE, data = df_full_gen1, family = "binomial")
 summary(forget_next_84)
+
 ```
 ```{r recode_AM_drink}
-df_rni_groupings <- df_rni_groupings %>% 
+df_full_gen1 <- df_full_gen1 %>% 
   mutate(recode_AM_drink_84 = case_when(DRINK_FIRST_MORNING_84 == "NO" ~ 0,
                                 DRINK_FIRST_MORNING_84 == "YES" ~ 1))
 ```
 
-```{r lm_AM_drink_first_84}
-AM_drink_first_84 = glm(recode_AM_drink_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = "binomial")
+```{r lm_AM_drink_first_84, error=TRUE}
+
+AM_drink_first_84 = glm(recode_AM_drink_84 ~ as.factor(mil_groups) + SEX + RACE, data = df_full_gen1, family = "binomial")
 summary(AM_drink_first_84)
 
 
@@ -390,264 +434,5 @@ ggplot(AM_drink_first_84, aes(x= recode_AM_drink_84, y= as.factor(mil_groups)))+
               geom_point()
 
 ```
-
-new_data <- read.table('alccesd.dat', sep=' ')
-names(new_data) <- c('H0001101',
-'R0000100',
-'R0173600',
-'R0214700',
-'R0214800',
-'R3896820',
-'R3914800',
-'R3914900',
-'R4978910',
-'R4979300',
-'R4979400',
-'R4979500',
-'T4914700')
-
-
-# Handle missing values
-
-new_data[new_data == -1] = NA  # Refused
-new_data[new_data == -2] = NA  # Dont know
-new_data[new_data == -3] = NA  # Invalid missing
-new_data[new_data == -4] = NA  # Valid missing
-new_data[new_data == -5] = NA  # Non-interview
-
-
-# If there are values not categorized they will be represented as NA
-
-vallabels = function(data) {
-  data$R0173600 <- factor(data$R0173600,
-levels=c(1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0),
-labels=c("CROSS MALE WHITE",
-"CROSS MALE WH. POOR",
-"CROSS MALE BLACK",
-"CROSS MALE HISPANIC",
-"CROSS FEMALE WHITE",
-"CROSS FEMALE WH POOR",
-"CROSS FEMALE BLACK",
-"CROSS FEMALE HISPANIC",
-"SUP MALE WH POOR",
-"SUP MALE BLACK",
-"SUP MALE HISPANIC",
-"SUP FEM WH POOR",
-"SUP FEMALE BLACK",
-"SUP FEMALE HISPANIC",
-"MIL MALE WHITE",
-"MIL MALE BLACK",
-"MIL MALE HISPANIC",
-"MIL FEMALE WHITE",
-"MIL FEMALE BLACK",
-"MIL FEMALE HISPANIC"))
-  data$R0214700 <- factor(data$R0214700,
-levels=c(1.0,2.0,3.0),
-labels=c("HISPANIC",
-"BLACK",
-"NON-BLACK, NON-HISPANIC"))
-  data$R0214800 <- factor(data$R0214800,
-levels=c(1.0,2.0),
-labels=c("MALE",
-"FEMALE"))
-  data$R3914800 <- factor(data$R3914800,
-levels=c(0.0,1.0,2.0,3.0,4.0,5.0),
-labels=c("NOT AT ALL IN THE LAST 30 DAYS",
-"EVERY DAY",
-"5-6 DAYS PER WEEK",
-"3-4 DAYS PER WEEK",
-"1-2 DAYS PER WEEK",
-"LESS OFTEN THAN ONCE PER WEEK"))
-  data$R4979300 <- factor(data$R4979300,
-levels=c(0.0,1.0,2.0,3.0,4.0,5.0,6.0),
-labels=c("Never",
-"Once",
-"2 or 3 times",
-"4 or 5 times",
-"6 or 7 times",
-"8 or 9 times",
-"10 or more times"))
-return(data)
-}
-
-
-# If there are values not categorized they will be represented as NA
-
-vallabels_continuous = function(data) {
-data$H0001101[1.0 <= data$H0001101 & data$H0001101 <= 4.0] <- 1.0
-data$H0001101[5.0 <= data$H0001101 & data$H0001101 <= 9.0] <- 5.0
-data$H0001101[10.0 <= data$H0001101 & data$H0001101 <= 14.0] <- 10.0
-data$H0001101[15.0 <= data$H0001101 & data$H0001101 <= 19.0] <- 15.0
-data$H0001101[20.0 <= data$H0001101 & data$H0001101 <= 24.0] <- 20.0
-data$H0001101 <- factor(data$H0001101,
-levels=c(0.0,1.0,5.0,10.0,15.0,20.0),
-labels=c("0",
-"1 TO 4",
-"5 TO 9",
-"10 TO 14",
-"15 TO 19",
-"20 TO 24"))
-data$R3896820[1.0 <= data$R3896820 & data$R3896820 <= 4.0] <- 1.0
-data$R3896820[5.0 <= data$R3896820 & data$R3896820 <= 9.0] <- 5.0
-data$R3896820[10.0 <= data$R3896820 & data$R3896820 <= 14.0] <- 10.0
-data$R3896820[15.0 <= data$R3896820 & data$R3896820 <= 19.0] <- 15.0
-data$R3896820[20.0 <= data$R3896820 & data$R3896820 <= 24.0] <- 20.0
-data$R3896820[25.0 <= data$R3896820 & data$R3896820 <= 29.0] <- 25.0
-data$R3896820 <- factor(data$R3896820,
-levels=c(0.0,1.0,5.0,10.0,15.0,20.0,25.0),
-labels=c("0",
-"1 TO 4",
-"5 TO 9",
-"10 TO 14",
-"15 TO 19",
-"20 TO 24",
-"25 TO 29"))
-data$R3914900[1.0 <= data$R3914900 & data$R3914900 <= 4.0] <- 1.0
-data$R3914900[5.0 <= data$R3914900 & data$R3914900 <= 9.0] <- 5.0
-data$R3914900[10.0 <= data$R3914900 & data$R3914900 <= 14.0] <- 10.0
-data$R3914900[15.0 <= data$R3914900 & data$R3914900 <= 19.0] <- 15.0
-data$R3914900[20.0 <= data$R3914900 & data$R3914900 <= 24.0] <- 20.0
-data$R3914900[25.0 <= data$R3914900 & data$R3914900 <= 29.0] <- 25.0
-data$R3914900[30.0 <= data$R3914900 & data$R3914900 <= 34.0] <- 30.0
-data$R3914900[35.0 <= data$R3914900 & data$R3914900 <= 39.0] <- 35.0
-data$R3914900[40.0 <= data$R3914900 & data$R3914900 <= 44.0] <- 40.0
-data$R3914900[45.0 <= data$R3914900 & data$R3914900 <= 49.0] <- 45.0
-data$R3914900[50.0 <= data$R3914900 & data$R3914900 <= 9999999.0] <- 50.0
-data$R3914900 <- factor(data$R3914900,
-levels=c(0.0,1.0,5.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0,45.0,50.0),
-labels=c("0",
-"1 TO 4",
-"5 TO 9",
-"10 TO 14",
-"15 TO 19",
-"20 TO 24",
-"25 TO 29",
-"30 TO 34",
-"35 TO 39",
-"40 TO 44",
-"45 TO 49",
-"50 TO 9999999: 50+"))
-data$R4978910[1.0 <= data$R4978910 & data$R4978910 <= 4.0] <- 1.0
-data$R4978910[5.0 <= data$R4978910 & data$R4978910 <= 9.0] <- 5.0
-data$R4978910[10.0 <= data$R4978910 & data$R4978910 <= 14.0] <- 10.0
-data$R4978910[15.0 <= data$R4978910 & data$R4978910 <= 19.0] <- 15.0
-data$R4978910[20.0 <= data$R4978910 & data$R4978910 <= 24.0] <- 20.0
-data$R4978910[25.0 <= data$R4978910 & data$R4978910 <= 29.0] <- 25.0
-data$R4978910 <- factor(data$R4978910,
-levels=c(0.0,1.0,5.0,10.0,15.0,20.0,25.0),
-labels=c("0",
-"1 TO 4",
-"5 TO 9",
-"10 TO 14",
-"15 TO 19",
-"20 TO 24",
-"25 TO 29"))
-data$R4979400[15.0 <= data$R4979400 & data$R4979400 <= 99.0] <- 15.0
-data$R4979400 <- factor(data$R4979400,
-levels=c(0.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0),
-labels=c("0",
-"1",
-"2",
-"3",
-"4",
-"5",
-"6",
-"7",
-"8",
-"9",
-"10",
-"11",
-"12",
-"13",
-"14",
-"15 TO 99: 15+"))
-data$R4979500[15.0 <= data$R4979500 & data$R4979500 <= 99.0] <- 15.0
-data$R4979500 <- factor(data$R4979500,
-levels=c(0.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0),
-labels=c("0",
-"1",
-"2",
-"3",
-"4",
-"5",
-"6",
-"7",
-"8",
-"9",
-"10",
-"11",
-"12",
-"13",
-"14",
-"15 TO 99: 15+"))
-data$T4914700[10.0 <= data$T4914700 & data$T4914700 <= 999.0] <- 10.0
-data$T4914700 <- factor(data$T4914700,
-levels=c(0.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0),
-labels=c("0",
-"1",
-"2",
-"3",
-"4",
-"5",
-"6",
-"7",
-"8",
-"9",
-"10 TO 999: 10+"))
-return(data)
-}
-
-varlabels <- c("H40 7-ITEM CES-D SCORE XRND",
-"ID# (1-12686) 79",
-"SAMPLE ID  79 INT",
-"RACL/ETHNIC COHORT /SCRNR 79",
-"SEX OF R 79",
-"7-ITEM CES-D SCORE 92",
-"DRUG # DAYS DRANK ALCOHOL IN LAST MO 92",
-"DRUG # DRNKS ON AVG DAY WHEN DRNKS 92",
-"7-ITEM CES-D SCORE 94",
-"TIMES HAD 6/MORE DRINKS LAST 94",
-"HOW MANY OF LAST 30 DAYS DRANK A 94",
-"NO. OF DRINKS ON AVG. DAY WHEN R 94",
-"# OF DRINKS R HAS ON AVERAGE DAY 2014"
-)
-
-
-# Use qnames rather than rnums
-
-qnames = function(data) {
-names(data) <- c("H40-CESD_SCORE_7_ITEM_XRND",
-"CASEID_1979",
-"SAMPLE_ID_1979",
-"SAMPLE_RACE_78SCRN",
-"SAMPLE_SEX_1979",
-"CESD_SCORE_7_ITEM_1992",
-"Q12-5_1992",
-"Q12-6_1992",
-"CESD_SCORE_7_ITEM_1994",
-"Q12-4_1994",
-"Q12-5_1994",
-"Q12-6_1994",
-"Q12-6_2014")
-return(data)
-}
-
-
-#********************************************************************************************************
-
-# Remove the '#' before the following line to create a data file called "categories" with value labels.
-#categories <- vallabels(new_data)
-
-# Remove the '#' before the following lines to rename variables using Qnames instead of Reference Numbers
-#new_data <- qnames(new_data)
-#categories <- qnames(categories)
-
-# Produce summaries for the raw (uncategorized) data file
-summary(new_data)
-
-# Remove the '#' before the following lines to produce summaries for the "categories" data file.
-#categories <- vallabels(new_data)
-#categories <- vallabels_continuous(new_data)
-#summary(categories)
 
 #************************************************************************************************************
