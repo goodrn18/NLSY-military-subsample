@@ -156,10 +156,13 @@ df_data <- df_data %>%
 ```
 
 
-```{r mil_group_visualization}
-ggplot(data = df_data,
+```{r mil_group_visualization} 
+# how can I get the NA group out of the visual?
+df_data %>% 
+  filter(!is.na(mil_groups)) %>% 
+    ggplot(data = df_data,
        mapping = aes(x = fct_infreq(mil_groups), na.rm = TRUE, fill = mil_groups))+
-  geom_bar(na.rm = TRUE)
+    geom_bar(na.rm = TRUE)
 
 
 ```
@@ -288,6 +291,12 @@ rm(df_data);rm(df_data_goodhome)
 
 ```
 
+```{r days_per_month_visual}
+ggplot(data = df_full_gen1,
+       mapping = aes(x = NUM_DAY_DRANK_LAST_MONTH_83))+
+  geom_bar()
+```
+
 ```{r linear_regression_basics, error=TRUE}
 
 # name = lm([target_variable] ~ [predictor_var1 + predictor_var2 + ...], data = [data_source])
@@ -296,12 +305,6 @@ rm(df_data);rm(df_data_goodhome)
 days_per_month_83 = lm(NUM_DAY_DRANK_LAST_MONTH_83 ~ as.factor(mil_groups), data = df_full_gen1)
 
 summary(days_per_month_83)
-
-
-age_start.graph <- days_per_month_83 %>% ggplot(data = days_per_month_83,mapping = aes(x=NUM_DAY_DRANK_LAST_MONTH_83, y=as.factor(mil_groups)))+
-  geom_point()
-
-age_start.graph
 ```
 
 
@@ -310,6 +313,17 @@ age_start.graph
 days_per_month_83_controls = lm(NUM_DAY_DRANK_LAST_MONTH_83 ~ as.factor(mil_groups) + SEX + RACE, data = df_full_gen1)
 summary(days_per_month_83_controls)
 ```
+
+```{r age_start_visual}
+ggplot(data = df_full_gen1,
+       mapping = aes(x = AGE_START_DRINK_82))+
+  geom_bar()
+
+ggplot(data = df_full_gen1,
+       mapping = aes(x = AGE_START_DRINK_83))+
+  geom_bar()
+```
+
 ```{r lm_age_start_82}
 age_start_82 = lm(AGE_START_DRINK_82 ~ as.factor(mil_groups) + SEX + RACE, data = df_full_gen1)
 summary(age_start_82)
@@ -318,6 +332,21 @@ summary(age_start_82)
 ```{r lm_age_start_83}
 age_start_83 = lm(AGE_START_DRINK_83 ~ as.factor(mil_groups) + SEX + RACE, data = df_full_gen1)
 summary(age_start_83)
+```
+
+
+```{r alc_freq6_visual}
+ggplot(data = df_full_gen1,
+       mapping = aes(y = ALC_FREQ6DRINKS_82, fill = ALC_FREQ6DRINKS_82))+
+  geom_bar()
+
+ggplot(data = df_full_gen1,
+       mapping = aes(y = ALC_FREQ6DRINK_83, fill = ALC_FREQ6DRINK_83))+
+  geom_bar()
+
+ggplot(data = df_full_gen1,
+       mapping = aes(y = ALC_FREQ6DRINK_84, fill = ALC_FREQ6DRINK_84))+
+  geom_bar()
 ```
 
 ```{r recode_freq6}
@@ -372,6 +401,20 @@ df_full_gen1 <- df_full_gen1 %>%
 
 ```
 
+```{r impact_job_visual}
+ggplot(data = df_full_gen1,
+       mapping = aes(x = ALC_IMPACT_JOB_82, fill = ALC_IMPACT_JOB_82))+
+  geom_bar()
+
+ggplot(data = df_full_gen1,
+       mapping = aes(x = ALC_IMPACT_JOB_83, fill = ALC_IMPACT_JOB_83))+
+  geom_bar()
+
+ggplot(data = df_full_gen1,
+       mapping = aes(x = ALC_IMPACT_JOB_NOALC_LAST30_84, fill = ALC_IMPACT_JOB_NOALC_LAST30_84))+
+  geom_bar()
+```
+
 ```{r lm_impact_job_82} 
 
 glm(recode_alc_impact_job_82 ~ as.factor(mil_groups) + SEX + RACE, data = df_full_gen1, family = "binomial") %>%
@@ -387,6 +430,13 @@ summary()
  glm(recode_impact_job_noalc_last30_84 ~ as.factor(mil_groups) + SEX + RACE, data = df_full_gen1, family = "binomial") %>%
 summary()
 ```
+
+```{r afraid_alcoholic_visual}
+ggplot(data = df_full_gen1,
+       mapping = aes(x = AFRAID_ALCOHOLIC_84, fill = AFRAID_ALCOHOLIC_84))+
+  geom_bar()
+```
+
 ```{r recode_afraid_alcoholic}
 df_full_gen1 <- df_full_gen1 %>% 
   mutate(recode_afraid_alcoholic_84 = case_when(AFRAID_ALCOHOLIC_84 == "NO" ~ 0,
@@ -398,6 +448,13 @@ df_full_gen1 <- df_full_gen1 %>%
 afraid_alc_84 = glm(recode_afraid_alcoholic_84 ~ as.factor(mil_groups) + SEX + RACE, data = df_full_gen1, family = "binomial")
 summary(afraid_alc_84)
 ```
+
+```{r drink_til_drunk_visual}
+ggplot(data = df_full_gen1,
+       mapping = aes(x = DRINK_UNTIL_DRUNK_84, fill = DRINK_UNTIL_DRUNK_84))+
+  geom_bar()
+```
+
 ```{r recode_drink_til_drunk}
 df_full_gen1 <- df_full_gen1 %>% 
   mutate(recode_drink_til_drunk_84 = case_when(DRINK_UNTIL_DRUNK_84 == "NO" ~ 0,
@@ -408,6 +465,13 @@ df_full_gen1 <- df_full_gen1 %>%
 drink_til_drunk_84 = glm(recode_drink_til_drunk_84 ~ as.factor(mil_groups) + SEX + RACE, data = df_full_gen1, family = "binomial")
 summary(drink_til_drunk_84)
 ```
+
+```{r forget_next_visual}
+ggplot(data = df_full_gen1,
+       mapping = aes(x = FORGETS_NEXT_DAY_84, fill = FORGETS_NEXT_DAY_84))+
+  geom_bar()
+```
+
 ```{r recode_forget_next}
 df_full_gen1 <- df_full_gen1 %>% 
   mutate(recode_forget_next_84 = case_when(FORGETS_NEXT_DAY_84 == "NO" ~ 0,
@@ -420,6 +484,13 @@ forget_next_84 = glm(recode_forget_next_84 ~ as.factor(mil_groups) + SEX + RACE,
 summary(forget_next_84)
 
 ```
+
+```{r AM_drink_visual}
+ggplot(data = df_full_gen1,
+       mapping = aes(x = DRINK_FIRST_MORNING_84, fill = DRINK_FIRST_MORNING_84))+
+  geom_bar()
+```
+
 ```{r recode_AM_drink}
 df_full_gen1 <- df_full_gen1 %>% 
   mutate(recode_AM_drink_84 = case_when(DRINK_FIRST_MORNING_84 == "NO" ~ 0,
@@ -430,10 +501,6 @@ df_full_gen1 <- df_full_gen1 %>%
 
 AM_drink_first_84 = glm(recode_AM_drink_84 ~ as.factor(mil_groups) + SEX + RACE, data = df_full_gen1, family = "binomial")
 summary(AM_drink_first_84)
-
-
-ggplot(AM_drink_first_84, aes(x= recode_AM_drink_84, y= as.factor(mil_groups)))+
-              geom_point()
 
 ```
 
