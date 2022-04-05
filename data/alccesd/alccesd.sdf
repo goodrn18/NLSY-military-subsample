@@ -1,0 +1,18 @@
+
+
+Reference
+Number     Year    Variable Description                                                     Question Name          
+---------------------------------------------------------------------------------------------------------------------
+H00011.01  XRND    H40 7-ITEM CES-D SCORE (CESD)                                            H40-CESD_SCORE_7_ITEM  
+R00001.00  1979    IDENTIFICATION CODE                                                      CASEID                 
+R01736.00  1979    SAMPLE IDENTIFICATION CODE                                               SAMPLE_ID              
+R02147.00  78SCRN  R'S RACIAL/ETHNIC COHORT FROM SCREENER                                   SAMPLE_RACE            
+R02148.00  1979    SEX OF R                                                                 SAMPLE_SEX             
+R38968.20  1992    7-ITEM CES-D SCORE (CESD)                                                CESD_SCORE_7_ITEM      
+R39148.00  1992    DRUG USE - # OF DAYS DRANK ALCOHOL IN LAST MONTH                         Q12-5                  
+R39149.00  1992    DRUG USE - # OF ALCOHOLIC DRINKS R USUALLY HAS ON DAYS THAT R DRINKS     Q12-6                  
+R49789.10  1994    7-ITEM CES-D SCORE (CESD)                                                CESD_SCORE_7_ITEM      
+R49793.00  1994    ALCOHOL USE - FREQUENCY OF 6 OR MORE DRINKS AT ONE TIME IN LAST MONTH    Q12-4                  
+R49794.00  1994    ALCOHOL USE - # OF DAYS DRANK ALCOHOL IN LAST MONTH                      Q12-5                  
+R49795.00  1994    ALCOHOL USE - # OF ALCOHOLIC DRINKS R USUALLY HAS ON DAYS THAT R DRINKS  Q12-6                  
+T49147.00  2014    NUMBER OF DRINKS RESPONDENT HAS ON AVERAGE DAY                           Q12-6                  
