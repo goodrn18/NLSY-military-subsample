@@ -13,6 +13,8 @@ options(digits = 3)
 ```{r packages}
 library(dplyr)
 library(ggplot2)
+library(forcats)
+library(tidyverse)
 ```
 
 ```{r new_data} 
@@ -156,8 +158,8 @@ df_data <- df_data %>%
 
 ```{r mil_group_visualization}
 ggplot(data = df_data,
-       mapping = aes(x = mil_groups))+
-  geom_bar()
+       mapping = aes(x = fct_infreq(mil_groups), na.rm = TRUE, fill = mil_groups))+
+  geom_bar(na.rm = TRUE)
 
 
 ```
@@ -232,19 +234,19 @@ source('analyses/import_alccesd.R')
 
 
 qnames = function(data) {
-  names(data) <- c("H40-CESD_SCORE_7_ITEM_XRND",
+  names(data) <- c("AGE_40_CESD_SCORE_7_ITEM_XRND",
                    "MCASEID",
                    "SAMPLEID",
                    "RACE",
                    "SEX",
                    "CESD_SCORE_7_ITEM_1992",
-                   "Q12-5_1992",
-                   "Q12-6_1992",
+                   "NUM_DAY_DRANK_LAST_MONTH_92",
+                   "NUM_DRINKS_PER_DAY_92",
                    "CESD_SCORE_7_ITEM_1994",
-                   "Q12-4_1994",
-                   "Q12-5_1994",
-                   "Q12-6_1994",
-                   "Q12-6_2014")
+                   "ALC_FRE6DRINKS_94",
+                   "NUM_DAY_DRANK_LAST_MONTH_94",
+                   "NUM_DRINKS_PER_DAY_94",
+                   "NUM_DRINKS_PER_DAY_2014")
   return(data)
 }
 
