@@ -19,7 +19,6 @@ library(ggplot2)
 # Set working directory
 # setwd()
 
-
 new_data <- read.table('data/Military-Subsample_Alcohol/Military-Subsample_Alcohol.dat', sep=' ')
 names(new_data) <- c('R0000100',
   'R0029800',
@@ -645,34 +644,13 @@ qnames = function(data) {
     "DRINK_FIRST_MORNING_84") #ALCH-18H
   return(data)
 }
-```
 
-```{r name_me_more_stuff}
-#********************************************************************************************************
-
-# Remove the '#' before the following line to create a data file called "categories" with value labels. 
-#categories <- vallabels(new_data)
-
-# Remove the '#' before the following lines to rename variables using Qnames instead of Reference Numbers
-#new_data <- qnames(new_data)
 
 df_data <- qnames(vallabels(new_data))
-
-# Produce summaries for the raw (uncategorized) data file
-summary(df_data)
-
-# Remove the '#' before the following lines to produce summaries for the "categories" data file.
-#categories <- vallabels(new_data)
-#summary(categories)
-
-#************************************************************************************************************
 
 ```
 
 ```{r noninterview_var}
-# Set working directory
-# setwd()
-
 
 new_data <- read.table('data/noninterview_var/noninterview_var.dat', sep=' ')
 names(new_data) <- c('R0000100',
@@ -728,37 +706,18 @@ qnames = function(data) {
 }
 
 
-#********************************************************************************************************
-
-# Remove the '#' before the following line to create a data file called "categories" with value labels. 
-#categories <- vallabels(new_data)
-
-# Remove the '#' before the following lines to rename variables using Qnames instead of Reference Numbers
-#new_data <- qnames(new_data)
-#categories <- qnames(categories)
-
 df_data_rni <- qnames(vallabels(new_data))
 
-# Produce summaries for the raw (uncategorized) data file
-summary(df_data_rni)
-
-df_data$REASON_NONINT <- df_data_rni$RNI_2018
-summary(df_data)
-
-# Remove the '#' before the following lines to produce summaries for the "categories" data file.
-#categories <- vallabels(new_data)
-#summary(categories)
-
-#************************************************************************************************************
-```
-
-```{r merge_dfs}
+# merge_dfs
 df_data$RNI_2018 <-df_data_rni$RNI_2018
+
+remove(new_data)
+remove(df_data_rni)
 
 ```
 
 ```{r military_dropped_filter}
-df_rni_groupings <- df_data %>% 
+df_data <- df_data %>% 
   mutate(mil_groups = case_when(RNI_2018 == "68: 68  MILITARY SAMPLE DROPPED" ~ "MIL_DROP",
                                 SAMPLE_ID_79 == "MIL MALE WHITE" ~ "OG_MIL",
                                 SAMPLE_ID_79 == "MIL MALE BLACK" ~ "OG_MIL",
@@ -785,9 +744,10 @@ df_rni_groupings <- df_data %>%
 
 
 ```{r mil_group_visualization}
-ggplot(data = df_rni_groupings,
+ggplot(data = df_data,
        mapping = aes(x = mil_groups))+
   geom_bar()
+
 
 ```
 
@@ -972,8 +932,6 @@ varlabels <- c("ID# (1-12686) 79",
 )
 
 
-# Use qnames rather than rnums
-
 qnames = function(data) {
   names(data) <- c("MCASEID",
     "YoB",
@@ -992,8 +950,6 @@ qnames = function(data) {
 }
 
 
-#********************************************************************************************************
-
 # sneakiness to work with factors
 
 df_data_good <- qnames(new_data)
@@ -1003,7 +959,7 @@ df_data_goodx <- qnames(vallabels(new_data))
 df_data_good[c("MCASEID","YoB","SAMPLEID","RACE","SEX") ]<-df_data_goodx[c("MCASEID","YoB","SAMPLEID","RACE","SEX") ]
 
 rm(df_data_goodx)
-
+rm(new_data)
 # live with
 
 
@@ -1121,8 +1077,11 @@ qnames = function(data) {
 
 df_data_home <- qnames(vallabels(new_data))
 
+rm(new_data)
+
+df_data_raw=merge(df_data_good,df_data)
 df_data_raw=merge(df_data_good,df_data_home)
-df_rni_groupings=merge(df_data_raw, df_rni_groupings)
+
 ```
 
 # Summary / data cleaning
