@@ -1150,6 +1150,12 @@ df_full_gen1 $RACE = relevel(df_full_gen1$RACE, ref=3)
 
 days_per_month_83 = lm(NUM_DAY_DRANK_LAST_MONTH_83 ~ as.factor(mil_groups), data = df_rni_groupings)
 summary(days_per_month_83)
+
+
+age_start.graph <- days_per_month_83 %>% ggplot(data = days_per_month_83,mapping = aes(x=NUM_DAY_DRANK_LAST_MONTH_83, y=as.factor(mil_groups)))+
+  geom_point()
+
+age_start.graph
 ```
 ```{r race_reference_group}
 df_rni_groupings$RACE=relevel(df_rni_groupings$RACE, ref='NON-BLACK, NON-HISPANIC')
@@ -1277,4 +1283,9 @@ df_rni_groupings <- df_rni_groupings %>%
 ```{r lm_AM_drink_first_84}
 AM_drink_first_84 = glm(recode_AM_drink_84 ~ as.factor(mil_groups) + SAMPLE_SEX_79 + RACE, data = df_rni_groupings, family = "binomial")
 summary(AM_drink_first_84)
+
+
+ggplot(AM_drink_first_84, aes(x= recode_AM_drink_84, y= as.factor(mil_groups)))+
+              geom_point()
+
 ```
