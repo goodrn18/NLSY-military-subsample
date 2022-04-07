@@ -504,4 +504,10 @@ summary(AM_drink_first_84)
 
 ```
 
+```{r lm_drinks_per_day_cesd_92}
+
+drinks_per_day_cesd_92 = lm(NUM_DRINKS_PER_DAY_92 ~ as.factor(mil_groups) + SEX + RACE + CESD_SCORE_7_ITEM_1992, data = df_full_gen1)
+summary(drinks_per_day_cesd_92)
+```
+
 #************************************************************************************************************
