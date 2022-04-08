@@ -157,11 +157,10 @@ df_data <- df_data %>%
 
 
 ```{r mil_group_visualization} 
-# how can I get the NA group out of the visual?
 df_data %>% 
   filter(!is.na(mil_groups)) %>% 
-    ggplot(data = df_data,
-       mapping = aes(x = fct_infreq(mil_groups), na.rm = TRUE, fill = mil_groups))+
+    ggplot(
+       mapping = aes(x = fct_infreq(mil_groups), na.rm = TRUE, fill = mil_groups ))+
     geom_bar(na.rm = TRUE)
 
 
