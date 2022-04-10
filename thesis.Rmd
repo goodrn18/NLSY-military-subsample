@@ -508,5 +508,16 @@ summary(AM_drink_first_84)
 drinks_per_day_cesd_92 = lm(NUM_DRINKS_PER_DAY_92 ~ as.factor(mil_groups) + SEX + RACE + CESD_SCORE_7_ITEM_1992, data = df_full_gen1)
 summary(drinks_per_day_cesd_92)
 ```
+```{r lm_drinks_per_day_cesd_94}
+
+drinks_per_day_cesd_94 = lm(NUM_DRINKS_PER_DAY_94 ~ as.factor(mil_groups) + SEX + RACE + CESD_SCORE_7_ITEM_1994, data = df_full_gen1)
+summary(drinks_per_day_cesd_94)
+```
+
+```{r lm_num_day_drank_cesd_94}
+
+num_day_drank_cesd_94 = lm(NUM_DAY_DRANK_LAST_MONTH_94 ~ as.factor(mil_groups) + SEX + RACE + CESD_SCORE_7_ITEM_1994, data = df_full_gen1)
+summary(num_day_drank_cesd_94)
+```
 
 #************************************************************************************************************
